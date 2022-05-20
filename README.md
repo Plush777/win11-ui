@@ -6,4 +6,3 @@ cd pre-build
 npm install gulp
 gulp
 localhost:3000/index.html
-

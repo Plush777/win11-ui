@@ -1,0 +1,13 @@
+/* line 1, scss/theme.scss */
+body {
+	--bg-light-hsla1: hsla(0,0%,95%,.85);
+	--bg-light-hsla2: hsla(0,0%,100%,.67);
+}
+
+/* line 6, scss/theme.scss */
+body[data-theme="light"] {
+	--bg-light-hsla1: hsla(0,0%,95%,.85);
+	--bg-light-hsla2: hsla(0,0%,100%,.67);
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGhlbWUuY3NzIiwic291cmNlcyI6WyJ0aGVtZS5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbImJvZHl7XHJcbiAgICAtLWJnLWxpZ2h0LWhzbGExOiBoc2xhKDAsMCUsOTUlLC44NSk7XHJcbiAgICAtLWJnLWxpZ2h0LWhzbGEyOiBoc2xhKDAsMCUsMTAwJSwuNjcpOyBcclxufVxyXG5cclxuYm9keVtkYXRhLXRoZW1lPVwibGlnaHRcIl17XHJcbiAgICAtLWJnLWxpZ2h0LWhzbGExOiBoc2xhKDAsMCUsOTUlLC44NSk7XHJcbiAgICAtLWJnLWxpZ2h0LWhzbGEyOiBoc2xhKDAsMCUsMTAwJSwuNjcpOyBcclxufVxyXG5cclxuYm9keVtkYXRhLXRoZW1lPVwiZGFya1wiXXtcclxuXHJcbn0iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLEFBQUEsSUFBSSxDQUFBO0NBQ0EsZ0JBQWdCLENBQUEsbUJBQUM7Q0FDakIsZ0JBQWdCLENBQUEsb0JBQUM7Q0FDcEI7OztBQUVELEFBQUEsSUFBSSxDQUFBLEFBQUEsVUFBQyxDQUFXLE9BQU8sQUFBbEIsRUFBbUI7Q0FDcEIsZ0JBQWdCLENBQUEsbUJBQUM7Q0FDakIsZ0JBQWdCLENBQUEsb0JBQUM7Q0FDcEIifQ== */

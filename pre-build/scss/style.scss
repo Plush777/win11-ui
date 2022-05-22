@@ -11,18 +11,40 @@ body{overflow: hidden;}
   background-size: cover;}
 }
 
-.pc{position: absolute; top: 0; overflow: hidden; width: 100%; height: calc(100vh - 48px);}
+.pc{position: absolute; top: 0; overflow: hidden; width: 100%; height: calc(100vh - 48px);
+  .appWrapper{margin: {top:2px; left:2px;}
+    .appList{display: flex; flex-direction: column; flex-wrap: wrap;
+      li{width: 75px; height: 86px; transition: .2s ease-in-out;
+        i{transition: .1s ease-in-out;}
+        .icon{display: block; width: 75px; height: 79px; background-repeat: no-repeat; background-position: center; 
+        background-size: 36px 36px; text-align: center;
+          .appName{display: block; padding-top: 63px; font-size: 13px; color: #fff; font-family: 'Segoe UI Variable'; 
+          text-shadow: 0 0 4px rgb(0 0 0 / 60%);}
+        }
+        &.desktop .icon{background-image: url('../images/ico/thispc.png');}
+        &.recycle .icon{background-image: url('../images/ico/recycle.png');}
+        &:hover{background-color: hsla(0,0%,100%,.25);}
+        +li{margin-top: 5px;}
+      }
+    }
+  }
+}
 
 .taskBar{position: absolute; bottom: 0; width: 100vw; height: 48px; background: var(--bg-light-hsla1); 
 backdrop-filter: saturate(3) blur(20px);
   >.inner{display: flex; height: 100%; padding: 10px; box-sizing: border-box;}
   .taskCenter{display: flex; justify-content: center; width: 100%;
-    ul{width: inherit; display: flex; gap: 22px; justify-content: center; align-items: center;
-      li{width: 24px; height: 24px;
-        .icon{display: block; width: inherit; height: inherit; background-repeat: no-repeat; background-position: center; background-size: 24px 24px;}
+    ul{width: inherit; display: flex; gap: 15px; justify-content: center; align-items: center;
+      li{padding: 6px; box-sizing: border-box; border-radius: 4px; transition: .2s ease-in-out;
+        i{transition: .1s ease-in-out;}
+        .icon{display: block; width: 24px; height: 24px; background-repeat: no-repeat; background-position: center; background-size: 24px 24px;}
         &.search .icon{background-image: url('../images/ico/logo-windows.png');}
         &.setting .icon{background-image: url('../images/ico/settings.png');}
         &.file .icon{background-image: url('../images/ico/explorer.png');}
+        &:hover{background-color: var(--bg-light-hsla2);}
+        &:active{
+          i{transform: scale(.7);}
+        }
       }
     }
   }
@@ -30,10 +52,10 @@ backdrop-filter: saturate(3) blur(20px);
     .currentDateTime{position: absolute; right: 0;
       .time,.dateBox{display: flex; justify-content: flex-end;
         span{display: inline-block; font: {size: 11px; family: 'sans-serif';}
-          &:last-child:after{display: none;}
+          &#ampm{margin-right: 3px;}
+          &#date{white-space: nowrap;}
         }
       }
-      .dateBox span:after{content: '-';}
     }
   }
 }

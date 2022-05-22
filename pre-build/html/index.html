@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css" type="text/css"/>
     <link href="http://fonts.cdnfonts.com/css/serif" rel="stylesheet"/>
+    <link href="http://fonts.cdnfonts.com/css/segoe-ui-variable" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="../js/theme.min.js" defer></script>
@@ -16,7 +17,21 @@
     <div id="App">
         <div class="appBg"></div>
         <div class="pc">
-
+            <div class="appWrapper">
+                <ul class="appList">
+                    <li class="desktop">
+                        <i class="icon">
+                            <span class="appName">내 PC</span>
+                        </i>
+                    </li>
+                    <li class="recycle">
+                        <i class="icon">
+                            <span class="appName">휴지통</span>
+                        </i>
+                    </li>
+                </ul>
+            </div>
+           
         </div>
         <div class="taskBar">
             <div class="inner">
@@ -42,13 +57,11 @@
                     </div>
                     <div class="currentDateTime">
                         <div class="time">
-                            <span class="ampm">오후</span>
-                            <span class="time">5:23</span>
+                            <span id="ampm"></span>
+                            <span id="time"></span>
                         </div>
                         <div class="dateBox">
-                            <span class="year">2022</span>
-                            <span class="month">05</span>
-                            <span class="date">20</span>
+                            <span id="date"></span>
                         </div>
                     </div>
                 </div>

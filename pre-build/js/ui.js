@@ -1,7 +1,7 @@
 $(function(){
     Date.prototype.amPm = function() {
         let getAmPm = this.getHours() < 12 ? '오전' : '오후';
-        return getAmPm;
+        return getAmPm ;
     }
 
     let today = new Date();

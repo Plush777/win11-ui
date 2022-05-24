@@ -44,7 +44,7 @@
   :where(article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section){display: block;}
   ol,ul,li{list-style: none;}
   table{border-collapse: collapse;border-spacing: 0;}
-  a{text-decoration: none;color: inherit;}
+  a{text-decoration: none;color: inherit;cursor: default;}
   address{font-style: normal;}
   button{display: inline-block;border: none;background-color: transparent;cursor: default;}
   input,button,a,select,option{font-family:inherit;font-size:inherit; outline: 0; margin: 0;}
@@ -52,3 +52,8 @@
   pre{word-break:break-all;white-space:pre-line;margin: 0 !important;}
   i{font-style: normal;}
   ::selection{background-color: transparent;}
+
+  /* common class */
+  .flexWrap{display: flex; align-items: center;
+    &.aifs{align-items: flex-start;}
+  }

@@ -48,5 +48,19 @@ $(function(){
                 $('.appList li').removeClass('hover');
             }
         }
+    });
+
+    $('#urlInput').on({
+        "propertychange paste keyup": function(){
+            let url = this.value;
+            $(this).attr('value', url);
+        },
+        "keydown": function(e){
+            if(e.keyCode === 13){
+                let url = this.value;
+                let searchUrl = 'https://www.google.com/?igu=1/search?q=' + url;
+                $('#siteFrame').attr('src', searchUrl);
+            }
+        }
     })
 });

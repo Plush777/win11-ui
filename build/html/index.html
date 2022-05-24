@@ -15,6 +15,7 @@
     <script src="../js/ui.min.js"></script>
 </head>
 <body>
+    <!-- package json에 "type": "module" 삭제 -->
     <div id="App">
         <div class="appBg"></div>
         <div class="pc">
@@ -129,7 +130,43 @@
                     </div>
                 </div>
                 <div class="bottomArea">
-
+                    <div class="flexWrap aifs">
+                        <div class="browserButtonWrap">
+                            <button type="button" class="btnPrev"></button>
+                            <button type="button" class="btnNext"></button>
+                            <button type="button" class="btnRefresh"></button>
+                            <button type="button" class="btnHome"></button>
+                        </div>
+                        <div class="urlArea">
+                            <i class="google"></i>
+                            <input type="text" id="urlInput" spellcheck="false" draggable="false" maxlength="2048" 
+                            placeholder="Google에서 검색하거나 URL을 입력하세요." name="q"/>
+                            <div class="innerButton">
+                                <button type="button" class="btnShare"></button>
+                                <button type="button" class="btnBookMark"></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bookMarkWrap">
+                        <div class="bookMarkList">
+                            <ul>
+                                <li class="defaultApp" title="앱 표시">
+                                    <i class="icon"></i>
+                                    <span>앱</span>
+                                </li>
+                                <li class="velog" title="velog&#10;https://velog.io/@sky">
+                                    <a href="https://velog.io/@sky">
+                                        <i class="icon"></i>
+                                        <span>velog</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="browserFrameArea">
+                    <iframe id="siteFrame" src="https://www.google.com/?igu=1" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -174,5 +211,8 @@
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/react-helmet@6.1.0/lib/Helmet.js"></script>
+    <script src="../js/x-frame.min.js" type="module"></script>
+    
 </body>
 </html>

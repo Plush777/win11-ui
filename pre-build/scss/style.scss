@@ -102,17 +102,84 @@ backdrop-filter: saturate(3) blur(20px);
 }
 
 .browser{position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  .topArea{display: flex; width: 100%;
+    .browserTabWrap{
+      .browserTabList{display: flex;
+        li{position: relative; display: flex; transition: .3s ease-in-out;
+          .browserTitArea{display: flex; align-items: center;}
+        }
+      }
+    }
+    .addArea{display: flex; align-items: center;
+      .addTab{position: relative; display: flex; align-items: center;
+        svg{position: relative; z-index: 1000;}
+      }
+    }
+    >.right{width: 100%; display: flex; align-items: center; justify-content: flex-end;
+      .browserControlArea{
+        button{width: 43px; height: 29px; background-repeat: no-repeat; background-position: center;
+        background-size: 12px 12px; cursor: default; transition: .3s ease-in-out;
+          &.btnReduction{background-image: url('../images/ico/minimize.png');
+            &:hover{background-color: #C7CACF;}
+            &:active{background-color: #B2B4B8;}
+          }
+          &.btnExp{background-image: url('../images/ico/maximize.png');
+            &:hover{background-color: #C7CACF;}
+            &:active{background-color: #B2B4B8;}
+          }
+          &.btnBrowserClose{background-image: url('../images/ico/close.png');
+            &:hover{background-color: #E81123; background-image: url('../images/ico/close-white.png');}
+            &:active{background-color: #E36571; background-image: url('../images/ico/close-white.png');}
+          }
+        }
+      }
+    }
+  }
+
+  .bottomArea{width: 100%; padding: 6px 10px 0 10px; box-sizing: border-box;
+  background-color: #fff;
+    >.flexWrap{width: 100%;}
+    .browserButtonWrap{display: flex; align-items: center;}
+    .urlArea{position: relative; width: 100%;
+      #urlInput{position: relative; width: 100%; height: 28px; border: 0; font-size: 14px; box-sizing: border-box;}
+      .innerButton{position: absolute;}
+    }
+    .bookMarkWrap{flex: 1;
+      .bookMarkList{
+        ul{
+          li{display: inline-flex; align-items: center; padding: 1px 4px 1px 4px; border-radius: 20px; 
+          transition: .3s background-color ease-in-out; cursor: default;
+            .icon{display: inline-block; width: 24px; height: 24px; background-repeat: no-repeat; background-position: center;
+            background-size: 32px 32px;}
+            &.defaultApp{
+              .icon{background-image: url('../images/ico/goggle-apps.png');}
+            }
+            &.velog{
+              .icon{background-image: url('../images/ico/velog.png');background-size: 16px 16px;}
+            }
+            a{display: flex; align-items: center;}
+            span{padding-left: 3px; font: {size: 12px; family: 'Segoe UI Variable';}}
+            &:hover{background-color: #eee;}
+          }
+        }
+      }
+    }
+  }
+
+  .browserFrameArea{
+    iframe{width: 100vw; height: 85.4vh;}
+  }
+
   &.chrome{
-    .topArea{display: flex; width: 100%; height: 30px; background-color: #E7EAED;
+    .topArea{height: 30px; background-color: #E7EAED;
       .browserTabWrap{
-        .browserTabList{display: flex;
-          li{position: relative; display: flex; width: 240px; height: 30px; border-top-left-radius: 4px; 
-          border-top-right-radius: 6px; background-color: #E7EAED; transition: .3s ease-in-out;
+        .browserTabList{
+          li{width: 240px; height: 30px; border-top-left-radius: 4px; border-top-right-radius: 6px; background-color: #E7EAED;
             &:hover{background-color: #F6F7F9;
               &:after{opacity: 0; transition: .3s ease-in-out;}
             }
             &:first-child{margin-left: 14px;}
-            .browserTitArea{display: flex; align-items: center; padding-left: 10px;
+            .browserTitArea{padding-left: 10px;
               .favi{display: inline-block; width: 12px; height: 12px;
               background: url('../images/ico/google.png') no-repeat center; background-size: 12px 12px;}
               .tabName{padding-left: 10px; font-size: 14px; cursor: default;}
@@ -131,9 +198,8 @@ backdrop-filter: saturate(3) blur(20px);
           }
         }
       }
-      .addArea{display: flex; align-items: center; padding-left: 10px;
-        .addTab{position: relative; display: flex; align-items: center;
-          svg{position: relative; z-index: 1000;}
+      .addArea{padding-left: 10px;
+        .addTab{
           &:before{content: ''; position: absolute; left: -2px; border-radius: 50%; background-color: #C8CACE; width: 27px; 
           height: 27px; opacity: 0; visibility: hidden; transition: .3s; z-index: 1;}
           &:hover{
@@ -141,29 +207,35 @@ backdrop-filter: saturate(3) blur(20px);
           }
         }
       }
-      >.right{width: 100%; display: flex; align-items: center; justify-content: flex-end;
+      >.right{
         .tabSearchArea{
           .tabSearch{width: 43px; height: 29px; display: flex; justify-content: center; transition: .3s ease-in-out;
             &:hover{background-color: #B2B4B8;}
             >svg{opacity: 0.6;}
           }
         }
-        .browserControlArea{
-          button{width: 43px; height: 29px; background-repeat: no-repeat; background-position: center; 
-          background-size: 12px 12px; cursor: default; transition: .3s ease-in-out;
-            &.btnReduction{background-image: url('../images/ico/minimize.png');
-              &:hover{background-color: #C7CACF;}
-              &:active{background-color: #B2B4B8;}
-            }
-            &.btnExp{background-image: url('../images/ico/maximize.png');
-              &:hover{background-color: #C7CACF;}
-              &:active{background-color: #B2B4B8;}
-            }
-            &.btnBrowserClose{background-image: url('../images/ico/close.png');
-              &:hover{background-color: #E81123;}
-              &:active{background-color: #E36571;}
-            }
+      }
+    }
+
+    .bottomArea{
+      .browserButtonWrap{
+        button{width: 32px; height: 32px; background-repeat: no-repeat; background-position: center; background-size: 34px 34px;
+          &.btnPrev{background-image: url('../images/ico/arrow-prev.svg');}
+          &.btnNext{background-image: url('../images/ico/arrow-next.svg');}
+          &.btnRefresh{background-image: url('../images/ico/refresh.svg'); background-size: 24px 24px;}
+          &.btnHome{background-image: url('../images/ico/home.svg'); background-size: 24px 24px;}
+        }
+      }
+      .urlArea{margin-left: 10px;
+        .google{position: absolute; top: 7.5px; left: 12px; z-index: 100; width: 14px; height: 14px; 
+        background: url('../images/ico/google.png') no-repeat center; background-size: 14px 14px;}
+        #urlInput{padding-left: 35px; padding-bottom: 4px;border-radius: 20px; background-color: #F1F3F4; 
+        transition: .3s background-color ease-in-out; border: 2px solid transparent;
+          &:hover{background-color: #E9EBEC;}
+          &:focus{border-color: #1A73E8; background-color: #fff; transition: none;
+            &::placeholder{color: transparent;}
           }
+          &::placeholder{color: #696A6C; font-family: 'sans-serif';}
         }
       }
     }

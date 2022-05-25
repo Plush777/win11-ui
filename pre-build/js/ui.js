@@ -59,8 +59,41 @@ $(function(){
             if(e.keyCode === 13){
                 let url = this.value;
                 let searchUrl = 'https://www.google.com/?igu=1/search?q=' + url;
-                $('#siteFrame').attr('src', searchUrl);
+                $('#chromeFrame').attr('src', searchUrl);
             }
         }
+    });
+
+    $('.appList li.chrome').on({
+        "dblclick": function(){
+            $('.browser.chrome').toggleClass('open').removeClass('close');
+        }
     })
+
+    $('.tabClose,.btnBrowserClose').on({
+        "click": function(){
+            $('.browser').removeClass('open').addClass('close');
+        }
+    });
+
+    $('.browserTabList li').on({
+        "mouseup": function(e){
+            if(e.which == 2){
+                $('.browser').removeClass('open').addClass('close');
+            }
+        }
+    });
+
+    $('.bookMarkList ul li.velog').on({
+        "click": function(){
+            $('#chromeFrame').attr('src', 'https://velog.io/@sky');
+        }
+    });
+
+    $('.btnExp').on({
+        "click": function(){
+            $('.browser').css({'width': '1024px', 'height': '800px'});
+            // $('#chromeFrame').css({'width': '1024px', 'height': '800px'});
+        }
+    });
 });

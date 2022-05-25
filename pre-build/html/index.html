@@ -8,14 +8,12 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css"/>
     <link href="http://fonts.cdnfonts.com/css/serif" rel="stylesheet"/>
     <link href="http://fonts.cdnfonts.com/css/segoe-ui-variable" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"></script>
     <script src="../js/theme.min.js" defer></script>
     <script src="../js/ui.min.js"></script>
 </head>
 <body>
-    <!-- package json에 "type": "module" 삭제 -->
     <div id="App">
         <div class="appBg"></div>
         <div class="pc">
@@ -156,7 +154,7 @@
                                     <span>앱</span>
                                 </li>
                                 <li class="velog" title="velog&#10;https://velog.io/@sky">
-                                    <a href="https://velog.io/@sky">
+                                    <a href="javascript:void(0)">
                                         <i class="icon"></i>
                                         <span>velog</span>
                                     </a>
@@ -166,7 +164,7 @@
                     </div>
                 </div>
                 <div class="browserFrameArea">
-                    <iframe id="siteFrame" src="https://www.google.com/?igu=1" frameborder="0" allowfullscreen></iframe>
+                    <iframe id="chromeFrame" src="https://www.google.com/?igu=1" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -211,8 +209,5 @@
             </div>
         </div>
     </div>
-    <script src="https://unpkg.com/react-helmet@6.1.0/lib/Helmet.js"></script>
-    <script src="../js/x-frame.min.js" type="module"></script>
-    
 </body>
 </html>

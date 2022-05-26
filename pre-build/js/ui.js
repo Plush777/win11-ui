@@ -67,14 +67,37 @@ $(function(){
     $('.appList li.chrome').on({
         "dblclick": function(){
             $('.browser.chrome').toggleClass('open').removeClass('close');
+            $('.browser').removeClass('save');
+            if($('.browser.chrome').hasClass('open')){
+                $('.taskCenter ul li.chrome').addClass('on');
+            }
         }
-    })
+    });
+
+    $('.taskCenter ul li.chrome').on({
+        "click": function(){
+            $('.browser.chrome').toggleClass('open').removeClass('save');
+            if($('.browser').hasClass('open')){
+                $('.taskCenter ul li.chrome').addClass('on').removeClass('appSave');
+            } else {
+                $('.taskCenter ul li.chrome').removeClass('on').addClass('appSave');
+            }
+        }
+    });
 
     $('.tabClose,.btnBrowserClose').on({
         "click": function(){
             $('.browser').removeClass('open').addClass('close');
+            $('.taskCenter ul li.chrome').removeClass('on appSave');
         }
     });
+
+    $('.btnReduction').on({
+        "click": function(){
+            $('.browser').addClass('save').removeClass('open');
+            $('.taskCenter ul li.chrome').removeClass('on').addClass('appSave');
+        }
+    })
 
     $('.browserTabList li').on({
         "mouseup": function(e){
@@ -92,8 +115,32 @@ $(function(){
 
     $('.btnExp').on({
         "click": function(){
-            $('.browser').css({'width': '1024px', 'height': '800px'});
-            // $('#chromeFrame').css({'width': '1024px', 'height': '800px'});
+            $('.browser').toggleClass('minilize').css({'top': '0', 'left': '0'});
+        }
+    });
+
+    $('.ui-drag').draggable({
+        containment: 'window',
+        cancel: '.dragCancel',
+        start: function(){
+            $(this).css('transition', 'none');
+        },
+        stop: function(){
+            $(this).css('transition', 'all .25s cubic-bezier(.85,.14,.14,.85)');
+        }
+    });
+
+    $('.resizable').resizable({
+        containment: '#App',
+        handles: 'n, e, s, w, ne, se, sw, nw',
+        alsoResize: '#chromeFrame',
+        start: function(){
+            $(this).css('transition', 'none');
+            $('.commonFrame').css('transition', 'none');
+        },
+        stop: function(){
+            $(this).css('transition', 'all .25s cubic-bezier(.85,.14,.14,.85)');
+            $('.commonFrame').css('transition', 'all .25s cubic-bezier(.85,.14,.14,.85)');
         }
     });
 });

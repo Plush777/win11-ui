@@ -37,7 +37,7 @@ body{overflow: hidden;}
       }
     }
   }
-  .activeMenu{position: absolute; top: 881px; left: 50%; transform: translate(-50%); transition: .22s ease;
+  .activeMenu{position: absolute; visibility: hidden; top: 881px; left: 50%; transform: translate(-50%); transition: .22s ease;
   box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.25); 
     >.inner{width: 635px; height: 720px; padding: 30px; box-sizing: border-box; border-radius: 8px; 
     background-color: var(--bg-light-hsla1);
@@ -59,7 +59,7 @@ body{overflow: hidden;}
       .searchIcon{position: absolute; top: 10px; left: 15px; transform: scaleX(-1); fill: #777;}
       .appSearch{width: 100%;}
     }
-    &.active{top: 150px;}
+    &.active{visibility: visible; top: 150px;}
   }
 }
 
@@ -73,7 +73,7 @@ backdrop-filter: saturate(3) blur(20px);
   >.inner{display: flex; height: 100%; padding: 10px; box-sizing: border-box;}
   .taskCenter{display: flex; justify-content: center; width: 100%;
     ul{width: inherit; display: flex; gap: 13px; justify-content: center; align-items: center;
-      li{padding: 8px; box-sizing: border-box; border-radius: 4px; transition: .2s ease-in-out;
+      li{position: relative; padding: 8px; box-sizing: border-box; border-radius: 4px; transition: .2s ease-in-out;
         i{transition: .1s ease-in-out;}
         .icon{display: block; width: 24px; height: 24px; background-repeat: no-repeat; background-position: center; background-size: 24px 24px;}
         &.search .icon{background-image: url('../images/ico/logo-windows.png');}
@@ -85,7 +85,15 @@ backdrop-filter: saturate(3) blur(20px);
         &:active{
           i{transform: scale(.7);}
         }
-        &.on{background-color: var(--bg-light-hsla2);}
+        &.windows:before{display: none;}
+        &:before{content: ''; visibility: hidden; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 3px; 
+        border-radius: 20px; background-color: #4C4A48; transition: all .3s ease-in-out;}
+        &.on{background-color: var(--bg-light-hsla2);
+          &:before{visibility: visible; width: 16px;}
+        }
+        &.appSave{
+          &:before{visibility: visible; width: 6px; background-color: #777C82;}
+        }
       }
     }
   }
@@ -101,9 +109,39 @@ backdrop-filter: saturate(3) blur(20px);
   }
 }
 
-.browser{position: absolute; top: 0; left: 0; width: 100%; height: 100%; visibility: hidden; transition: all .25s cubic-bezier(.85,.14,.14,.85);
+.browser{position: absolute !important; top: 0; left: 0; width: 100%; height: 100%; visibility: hidden; transition: all .25s cubic-bezier(.85,.14,.14,.85);
 transform-origin: center; transform: scale(0.7); opacity: 0;
+  //열렸을 때
   &.open{opacity: 1; visibility: visible; transform: scale(1);}
+
+  //최소화/풀스크린 모드
+  &.minilize{min-width: 500px; width: 70%; height: auto;
+    .browserFrameArea{
+      #chromeFrame{min-width: 500px; width: 70%; height: 600px; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}
+    }
+    &.chrome{
+      .topArea .browserTabWrap .browserTabList li{width: 100%;}
+    }
+    .topArea{padding-top: 7px; border-top-left-radius: 6px; border-top-right-radius: 6px;
+      .browserTabWrap{width: 100%;
+        .browserTabList{
+          li{min-width: 110px;}
+        }
+      }
+      >.right{position: relative; top: -6px;
+        .browserControlArea{
+          button{
+            &.btnExp{background-image: url('../images/ico/maxmin.png');}
+            &.btnBrowserClose{border-top-right-radius: 6px;}
+          }
+        }
+      }
+    }
+  }
+
+  //축소모드
+  &.save{transform: scale(0); opacity: 0;}
+
   .topArea{display: flex; width: 100%;
     .browserTabWrap{
       .browserTabList{display: flex;
@@ -117,7 +155,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
         svg{position: relative; z-index: 1000;}
       }
     }
-    >.right{width: 100%; display: flex; align-items: center; justify-content: flex-end;
+    >.right{width: 100%; display: flex; align-items: center; justify-content: flex-end;white-space: nowrap; margin-left: 30px;
       .browserControlArea{
         button{width: 43px; height: 29px; background-repeat: no-repeat; background-position: center;
         background-size: 12px 12px; cursor: default; transition: .3s ease-in-out;
@@ -176,7 +214,8 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
     .topArea{height: 30px; background-color: #E7EAED;
       .browserTabWrap{
         .browserTabList{
-          li{width: 240px; height: 30px; border-top-left-radius: 4px; border-top-right-radius: 6px; background-color: #E7EAED;
+          li{width: 240px; height: 30px; border-top-left-radius: 4px; border-top-right-radius: 6px; 
+          background-color: #E7EAED; white-space: nowrap;
             &:hover{background-color: #F6F7F9;
               &:after{opacity: 0; transition: .3s ease-in-out;}
             }
@@ -243,3 +282,5 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
     }
   }
 }
+
+.ui-icon,.ui-widget-content .ui-icon{background-image: none !important;}

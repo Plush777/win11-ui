@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css"/>
     <link href="http://fonts.cdnfonts.com/css/serif" rel="stylesheet"/>
     <link href="http://fonts.cdnfonts.com/css/segoe-ui-variable" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"></script>
     <script src="../js/theme.min.js" defer></script>
@@ -72,22 +73,11 @@
             </div>
 
             <!-- chrome browser -->
-            <div class="browser chrome">
+            <div class="browser ui-drag resizable chrome">
                 <div class="topArea">
                     <div class="browserTabWrap">
                         <ul class="browserTabList">
                             <li class="active">
-                                <div class="browserTitArea">
-                                    <i class="favi"></i>
-                                    <span class="tabName">새 탭</span>
-                                </div>
-                                <svg class="tabClose" width="22" height="22" version="1.1" viewBox="0 0 700 700">
-                                    <g>
-                                        <path d="m471.32 158.33c-3.582-3.582-8.4375-5.5977-13.504-5.5977s-9.9219 2.0156-13.504 5.5977l-94.5 94.5-94.5-94.5c-3.5312-3.7891-8.4492-5.9844-13.629-6.0742-5.1797-0.089844-10.176 1.9258-13.836 5.5898-3.6641 3.6602-5.6797 8.6562-5.5898 13.836 0.089844 5.1797 2.2852 10.098 6.0742 13.629l94.5 94.5-94.5 94.5c-3.6875 3.5547-5.7891 8.4414-5.8359 13.562-0.046876 5.1211 1.9648 10.047 5.5859 13.668 3.6172 3.625 8.543 5.6406 13.664 5.5977 5.1172-0.042969 10.008-2.1406 13.566-5.8203l94.5-94.5 94.5 94.5c3.7305 3.7305 8.6172 5.5859 13.492 5.5859 5.0625 0 9.9141-2.0117 13.492-5.5898 3.582-3.5781 5.5938-8.4336 5.5938-13.492 0-5.0625-2.0078-9.918-5.582-13.5l-94.488-94.5 94.5-94.512c3.5742-3.5781 5.582-8.4297 5.582-13.492 0-5.0586-2.0078-9.9102-5.582-13.488"/>
-                                    </g>
-                                </svg>
-                            </li>
-                            <li>
                                 <div class="browserTitArea">
                                     <i class="favi"></i>
                                     <span class="tabName">새 탭</span>
@@ -127,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bottomArea">
+                <div class="bottomArea dragCancel">
                     <div class="flexWrap aifs">
                         <div class="browserButtonWrap">
                             <button type="button" class="btnPrev"></button>
@@ -163,8 +153,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="browserFrameArea">
-                    <iframe id="chromeFrame" src="https://www.google.com/?igu=1" frameborder="0" allowfullscreen></iframe>
+                <div class="browserFrameArea dragCancel">
+                    <iframe class="commonFrame" id="chromeFrame" src="https://www.google.com/?igu=1" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

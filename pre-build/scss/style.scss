@@ -25,6 +25,7 @@ body{overflow: hidden;}
         &.recycle .icon{background-image: url('../images/ico/recycle.png');}
         &.edge .icon{background-image: url('../images/ico/edge.png');}
         &.chrome .icon{background-image: url('../images/ico/chrome.png');}
+        &.vsc .icon{background-image: url('../images/ico/vscode.png');}
         &:hover,&.hover{background-color: hsla(0,0%,100%,.25);}
         //appName 두줄일때
         &.break{height: auto; padding-bottom: 4px;
@@ -123,7 +124,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
       .topArea .browserTabWrap .browserTabList li{width: 100%;}
     }
     .topArea{padding-top: 7px; border-top-left-radius: 6px; border-top-right-radius: 6px;
-      .browserTabWrap{width: 100%;
+      .browserTabWrap{min-width: 240px;
         .browserTabList{
           li{min-width: 110px;}
         }
@@ -196,6 +197,12 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
             }
             &.velog{
               .icon{background-image: url('../images/ico/velog.png');background-size: 16px 16px;}
+            }
+            &.github{
+              .icon{background-image: url('../images/ico/github.png'); background-size: 16px 16px;}
+            }
+            &.mySite01{
+              .icon{background-image: url('../images/ico/component-css.png'); background-size: 16px 16px;}
             }
             a{display: flex; align-items: center;}
             span{padding-left: 3px; font: {size: 12px; family: 'Segoe UI Variable';}}

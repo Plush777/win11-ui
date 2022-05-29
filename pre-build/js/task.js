@@ -18,4 +18,11 @@ $(function(){
             } 
         }
     });
+
+    $('.windows').on({
+        "click": function(){
+            $('.activeMenu').toggleClass('active');
+            $(this).toggleClass('on');
+        }
+    });
 })

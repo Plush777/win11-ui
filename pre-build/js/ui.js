@@ -1,28 +1,4 @@
 $(function(){
-    $('.windows').on({
-        "click": function(){
-            $('.activeMenu').toggleClass('active');
-            $(this).toggleClass('on');
-        }
-    });
-
-    $(document).on({
-        "click": function (e) {
-            if($(e.target).closest('.activeMenu').length === 0 && $(e.target).closest('.windows').length === 0){
-                $('.activeMenu').removeClass('active');
-                $('.windows').removeClass('on');
-            }
-        }
-    });
-
-    $(document).on({
-        "click": function(e){
-            if($(e.target).closest('.appList li').length === 0){
-                $('.appList li').removeClass('hover');
-            }
-        }
-    });
-
     $('#urlInput').on({
         "propertychange paste keyup": function(){
             let url = this.value;
@@ -33,6 +9,20 @@ $(function(){
                 let url = this.value;
                 let searchUrl = 'https://www.google.com/?igu=1/search?q=' + url;
                 $('#chromeFrame').attr('src', searchUrl);
+            }
+        }
+    });
+
+    $('#edgeInput').on({
+        "propertychange paste keyup": function(){
+            let url = this.value;
+            $(this).attr('value', url);
+        },
+        "keydown": function(e){
+            if(e.keyCode === 13){
+                let url = this.value;
+                let searchUrl = 'https://www.bing.com/search?q=' + url;
+                $('#edgeFrame').attr('src', searchUrl);
             }
         }
     });

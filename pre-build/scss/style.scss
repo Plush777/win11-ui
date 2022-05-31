@@ -56,10 +56,10 @@ body{overflow: hidden;}
           .fixedAppList{margin-top: 20px;
             ul{display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between;
               li{width: 90px; height: 82px; border-radius: 6px;
-                &.discord .icon{display: block; width: inherit; height: inherit;
-                background: url('../images/ico/discord.png') no-repeat center 18px;background-size: 32px 32px;
-                  span{display: block; text-align: center; padding-top: 52px; font-size: 13px; cursor: default;}
-                }
+                .icon{display: block; width: inherit; height: inherit;}
+                span,a{display: block; text-align: center; padding-top: 52px; font-size: 13px; cursor: default;}
+                &.discord .icon{background: url('../images/ico/discord.png') no-repeat center 18px;background-size: 32px 32px;}
+                &.buyme .icon{background: url('../images/ico/buyme.png') no-repeat center 18px;background-size: 32px 32px;}
                 &:hover{background-color: rgba($color: #fcfcfc, $alpha: 0.8);}
               }
             }
@@ -93,9 +93,8 @@ backdrop-filter: saturate(3) blur(20px);
         &.file .icon{background-image: url('../images/ico/explorer.png');}
         &.edge .icon{background-image: url('../images/ico/edge.png');}
         &.chrome .icon{background-image: url('../images/ico/chrome.png');}
-        &.vsc .icon{background-image: url('../images/ico/vscode.png'); transform: translateY(50px); transition: all 350ms cubic-bezier(0, 0, 0.63, 0.915) 0s;}
-        &.hid{visibility: hidden;}
-        &.vib{visibility: visible;}
+        &.vsc .icon{background-image: url('../images/ico/vscode.png');}
+        &.discord .icon{background-image: url('../images/ico/discord.png');}
         &:hover{background-color: var(--bg-light-hsla2);}
         &:active{
           i{transform: scale(.7);}
@@ -105,13 +104,10 @@ backdrop-filter: saturate(3) blur(20px);
         border-radius: 20px; background-color: #4C4A48; transition: all .3s ease-in-out;}
         &.on{background-color: var(--bg-light-hsla2);
           &:before{visibility: visible; width: 16px;}
-          &.vsc .icon{transform: translateY(0);}
         }
+        &.fadeIn{animation: fadeIn .3s ease-in-out;}
         &.transY0{
-          &.vsc .icon{visibility: visible; transform: translateY(0);}
-        }
-        &.none{
-          &.vsc .icon{visibility: hidden; transition: none;}
+          &.vsc .icon,&.discord .icon{animation: transY 350ms cubic-bezier(0, 0, 0.63, 0.915) 0s;}
         }
         &.appSave{
           &:before{visibility: visible; width: 6px; background-color: #777C82;}
@@ -129,6 +125,16 @@ backdrop-filter: saturate(3) blur(20px);
       }
     }
   }
+}
+
+@keyframes transY {
+  0%{transform: translateY(50px);}
+  100%{transform: translateY(0);}
+}
+
+@keyframes fadeIn {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
 }
 
 .browser{position: absolute !important; top: 0; left: 0; width: 100%; height: 100%; visibility: hidden; transition: all .25s cubic-bezier(.85,.14,.14,.85);
@@ -461,24 +467,57 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
       .browserButtonWrap{
         button{position: relative; width: 32px; height: 32px; background-repeat: no-repeat; 
           background-position: center; background-size: 34px 34px; z-index: 10; transition: .3s ease-in-out; border-radius: 50%;
-          &.btnPrev{background-image: url('../images/ico/arrow-prev.svg');}
-          &.btnNext{background-image: url('../images/ico/arrow-next.svg');}
+          &.btnPrev{background-image: url('../images/ico/arrow-prev.svg');
+            &.disabled{background-image: url('../images/ico/arrow-prev-disabled.svg');}
+          }
+          &.btnNext{background-image: url('../images/ico/arrow-next.svg');
+            &.disabled{background-image: url('../images/ico/arrow-next-disabled.svg');}
+          }
           &.btnRefresh{background-image: url('../images/ico/refresh.svg'); background-size: 24px 24px;}
           &.btnHome{background-image: url('../images/ico/home.svg'); background-size: 24px 24px;}
-          &:hover{background-color: #eee;}
+          &:hover:not(.disabled){background-color: #eee;}
         }
       }
       .urlArea{margin-left: 10px;
-        .search{position: absolute; top: 7.5px; left: 12px; z-index: 100; width: 24px; height: 24px; 
+        .search{position: absolute; top: 4.5px; left: 12px; z-index: 100; width: 24px; height: 24px; 
         background: url('../images/ico/edge-input-search.svg') no-repeat center; background-size: 24px 24px;}
-        #urlInput{padding-left: 35px; padding-bottom: 4px;border-radius: 20px; background-color: #F1F3F4; 
-        transition: .3s background-color ease-in-out; border: 2px solid transparent;
-          &:hover{background-color: #E9EBEC;}
-          &:focus{border-color: #1A73E8; background-color: #fff; transition: none;
+        #edgeInput{width: 100%; height: 30px; padding-left: 45px; padding-bottom: 4px;border-radius: 6px; background-color: #fff; 
+        border: 1px solid transparent; box-shadow: 0 0 5px 2px rgba($color: #ccc, $alpha: 0.3); box-sizing: border-box;
+          &:hover{border-color: #ccc;}
+          &:focus{border-color: #99BBEF;
             &::placeholder{color: transparent;}
           }
           &::placeholder{color: #696A6C; font-family: 'sans-serif';}
         }
+        .innerButton button{margin: {top:2px; right:5px;}
+          svg{fill: #868686; transition: .3s ease-in-out;}
+          &.btnBookMark{width: 36px; height: 26px; border-radius: 4px;}
+          &:hover{background-color: #e6e6e6;
+            svg{fill: #000;}
+          }
+        }
+      }
+      .etc{
+        >div{display: flex; justify-content: center; align-items: center; width: 40px; height: 30px;
+          &.account:after{width: 32px; height: 32px; border-radius: 50%;}
+          >button{width: 100%; height: 100%;}
+          &:after{width: 40px; height: 30px; border-radius: 2px; background-color: #e4e4e4;}
+        }
+        .extension{position: relative;}
+        .account .accInfo{width: 26px; height: 26px; background: #eee url('../images/ico/edge-acc.svg') no-repeat center; 
+        background-size: 14px 14px;}
+        .ieMode{
+          &.disabled{
+            .ieSvg{fill: #ccc;}
+            &:after{display: none;}
+          }
+          &.active{
+            .ieSvg{position: relative; z-index: 100; fill: #000;}
+            &:after{display: block;}
+          }
+          .ieSvg{width: 16px; height: 16px;}
+        }
+        .line{position: absolute; right: -5px; width: 1px; height: 16px; background-color: #BFBFBF;}
       }
     }
   }
@@ -493,3 +532,4 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
     }
   }
 }
+

@@ -13,16 +13,26 @@ $(function(){
         }
     });
 
+   
+   
+
     $('#edgeInput').on({
         "propertychange paste keyup": function(){
             let url = this.value;
             $(this).attr('value', url);
         },
         "keydown": function(e){
+            let url = this.value;
+            let edgeSearchUrl = 'https://www.bing.com/search?q=' + url;
+           
             if(e.keyCode === 13){
-                let url = this.value;
-                let searchUrl = 'https://www.bing.com/search?q=' + url;
-                $('#edgeFrame').attr('src', searchUrl);
+                $('#edgeFrame').attr('src', edgeSearchUrl);
+                $(this).val(edgeSearchUrl) ;
+            }
+            if($('#edgeFrame').attr('src') === edgeSearchUrl){
+                $('.ieMode').addClass('active').removeClass('disabled');
+            } else {
+                $('.ieMode').removeClass('active').addClass('disabled');
             }
         }
     });

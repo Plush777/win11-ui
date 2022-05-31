@@ -17,9 +17,9 @@ $(function(){
                 $('.browser.vsc').toggleClass('open').removeClass('close');
                 $('.browser').removeClass('save');
                 if($('.browser.vsc').hasClass('open')){
-                    $('.taskCenter ul li.vsc').addClass('on vib').removeClass('hid');
+                    $('.taskCenter ul li:last-child').after(`<li class="vsc on new"><i class="icon"></i></li>`);
+                    $('.taskCenter ul li.vsc').addClass('transY0 fadeIn');
                 }
-                
             } else if($(this).hasClass('edge')){
                 $('.browser.edge').toggleClass('open').removeClass('close');
                 $('.browser').removeClass('save');
@@ -27,9 +27,6 @@ $(function(){
                     $('.taskCenter ul li.edge').addClass('on vib').removeClass('hid');
                 }
             }
-            if($('.browser.vsc').hasClass('open')){
-                $('.taskCenter ul li.new').addClass('transY0').removeClass('none');
-            } 
         }
     });
 

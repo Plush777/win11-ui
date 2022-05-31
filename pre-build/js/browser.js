@@ -3,7 +3,13 @@ $(function(){
         "click": function(){
             $('.browser').removeClass('open').addClass('close');
             $('.taskCenter ul li').removeClass('on appSave vib');
-            $('.taskCenter ul li.new').addClass('none').removeClass('transY0');
+            $('.taskCenter ul li.new').removeClass('transY0');
+            if($('.browser').hasClass('vsc')){
+                $('.taskCenter ul li.vsc').remove();
+            } 
+            if($('.browser').hasClass('discord')){
+                $('.taskCenter ul li.discord').remove();
+            }
         }
     });
 
@@ -46,4 +52,33 @@ $(function(){
             }
         }
     });
+
+    $('.btnPrev').on({
+        "click": function(e){
+            if(!$(this).hasClass('disabled')){
+                $('#edgeFrame').attr('src', 'https://www.bing.com/');
+                $('#edgeInput').val('');
+                $(this).addClass('disabled');
+            } else {
+                $('#edgeFrame').attr('src', $(this).attr('data-url'));
+            }
+        }
+    });
+
+    let edgeFrameValue = this.value;
+    let edgeFrameSrc = 'https://www.bing.com/';
+
+    $('#edgeInput').on({
+        "keydown": function(e){
+            if(e.keyCode === 13){
+                if($('#edgeInput').attr('src','https://www.bing.com/search?q=') + edgeFrameValue){
+                    $('.btnPrev').removeClass('disabled');
+                }
+            }
+        }
+    });
+
+    if(edgeFrameSrc == 'https://www.bing.com/'){
+        $('.btnPrev,.btnNext').addClass('disabled');
+    }
 })

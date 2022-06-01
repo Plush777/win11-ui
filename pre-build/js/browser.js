@@ -31,6 +31,7 @@ $(function(){
         "mouseup": function(e){
             if(e.which == 2){
                 $('.browser').removeClass('open').addClass('close');
+                $('.taskCenter ul li').removeClass('on appSave vib');
             }
         }
     });
@@ -54,7 +55,8 @@ $(function(){
     });
 
     $('.btnPrev').on({
-        "click": function(e){
+        "click": function(){
+            $('.ieMode').addClass('disabled').removeClass('active');
             if(!$(this).hasClass('disabled')){
                 $('#edgeFrame').attr('src', 'https://www.bing.com/');
                 $('#edgeInput').val('');
@@ -73,6 +75,7 @@ $(function(){
             if(e.keyCode === 13){
                 if($('#edgeInput').attr('src','https://www.bing.com/search?q=') + edgeFrameValue){
                     $('.btnPrev').removeClass('disabled');
+                    $('.ieMode').addClass('active').removeClass('disabled');
                 }
             }
         }
@@ -81,4 +84,26 @@ $(function(){
     if(edgeFrameSrc == 'https://www.bing.com/'){
         $('.btnPrev,.btnNext').addClass('disabled');
     }
+
+    $('.btnRefresh').on({
+        "click": function(){
+            $('#edgeFrame').attr('src',$('#edgeFrame').attr('src'));
+        }
+    });
+
+    $('.btnHome').on({
+        "click": function(){
+            $('.ieMode').addClass('disabled').removeClass('active');
+            $('#edgeFrame').attr('src', 'https://www.bing.com/');
+            if(!$('btnPrev').hasClass('disabled')){
+                $('.btnPrev').addClass('disabled');
+            }
+            $('#edgeInput').val('');
+        }
+    });
+
+    $('#edgeFrame').bind('load', function(){
+        $('#frameLoading').remove();
+        console.log('로딩완료')
+    });
 })

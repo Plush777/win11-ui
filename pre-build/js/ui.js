@@ -13,9 +13,6 @@ $(function(){
         }
     });
 
-   
-   
-
     $('#edgeInput').on({
         "propertychange paste keyup": function(){
             let url = this.value;
@@ -28,11 +25,6 @@ $(function(){
             if(e.keyCode === 13){
                 $('#edgeFrame').attr('src', edgeSearchUrl);
                 $(this).val(edgeSearchUrl) ;
-            }
-            if($('#edgeFrame').attr('src') === edgeSearchUrl){
-                $('.ieMode').addClass('active').removeClass('disabled');
-            } else {
-                $('.ieMode').removeClass('active').addClass('disabled');
             }
         }
     });

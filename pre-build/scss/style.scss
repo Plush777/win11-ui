@@ -21,11 +21,11 @@ body{overflow: hidden;}
           .appName{display: block; padding-top: 60px; font-size: 13px; color: #fff; font-family: 'Segoe UI Variable'; 
           text-shadow: 0 0 4px rgba($color: #000, $alpha: 0.6);}
         }
-        &.desktop .icon{background-image: url('../images/ico/thispc.png');}
-        &.recycle .icon{background-image: url('../images/ico/recycle.png');}
-        &.edge .icon{background-image: url('../images/ico/edge.png');}
-        &.chrome .icon{background-image: url('../images/ico/chrome.png');}
-        &.vsc .icon{background-image: url('../images/ico/vscode.png');}
+        &.desktop .icon{background-image: url('../images/ico/app/thispc.png');}
+        &.recycle .icon{background-image: url('../images/ico/app/recycle.png');}
+        &.edge .icon{background-image: url('../images/ico/app/edge.png');}
+        &.chrome .icon{background-image: url('../images/ico/app/chrome.png');}
+        &.vsc .icon{background-image: url('../images/ico/app/vscode.png');}
         &:hover,&.hover{background-color: hsla(0,0%,100%,.25);}
         //appName 두줄일때
         &.break{height: auto; padding-bottom: 4px;
@@ -58,8 +58,8 @@ body{overflow: hidden;}
               li{width: 90px; height: 82px; border-radius: 6px;
                 .icon{display: block; width: inherit; height: inherit;}
                 span,a{display: block; text-align: center; padding-top: 52px; font-size: 13px; cursor: default;}
-                &.discord .icon{background: url('../images/ico/discord.png') no-repeat center 18px;background-size: 32px 32px;}
-                &.buyme .icon{background: url('../images/ico/buyme.png') no-repeat center 18px;background-size: 32px 32px;}
+                &.discord .icon{background: url('../images/ico/app/discord.png') no-repeat center 18px;background-size: 32px 32px;}
+                &.buyme .icon{background: url('../images/ico/app/buyme.png') no-repeat center 18px;background-size: 32px 32px;}
                 &:hover{background-color: rgba($color: #fcfcfc, $alpha: 0.8);}
               }
             }
@@ -88,13 +88,13 @@ backdrop-filter: saturate(3) blur(20px);
       li{position: relative; padding: 8px; box-sizing: border-box; border-radius: 4px; transition: .2s ease-in-out;
         i{transition: .1s ease-in-out;}
         .icon{display: block; width: 24px; height: 24px; background-repeat: no-repeat; background-position: center; background-size: 24px 24px;}
-        &.search .icon{background-image: url('../images/ico/logo-windows.png');}
-        &.setting .icon{background-image: url('../images/ico/settings.png');}
-        &.file .icon{background-image: url('../images/ico/explorer.png');}
-        &.edge .icon{background-image: url('../images/ico/edge.png');}
-        &.chrome .icon{background-image: url('../images/ico/chrome.png');}
-        &.vsc .icon{background-image: url('../images/ico/vscode.png');}
-        &.discord .icon{background-image: url('../images/ico/discord.png');}
+        &.search .icon{background-image: url('../images/ico/app/logo-windows.png');}
+        &.setting .icon{background-image: url('../images/ico/app/settings.png');}
+        &.file .icon{background-image: url('../images/ico/app/explorer.png');}
+        &.edge .icon{background-image: url('../images/ico/app/edge.png');}
+        &.chrome .icon{background-image: url('../images/ico/app/chrome.png');}
+        &.vsc .icon{background-image: url('../images/ico/app/vscode.png');}
+        &.discord .icon{background-image: url('../images/ico/app/discord.png');}
         &:hover{background-color: var(--bg-light-hsla2);}
         &:active{
           i{transform: scale(.7);}
@@ -159,7 +159,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
       >.right{position: relative; top: -6px;
         .browserControlArea{
           button{
-            &.btnExp{background-image: url('../images/ico/maxmin.png');}
+            &.btnExp{background-image: url('../images/ico/browser/maxmin.png');}
             &.btnBrowserClose{border-top-right-radius: 6px;}
           }
         }
@@ -187,17 +187,17 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
       .browserControlArea{display: flex; height: 100%;
         button{width: 43px; height: 100%; background-repeat: no-repeat; background-position: center;
         background-size: 12px 12px; cursor: default; transition: .3s ease-in-out;
-          &.btnReduction{background-image: url('../images/ico/minimize.png');
+          &.btnReduction{background-image: url('../images/ico/browser/minimize.png');
             &:hover{background-color: #C7CACF;}
             &:active{background-color: #B2B4B8;}
           }
-          &.btnExp{background-image: url('../images/ico/maximize.png');
+          &.btnExp{background-image: url('../images/ico/browser/maximize.png');
             &:hover{background-color: #C7CACF;}
             &:active{background-color: #B2B4B8;}
           }
-          &.btnBrowserClose{background-image: url('../images/ico/close.png');
-            &:hover{background-color: #E81123; background-image: url('../images/ico/close-white.png');}
-            &:active{background-color: #E36571; background-image: url('../images/ico/close-white.png');}
+          &.btnBrowserClose{background-image: url('../images/ico/browser/close.png');
+            &:hover{background-color: #E81123; background-image: url('../images/ico/browser/close-white.png');}
+            &:active{background-color: #E36571; background-image: url('../images/ico/browser/close-white.png');}
           }
         }
       }
@@ -231,7 +231,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
         &:hover:after{opacity: 1; visibility: visible;}
       }
       .account{
-        .accInfo{position: relative; width: 20px; height: 20px; border-radius: 50%; background: url('../images/ico/myserver.webp') no-repeat center;
+        .accInfo{position: relative; width: 20px; height: 20px; border-radius: 50%; background: url('../images/ico/common/myserver.webp') no-repeat center;
         background-size: 20px 20px; z-index: 10;}
       }
     }
@@ -243,16 +243,16 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
             .icon{display: inline-block; width: 24px; height: 24px; background-repeat: no-repeat; background-position: center;
             background-size: 32px 32px;}
             &.defaultApp{
-              .icon{background-image: url('../images/ico/goggle-apps.png');}
+              .icon{background-image: url('../images/ico/browser/favi/goggle-apps.png');}
             }
             &.velog{
-              .icon{background-image: url('../images/ico/velog.png');background-size: 16px 16px;}
+              .icon{background-image: url('../images/ico/browser/favi/velog.png');background-size: 16px 16px;}
             }
             &.github{
-              .icon{background-image: url('../images/ico/github.png'); background-size: 16px 16px;}
+              .icon{background-image: url('../images/ico/browser/favi/github.png'); background-size: 16px 16px;}
             }
             &.mySite01{
-              .icon{background-image: url('../images/ico/component-css.png'); background-size: 16px 16px;}
+              .icon{background-image: url('../images/ico/browser/favi/component-css.png'); background-size: 16px 16px;}
             }
             a{display: flex; align-items: center;}
             span{padding-left: 3px; font: {size: 12px; family: 'Segoe UI Variable';}}
@@ -281,7 +281,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
             &:first-child{margin-left: 14px;}
             .browserTitArea{padding-left: 10px;
               .favi{display: inline-block; width: 12px; height: 12px;
-              background: url('../images/ico/google.png') no-repeat center; background-size: 12px 12px;}
+              background: url('../images/ico/browser/favi/google.png') no-repeat center; background-size: 12px 12px;}
               .tabName{padding-left: 10px; font-size: 14px; cursor: default;}
             }
             .tabClose{position: absolute; top: 6px; right: 10px; fill: #6B6E71; border-radius: 50%;
@@ -289,9 +289,9 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
             }
             &.active{background-color: #fff;
               &:before{content: ''; position: absolute; left:-12px; bottom: 0; width: 14px; height: 14px; border-radius: 4px; 
-              background: url('../images/ico/corner-left.png') no-repeat center; background-size: 14px 20px; z-index: 100;}
+              background: url('../images/ico/browser/corner-left.png') no-repeat center; background-size: 14px 20px; z-index: 100;}
               &:after{content: ''; position: absolute; right: -12px; bottom: 0; width: 14px; height: 14px; border-radius: 4px;
-              background: url('../images/ico/corner-right.png')no-repeat center; background-size: 14px 20px; z-index: 100;}
+              background: url('../images/ico/browser/corner-right.png')no-repeat center; background-size: 14px 20px; z-index: 100;}
             }
             +li{padding-left: 5px;
               &:after{content: ''; position: absolute; right: 0px; top: 50%; transform: translateY(-50%); 
@@ -323,16 +323,16 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
       .browserButtonWrap{
         button{position: relative; width: 32px; height: 32px; background-repeat: no-repeat; 
           background-position: center; background-size: 34px 34px; z-index: 10; transition: .3s ease-in-out; border-radius: 50%;
-          &.btnPrev{background-image: url('../images/ico/arrow-prev.svg');}
-          &.btnNext{background-image: url('../images/ico/arrow-next.svg');}
-          &.btnRefresh{background-image: url('../images/ico/refresh.svg'); background-size: 24px 24px;}
-          &.btnHome{background-image: url('../images/ico/home.svg'); background-size: 24px 24px;}
+          &.btnPrev{background-image: url('../images/ico/browser/arrow-prev.svg');}
+          &.btnNext{background-image: url('../images/ico/browser/arrow-next.svg');}
+          &.btnRefresh{background-image: url('../images/ico/browser/refresh.svg'); background-size: 24px 24px;}
+          &.btnHome{background-image: url('../images/ico/browser/home.svg'); background-size: 24px 24px;}
           &:hover{background-color: #eee;}
         }
       }
       .urlArea{margin-left: 10px;
         .google{position: absolute; top: 7.5px; left: 12px; z-index: 100; width: 14px; height: 14px; 
-        background: url('../images/ico/google.png') no-repeat center; background-size: 14px 14px;}
+        background: url('../images/ico/browser/favi/google.png') no-repeat center; background-size: 14px 14px;}
         #urlInput{padding-left: 35px; padding-bottom: 4px;border-radius: 20px; background-color: #F1F3F4; 
         transition: .3s background-color ease-in-out; border: 2px solid transparent;
           &:hover{background-color: #E9EBEC;}
@@ -350,13 +350,13 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
       >.right{margin-left: 0;
         .browserControlArea{
           button{transition: none;
-            &.btnReduction{background-image: url('../images/ico/minimize-white.png');
+            &.btnReduction{background-image: url('../images/ico/browser/minimize-white.png');
               &:hover{background-color: #474748;}
             }
-            &.btnExp{background-image: url('../images/ico/maximize-white.png');
+            &.btnExp{background-image: url('../images/ico/browser/maximize-white.png');
               &:hover{background-color: #474748;}
             }
-            &.btnBrowserClose{background-image: url('../images/ico/close-white.png');}
+            &.btnBrowserClose{background-image: url('../images/ico/browser/close-white.png');}
           }
         }
       }
@@ -374,13 +374,13 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
         }
         .browserControlArea{
           button{transition: none;
-            &.btnReduction{background-image: url('../images/ico/minimize-white.png');
+            &.btnReduction{background-image: url('../images/ico/browser/minimize-white.png');
               &:hover{background-color: #474748;}
             }
-            &.btnExp{background-image: url('../images/ico/maximize-white.png');
+            &.btnExp{background-image: url('../images/ico/browser/maximize-white.png');
               &:hover{background-color: #474748;}
             }
-            &.btnBrowserClose{background-image: url('../images/ico/close-white.png');}
+            &.btnBrowserClose{background-image: url('../images/ico/browser/close-white.png');}
           }
         }
       }
@@ -399,7 +399,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
               svg path{fill: currentColor; transition: .15s ease-in-out;}
             }
             &.myServer{
-              button{border-radius: 50%; background: url('../images/ico/myserver.webp') no-repeat center;
+              button{border-radius: 50%; background: url('../images/ico/common/myserver.webp') no-repeat center;
               background-size: 48px 48px;}
             }
             &:hover{
@@ -428,6 +428,9 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
 
   &.edge{
     .topArea{height: 30px; background-color: #cdcdcd;
+      >.right{
+        .browserControlArea button:hover:not(.btnBrowserClose){background-color: #b8b8b8;}
+      }
       .browserTabWrap{
         .browserTabList{
           li{width: 240px; height: 30px; border-top-left-radius: 4px; border-top-right-radius: 6px; 
@@ -438,7 +441,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
             &:first-child{margin-left: 40px;}
             .browserTitArea{padding-left: 10px;
               .favi{display: inline-block; width: 12px; height: 12px;
-              background: url('../images/ico/google.png') no-repeat center; background-size: 12px 12px;}
+              background: url('../images/ico/browser/favi/google.png') no-repeat center; background-size: 12px 12px;}
               .tabName{padding-left: 10px; font-size: 14px; cursor: default;}
             }
             .tabClose{position: absolute; top: 6px; right: 10px; fill: #6B6E71; border-radius: 50%;
@@ -465,22 +468,22 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
 
     .bottomArea{
       .browserButtonWrap{
-        button{position: relative; width: 32px; height: 32px; background-repeat: no-repeat; 
-          background-position: center; background-size: 34px 34px; z-index: 10; transition: .3s ease-in-out; border-radius: 50%;
-          &.btnPrev{background-image: url('../images/ico/arrow-prev.svg');
-            &.disabled{background-image: url('../images/ico/arrow-prev-disabled.svg');}
+        button{position: relative; width: 40px; height: 30px; background-repeat: no-repeat; 
+          background-position: center; background-size: 20px 20px; z-index: 10; transition: .3s ease-in-out; border-radius: 4px;
+          &.btnPrev{background-image: url('../images/ico/browser/edge-left-arrow.svg');
+            &.disabled{background-image: url('../images/ico/browser/edge-left-arrow-disabled.svg');}
           }
-          &.btnNext{background-image: url('../images/ico/arrow-next.svg');
-            &.disabled{background-image: url('../images/ico/arrow-next-disabled.svg');}
+          &.btnNext{background-image: url('../images/ico/browser/edge-right-arrow.svg');
+            &.disabled{background-image: url('../images/ico/browser/edge-right-arrow-disabled.svg');}
           }
-          &.btnRefresh{background-image: url('../images/ico/refresh.svg'); background-size: 24px 24px;}
-          &.btnHome{background-image: url('../images/ico/home.svg'); background-size: 24px 24px;}
+          &.btnRefresh{background-image: url('../images/ico/browser/edge-refresh.svg'); background-size: 24px 24px;}
+          &.btnHome{background-image: url('../images/ico/browser/edge-home.svg'); background-size: 24px 24px;}
           &:hover:not(.disabled){background-color: #eee;}
         }
       }
       .urlArea{margin-left: 10px;
         .search{position: absolute; top: 4.5px; left: 12px; z-index: 100; width: 24px; height: 24px; 
-        background: url('../images/ico/edge-input-search.svg') no-repeat center; background-size: 24px 24px;}
+        background: url('../images/ico/browser/edge-input-search.svg') no-repeat center; background-size: 24px 24px;}
         #edgeInput{width: 100%; height: 30px; padding-left: 45px; padding-bottom: 4px;border-radius: 6px; background-color: #fff; 
         border: 1px solid transparent; box-shadow: 0 0 5px 2px rgba($color: #ccc, $alpha: 0.3); box-sizing: border-box;
           &:hover{border-color: #ccc;}
@@ -504,7 +507,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
           &:after{width: 40px; height: 30px; border-radius: 2px; background-color: #e4e4e4;}
         }
         .extension{position: relative;}
-        .account .accInfo{width: 26px; height: 26px; background: #eee url('../images/ico/edge-acc.svg') no-repeat center; 
+        .account .accInfo{width: 26px; height: 26px; background: #eee url('../images/ico/browser/edge-acc.svg') no-repeat center; 
         background-size: 14px 14px;}
         .ieMode{
           &.disabled{
@@ -525,11 +528,22 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
 
 .ui-icon,.ui-widget-content .ui-icon{background-image: none !important;}
 
+#frameLoading{position: absolute; top: 50%; left: 50%;
+width: 50px;height: 50px;border: 3px solid rgba(0,0,0,.5);border-radius: 50%;
+border-top-color: #fff;animation: spin 1s ease-in-out infinite; -webkit-animation: spin 1s ease-in-out infinite; z-index: 9999;}
+
 @media (min-height:1080px){
   .browser{
     &.discord{
       .browserFrameArea iframe{height: 93.8vh;}
     }
   }
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg)}
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
 }
 

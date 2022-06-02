@@ -15,7 +15,14 @@ $(function(){
                 } else {
                     $('.taskCenter ul li.vsc').removeClass('on').addClass('appSave');
                 }
-            } 
+            } else if($(this).hasClass('edge')){
+                $('.browser.edge').toggleClass('open').removeClass('save');
+                if($('.browser').hasClass('open')){
+                    $('.taskCenter ul li.edge').addClass('on').removeClass('appSave');
+                } else {
+                    $('.taskCenter ul li.edge').removeClass('on').addClass('appSave');
+                }
+            }
         }
     });
 

@@ -24,7 +24,9 @@ $(function(){
            
             if(e.keyCode === 13){
                 $('#edgeFrame').attr('src', edgeSearchUrl);
-                $(this).val(edgeSearchUrl) ;
+                if($(this).val() != ''){
+                    $(this).val(edgeSearchUrl);
+                } 
             }
         }
     });

@@ -25,7 +25,21 @@ $(function(){
             $('.taskCenter ul li.vsc').removeClass('on').addClass('appSave');
             $('.browser.vsc').addClass('save').removeClass('open');
         }
-    })
+    });
+
+    $('.browser.edge .topArea .right .browserControlArea .btnReduction').on({
+        "click": function(){
+            $('.taskCenter ul li.edge').removeClass('on').addClass('appSave');
+            $('.browser.edge').addClass('save').removeClass('open');
+        }
+    });
+
+    $('.browser.discord .topArea .right .browserControlArea .btnReduction').on({
+        "click": function(){
+            $('.taskCenter ul li.discord').removeClass('on').addClass('appSave');
+            $('.browser.discord').addClass('save').removeClass('open');
+        }
+    });
 
     $('.browserTabList li').on({
         "mouseup": function(e){
@@ -45,11 +59,11 @@ $(function(){
     $('.bookMarkList ul li').on({
         "click": function(){
             if($(this).hasClass('velog')){
-                $('#chromeFrame').attr('src', 'https://velog.io/@sky');
+                $('#chromeFrame,#edgeFrame').attr('src', 'https://velog.io/@sky');
             } else if($(this).hasClass('github')){
-                $('#chromeFrame').attr('src', 'https://github.com/Plush777/win11-ui');
+                $('#chromeFrame,#edgeFrame').attr('src', 'https://github.com/Plush777/win11-ui');
             } else if($(this).hasClass('mySite01')){
-                $('#chromeFrame').attr('src', 'https://plush777.github.io/component-css/');
+                $('#chromeFrame,#edgeFrame').attr('src', 'https://plush777.github.io/component-css/');
             }
         }
     });

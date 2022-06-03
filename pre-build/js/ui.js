@@ -35,12 +35,23 @@ $(function(){
         containment: 'window',
         cancel: '.dragCancel',
         start: function(){
-            $(this).css('transition', 'none');
+            $(this).css({'transition': 'none'});
         },
         stop: function(){
             $(this).css('transition', 'all .25s cubic-bezier(.85,.14,.14,.85)');
         }
     });
+
+    $('.app-drag').draggable({
+        containment: 'window',
+        cancel: '.dragCancel',
+        start: function(){
+            $(this).css({'transform': 'none', 'transition': 'none'});
+        },
+        stop: function(){
+            $(this).css('transition', 'all .25s cubic-bezier(.85,.14,.14,.85)');
+        }
+    })
 
     $('.resizable').resizable({
         containment: '#App',

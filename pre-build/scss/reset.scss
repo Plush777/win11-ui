@@ -61,8 +61,16 @@
   input::selection{color: #fff; background-color: #0074FF;}
   ::selection{background-color: transparent;}
   iframe{background-color: #fff;}
+  p,span{cursor: default !important;}
 
   /* common class */
   .flexWrap{display: flex; align-items: center;
     &.aifs{align-items: flex-start;}
   }
+
+  .flex{display: flex;
+    &.aic{align-items: center;}
+    &.jcc{justify-content: center;}
+    &.jcsb{justify-content: space-between;}
+  }
+  textarea{resize: none;}

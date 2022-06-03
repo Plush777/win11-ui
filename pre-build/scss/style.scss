@@ -39,12 +39,12 @@ body{overflow: hidden;}
     }
   }
   .activeMenu{position: absolute; visibility: hidden; top: 881px; left: 50%; transform: translate(-50%); transition: .22s ease;
-  box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.25); border-radius: 8px 8px 0 0;
+  box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.25); border-radius: 8px 8px 0 0; z-index: 10000;
     >.inner{width: 635px; height: 660px; padding: 30px; box-sizing: border-box; border-radius: 8px 8px 0 0; 
     background-color: var(--bg-light-hsla1);
       >.container{margin: 30px auto;
         .appBox{
-          .titArea{display: flex; align-items: center; justify-content: space-between; max-width: 510px; margin: 0 auto;
+          .titArea{display: flex; align-items: center; justify-content: space-between; max-width: 530px; margin: 0 auto;
             .tit strong{font-size: 16px; color: #191A1B;}
             .btnAllApp{display: flex; align-items: center; justify-content: space-between; width: 75px; height: 22px; border: 1px solid #E0E4EC; 
             border-radius: 6px; background-color: #fff; text-align: left; padding: 0 7px; transition: .15s ease-in-out;
@@ -60,18 +60,29 @@ body{overflow: hidden;}
                 span,a{display: block; text-align: center; padding-top: 52px; font-size: 13px; cursor: default;}
                 &.discord .icon{background: url('../images/ico/app/discord.png') no-repeat center 18px;background-size: 32px 32px;}
                 &.buyme .icon{background: url('../images/ico/app/buyme.png') no-repeat center 18px;background-size: 32px 32px;}
+                &.mail .icon{background: url('../images/ico/app/mail.png') no-repeat center 18px;background-size: 32px 32px;}
+                &.notePad{background: url('../images/ico/app/notePad.png') no-repeat center 18px;background-size: 32px 32px;}
                 &:hover{background-color: rgba($color: #fcfcfc, $alpha: 0.8);}
               }
             }
           }
         }
       }
-      &:last-child{height: 60px; border-radius: 0 0 8px 8px;
-
+      &:last-child{height: 60px; padding: 0; border-radius: 0 0 8px 8px;
+        .nameArea{display: flex; align-items: center; justify-content: center; width: 100px; height: 40px; border-radius: 4px;
+          .acc{width: 30px; height: 30px; border-radius: 50%; border: 1px solid #d8d8d8;
+          background: #e6e6e6 url('../images/ico/browser/edge-acc.svg') no-repeat center; background-size: 20px 20px;}
+          .myName{margin-left: 10px; font-size: 14px; color: #222; cursor: default;}
+          &:hover{background-color: var(--bg-light-hsla1);}
+        }
+        .power{display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 4px;
+          &:hover{background-color: var(--bg-light-hsla1);}
+          svg{fill: #434449;}
+        }
       }
     }
-    .userInfoBox{border-bottom: #B2B5C0;
-      >.boxInner{height: 60px;}
+    .userInfoBox{border-top: 1px solid #B2B5C0;
+      >.boxInner{display: flex; align-items: center; justify-content: space-between; height: 60px; padding: 0 50px;}
     }
     .searchArea{position: relative; border-radius: 8px; border-bottom: 2px solid #413f3d;
       .searchIcon{position: absolute; top: 10px; left: 15px; transform: scaleX(-1); fill: #777;}
@@ -538,6 +549,93 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
 
     .browserFrameArea iframe{height: 84vh;}
   }
+}
+
+.windowApp{position: absolute !important; top: 50%; left: 50%; width: 1000px !important; 
+height: 720px; visibility: hidden; transition: all .25s cubic-bezier(.85,.14,.14,.85);transform-origin: center; 
+transform: scale(0.7) translate(-50%,-50%); opacity: 0; background-color: #fff; border-radius: 8px;
+   //열렸을 때
+   &.open{opacity: 1; visibility: visible; transform: scale(1) translate(-50%,-50%);}
+
+    //최소화/풀스크린 모드
+    &.minilize{min-width: 500px; width: 70% !important; height: auto;
+      .topArea{padding-top: 7px; border-top-left-radius: 6px; border-top-right-radius: 6px;
+        >.right{position: relative; top: -6px;
+          .browserControlArea{
+            button{
+              &.btnExp{background-image: url('../images/ico/browser/maxmin.png');}
+              &.btnBrowserClose{border-top-right-radius: 6px;}
+            }
+          }
+        }
+      }
+    }
+
+    //축소모드
+    &.save{transform: scale(0); opacity: 0;}
+
+    .topArea{display: flex; width: 100%;
+      .row{
+        >.right{width: 100%; display: flex; align-items: center; justify-content: flex-end;white-space: nowrap; margin-left: 30px;
+          .browserControlArea{display: flex; height: 100%;
+            button{width: 43px; height: 100%; background-repeat: no-repeat; background-position: center;
+            background-size: 12px 12px; cursor: default; transition: .3s ease-in-out;
+              &.btnReduction{background-image: url('../images/ico/browser/minimize.png');
+                &:hover{background-color: #C7CACF;}
+                &:active{background-color: #B2B4B8;}
+              }
+              &.btnExp{background-image: url('../images/ico/browser/maximize.png');
+                &:hover{background-color: #C7CACF;}
+                &:active{background-color: #B2B4B8;}
+              }
+              &.btnBrowserClose{background-image: url('../images/ico/browser/close.png');
+                &:hover{background-color: #E81123; background-image: url('../images/ico/browser/close-white.png');}
+                &:active{background-color: #E36571; background-image: url('../images/ico/browser/close-white.png');}
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.notePad{box-shadow: 0 0 15px 8px rgba($color: #000000, $alpha: 0.1);
+      .topArea{height: 40px; border-radius: 8px 8px 0 0; background-color: #EFF4F9;
+      padding-left: 10px; box-sizing: border-box;
+        .rep{display: inline-block; width: 24px; height: 24px; background: url('../images/ico/app/notePad.png') no-repeat center;
+        background-size: 16px 16px;}
+        .fileName{display: inline-block; font-size: 12px; padding-left: 10px; color: #000; white-space: nowrap;}
+        .row{display: flex; width: 100%;
+          >.right{margin-left: 0;
+            .browserControlArea{
+              button{height: 27px;}
+              .btnBrowserClose{border-top-right-radius: 8px;}
+            }
+          }
+        }
+      }
+      .bottomArea{padding-left: 3px; background-color: #EFF4F9; border-bottom: 1px solid #ccc; 
+        .helpMenuArea{padding-bottom: 3px;
+          ul{display: flex; align-items: center;
+            li{display: flex; align-items: center; justify-content: center; width: 46px; height: 32px; border-radius: 4px;
+              span{display: inline-block; color: #000; font-size: 14px;}
+              &:hover{background-color: #E6EBF0;}
+            }
+          }
+        }
+      }
+      .textBody{width: 100%; height: calc(100% - 110px);
+        #note{border: 0; width: 100%; height: 100%; padding: 15px; box-sizing: border-box; outline: 0;
+        font-size: 18px; color: #000; font-family: 'Noto Sans';}
+      }
+      .txtInfo{display: flex; align-items: center; justify-content: flex-end; width: 100%; height: 33px; 
+      border-top: 1px solid #E8E5E5; background-color: #F5F2F2; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
+        span{position: relative; display: inline-block; width: 160px; font-size: 14px; color: #9A9A9A; font-family: 'Segoe UI Variable';
+          &:first-child{width: 90px;}
+          &:before{content: ''; position: absolute; width: 1px; height: 16px; top: 50%; transform: translateY(-50%); 
+          left: -20px; background-color: #e0e0e0;}
+        }
+      }
+    }
 }
 
 .ui-icon,.ui-widget-content .ui-icon{background-image: none !important;}

@@ -17,6 +17,7 @@
     <script src="../js/browser.min.js"></script>
     <script src="../js/task.min.js"></script>
     <script src="../js/activeMenu.min.js"></script>
+    <script src="../js/windowApp.min.js"></script>
     <script src="../js/ui.min.js"></script>
 </head>
 <body>
@@ -87,14 +88,14 @@
                                             <a href="https://www.buymeacoffee.com/P1ush" target="_blank">Buy Me a Coffee</a>
                                         </i>
                                     </li>
-                                    <li class="discord">
+                                    <li class="mail">
                                         <i class="icon">
-                                            <span>Discord</span>
+                                            <a href="mailto:">메일</a>
                                         </i>
                                     </li>
-                                    <li class="discord">
+                                    <li class="notePad">
                                         <i class="icon">
-                                            <span>Discord</span>
+                                            <span>메모장</span>
                                         </i>
                                     </li>
                                     <li class="discord">
@@ -116,7 +117,7 @@
                         <div class="appBox">
                             <div class="titArea">
                                 <strong class="tit">맞춤</strong>
-                                <button type="button" class="btnMoreApp">
+                                <button type="button" class="btnAllApp btnMoreApp">
                                     <span>자세히</span>
                                     <svg width="10" height="10" version="1.1" viewBox="0 0 700 550">
                                         <g>
@@ -133,10 +134,15 @@
                         <div class="boxInner">
                             <div class="nameArea">
                                 <div class="acc"></div>
-                                <span class="myName"></span>
+                                <span class="myName">P1ush</span>
                             </div>
                             <div class="power">
-    
+                                <svg width="20" height="20" version="1.1" viewBox="0 0 700 700">
+                                    <g>
+                                        <path d="m350 560c-52.145 0.007812-102.98-16.359-145.32-46.789-42.344-30.434-74.059-73.395-90.672-122.82-16.617-49.43-17.289-102.82-1.9219-152.65 15.363-49.832 45.988-93.578 87.551-125.07 7.4336-5.6406 17.309-6.8906 25.914-3.2734 8.6016 3.6133 14.621 11.547 15.789 20.805 1.1719 9.2578-2.6875 18.434-10.121 24.078-32.844 24.883-57.047 59.453-69.188 98.832-12.145 39.379-11.613 81.574 1.5117 120.64 13.129 39.062 38.188 73.016 71.648 97.07 33.457 24.051 73.625 36.992 114.83 36.992 41.207 0 81.375-12.941 114.84-36.992 33.457-24.055 58.52-58.008 71.645-97.07s13.656-81.258 1.5117-120.64c-12.141-39.379-36.344-73.949-69.188-98.832-5.5195-4.1914-9.1445-10.398-10.086-17.262-0.9375-6.8633 0.88672-13.816 5.0742-19.336 4.1875-5.5156 10.398-9.1445 17.258-10.086 6.8633-0.9375 13.82 0.88672 19.336 5.0742 41.57 31.492 72.195 75.242 87.559 125.08 15.363 49.836 14.684 103.23-1.9375 152.66-16.617 49.43-48.344 92.391-90.695 122.82-42.352 30.43-93.191 46.785-145.34 46.766z"/>
+                                        <path d="m350 292.43c-6.9219 0-13.559-2.75-18.453-7.6445-4.8945-4.8945-7.6445-11.531-7.6445-18.453v-240.24c0-9.3242 4.9766-17.941 13.051-22.602s18.02-4.6602 26.094 0 13.051 13.277 13.051 22.602v240.18c0.011719 6.9297-2.7305 13.582-7.625 18.488-4.8945 4.9062-11.543 7.6641-18.473 7.6641z"/>
+                                    </g>
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -455,6 +461,48 @@
                 <div class="browserFrameArea dragCancel">
                     <iframe id="edgeFrame" src="https://www.bing.com/" frameborder="0"></iframe>
                     <div id="frameLoading"></div>
+                </div>
+            </div>
+
+            <!-- notePad -->
+            <div class="windowApp notePad app-drag resizable open">
+                <div class="topArea">
+                    <div class="row">
+                        <div class="flex aic">
+                            <i class="rep"></i>
+                            <span class="fileName">제목없음.txt - 메모장</span>
+                        </div>
+                        <div class="right">
+                            <div class="browserControlArea">
+                                <button type="button" class="btnReduction"></button>
+                                <button type="button" class="btnExp"></button>
+                                <button type="button" class="btnBrowserClose"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomArea dragCancel">
+                    <div class="helpMenuArea">
+                        <ul>
+                            <li>
+                                <span>파일</span>
+                            </li>
+                            <li>
+                                <span>편집</span>
+                            </li>
+                            <li>
+                                <span>보기</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="textBody dragCancel">
+                    <textarea id="note"></textarea>
+                </div>
+                <div class="txtInfo">
+                    <span>100%</span>
+                    <span>Windows (CRLF)</span>
+                    <span>UTF-8</span>
                 </div>
             </div>
         </div>

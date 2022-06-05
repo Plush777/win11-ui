@@ -77,6 +77,7 @@ body{overflow: hidden;}
         }
         .power{display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 4px;
           &:hover{background-color: var(--bg-light-hsla1);}
+          &.poeNone{pointer-events: none;}
           svg{fill: #434449;}
         }
       }
@@ -112,6 +113,7 @@ backdrop-filter: saturate(3) blur(20px);
         &.chrome .icon{background-image: url('../images/ico/app/chrome.png');}
         &.vsc .icon{background-image: url('../images/ico/app/vscode.png');}
         &.discord .icon{background-image: url('../images/ico/app/discord.png');}
+        &.notePad .icon{background-image: url('../images/ico/app/notePad.png');}
         &:hover{background-color: var(--bg-light-hsla2);}
         &:active{
           i{transform: scale(.7);}
@@ -124,7 +126,7 @@ backdrop-filter: saturate(3) blur(20px);
         }
         &.fadeIn{animation: fadeIn .3s ease-in-out;}
         &.transY0{
-          &.vsc .icon,&.discord .icon{animation: transY 350ms cubic-bezier(0, 0, 0.63, 0.915) 0s;}
+          &.vsc .icon,&.discord .icon,&.notePad .icon{animation: transY 350ms cubic-bezier(0, 0, 0.63, 0.915) 0s;}
         }
         &.appSave{
           &:before{visibility: visible; width: 6px; background-color: #777C82;}
@@ -551,11 +553,13 @@ transform-origin: center; transform: scale(0.7); opacity: 0;
   }
 }
 
-.windowApp{position: absolute !important; top: 50%; left: 50%; width: 1000px !important; 
-height: 720px; visibility: hidden; transition: all .25s cubic-bezier(.85,.14,.14,.85);transform-origin: center; 
-transform: scale(0.7) translate(-50%,-50%); opacity: 0; background-color: #fff; border-radius: 8px;
+.windowApp{position: absolute !important; bottom: -230px; left: 50%; width: 0 !important; 
+height: 0; visibility: hidden; transition-timing-function: cubic-bezier(.85,.14,.14,.85); transform-origin: bottom;
+transition-duration: .35s; transition-property: width,height,bottom,transform-origin,transform,visibility;
+transform: scale(0.5) translate(-50%,-50%);  background-color: #fff; border-radius: 8px;
    //열렸을 때
-   &.open{opacity: 1; visibility: visible; transform: scale(1) translate(-50%,-50%);}
+   &.open{top: 50%; width: 1000px !important; height: 720px; visibility: visible; transform: scale(1) translate(-50%,-50%);
+   transition-property:visibility,transform,transform-origin;}
 
     //최소화/풀스크린 모드
     &.minilize{min-width: 500px; width: 70% !important; height: auto;
@@ -580,15 +584,15 @@ transform: scale(0.7) translate(-50%,-50%); opacity: 0; background-color: #fff; 
           .browserControlArea{display: flex; height: 100%;
             button{width: 43px; height: 100%; background-repeat: no-repeat; background-position: center;
             background-size: 12px 12px; cursor: default; transition: .3s ease-in-out;
-              &.btnReduction{background-image: url('../images/ico/browser/minimize.png');
+              &.appReduction{background-image: url('../images/ico/browser/minimize.png');
                 &:hover{background-color: #C7CACF;}
                 &:active{background-color: #B2B4B8;}
               }
-              &.btnExp{background-image: url('../images/ico/browser/maximize.png');
+              &.appExp{background-image: url('../images/ico/browser/maximize.png');
                 &:hover{background-color: #C7CACF;}
                 &:active{background-color: #B2B4B8;}
               }
-              &.btnBrowserClose{background-image: url('../images/ico/browser/close.png');
+              &.appClose{background-image: url('../images/ico/browser/close.png');
                 &:hover{background-color: #E81123; background-image: url('../images/ico/browser/close-white.png');}
                 &:active{background-color: #E36571; background-image: url('../images/ico/browser/close-white.png');}
               }
@@ -643,6 +647,24 @@ transform: scale(0.7) translate(-50%,-50%); opacity: 0; background-color: #fff; 
 #frameLoading{position: absolute; top: 50%; left: 50%;
 width: 50px;height: 50px;border: 3px solid rgba(0,0,0,.5);border-radius: 50%;
 border-top-color: #fff;animation: spin 1s ease-in-out infinite; -webkit-animation: spin 1s ease-in-out infinite; z-index: 9999;}
+
+.powerList{position: absolute; right: 5px; bottom: 55px; width: 130px; height: 60px; border: 1px solid #DFE2EB; border-radius: 6px; 
+background-color: #F6F8FB; visibility: hidden; transition: none; overflow: hidden;
+  li{display: flex; align-items: center; margin: 5px; padding: 2px; box-sizing: border-box; border-radius: 6px;
+    span{display: inline-block; padding-left: 7px;}
+    >svg{padding-left: 3px;}
+    &:nth-child(2){
+      svg{padding-left: 6px;}
+    }
+    &:last-child{
+      svg{padding-left: 4px;}
+      span{padding-left: 5px;}
+    }
+    &:hover{background-color: #EDEDED;}
+    span{font-size: 14px; color: #000;}
+  }
+  &.active{height: 100px; visibility: visible; transition: .2s ease-in-out; box-shadow: 0px 4px 5px rgba($color: #000000, $alpha: 0.2);}
+}
 
 @media (min-height:1080px){
   .browser{

@@ -6,7 +6,7 @@ $(function(){
             $('.taskCenter ul li.new').removeClass('transY0');
             if($('.browser').hasClass('vsc')){
                 $('.taskCenter ul li.vsc').remove();
-            } 
+            }
             if($('.browser').hasClass('discord')){
                 $('.taskCenter ul li.discord').remove();
             }

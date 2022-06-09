@@ -62,6 +62,7 @@ body{overflow: hidden;}
                 &.buyme .icon{background: url('../images/ico/app/buyme.png') no-repeat center 18px;background-size: 32px 32px;}
                 &.mail .icon{background: url('../images/ico/app/mail.png') no-repeat center 18px;background-size: 32px 32px;}
                 &.notePad{background: url('../images/ico/app/notePad.png') no-repeat center 18px;background-size: 32px 32px;}
+                &.setting{background: url('../images/ico/app/settings.png') no-repeat center 18px;background-size: 32px 32px;}
                 &:hover{background-color: rgba($color: #fcfcfc, $alpha: 0.8);}
               }
             }
@@ -95,6 +96,7 @@ body{overflow: hidden;}
 
 .appSearch{height: 37px; border: 1px solid #d6d8d8; border-radius: 5px; font-family: 'Segoe UI Variable'; color: #1b1b1b;
   padding-left: 48px; box-sizing: border-box; background-color: #fff;
+  &.type02{height: 30px; padding-left: 7px; font-size: 14px;}
   &::placeholder{color: #616161; font-size: 14px;}
 }
 
@@ -592,7 +594,7 @@ transform: scale(0.5) translate(-50%,-50%);  background-color: #fff; border-radi
                 &:hover{background-color: #C7CACF;}
                 &:active{background-color: #B2B4B8;}
               }
-              &.appClose{background-image: url('../images/ico/browser/close.png');
+              &.appClose{background-image: url('../images/ico/browser/close.png');border-top-right-radius: 8px;
                 &:hover{background-color: #E81123; background-image: url('../images/ico/browser/close-white.png');}
                 &:active{background-color: #E36571; background-image: url('../images/ico/browser/close-white.png');}
               }
@@ -640,6 +642,130 @@ transform: scale(0.5) translate(-50%,-50%);  background-color: #fff; border-radi
         }
       }
     }
+
+    &.setting{background: linear-gradient(90deg, rgba(239,244,249,1) 75%, rgba(243,243,243,1) 100%);
+      .topArea{
+        .row{display: flex; width: 100%;
+          >.flexWrap{position: relative; top: 10px; padding-left: 5px;}
+          .infoName{padding-left: 10px; white-space: nowrap; font-size: 12px;}
+          .btnAppPrev{display: flex; align-items: center; justify-content: center; width: 40px; height: 35px; border-radius: 6px;
+            &:hover{background-color: rgba($color: #EAEAEA, $alpha: 0.7);}
+            svg line{stroke: #4c4c4c;}
+          }
+        }
+      }
+      .contArea{
+        >.container{display: flex;}
+        .leftArea{width: 280px; padding: 30px 0 0 5px; box-sizing: border-box; margin-right: 25px;
+          .accInfoBox{display: flex; align-items: center; padding: 8px 8px 12px 13px; border-radius: 8px; transition: .1s ease-in-out;
+            .accImg{width: 55px; height: 55px; border-radius: 50%; background: #e6e6e6 url('../images/ico/browser/edge-acc.svg') no-repeat center;
+            background-size: 30px 30px;}
+            .accMaster{padding-left: 10px;
+              .accName{font-size: 15px;}
+              .accInfo{font-size: 13px; font-weight: normal;}
+            }
+            &:hover{background-color: rgba($color: #EAEAEA, $alpha: 0.5);}
+          }
+          .searchArea{position: relative; display: flex; margin: 10px 0 20px 0; width: 265px; border-radius: 5px; border-bottom: 1px solid #1b1b1b;
+            &.focus{border-bottom-width: 2px;
+              .appSearch{
+                &::placeholder{color: #9D9D9D;}
+                &:hover{background-color: #fff;}
+              }
+              .btnInSearch{background: url('../images/ico/useApp/ico-useApp-search-9d9d.svg') no-repeat center; background-size: 12px 14px;}
+            }
+            
+            .appSearch{width: 100%;
+              &:hover{background-color: #F4F7F9;}
+            }
+            .btnInSearch{position: absolute; top: 50%; transform: translateY(-50%); right: 7px; width: 27px; height: 21px; background: url('../images/ico/useApp/ico-useApp-search.svg') no-repeat center;
+            background-size: 12px 14px; border-radius: 4px;
+              &:hover{background-color: #EDEDED;}
+            }
+          }
+          >.flexWrap{
+            &.col{padding-left: 10px;}
+          }
+        }
+
+        .rightArea{width: 100%; margin-top: 30px;
+          .titArea{font-size: 28px; font-family: 'Segoe UI Variable'; color: #000;}
+          .infoBox{display: flex; align-items: center; margin-top: 30px;
+            .deviceInfo{display: flex; align-items: center; gap: 15px;
+              .deviceBg{width: 115px; height: 65px; border: 4px solid #000; border-radius: 6px; 
+              background: url('../images/bg/bg-windows-light.jpg') no-repeat; background-size: 115px 65px;}
+              .deviceName{
+                .laptop{font-weight: bold; font-size: 18px;}
+                .model{font-size: 14px;}
+                .btnRename{display: flex; margin-top: 5px; font-size: 14px; color: #3767A8; transition: .15s ease-in-out;
+                border-radius: 6px; cursor: pointer;
+                  &:hover{color: #1D3479; background-color: #E9EAEE;}
+                }
+              }
+            }
+            .companyBox{display: flex; align-items: center; height: 50px; padding: 10px; box-sizing: border-box; border-radius: 6px; 
+            transition: .1s ease-in-out;
+              .microsoft{display: block; width: 24px; height: 24px; background: url('../images/ico/useApp/ms.png') no-repeat center;
+              background-size: 24px 24px;}
+              .companyInfo{display: flex; flex-direction: column; margin-left: 15px;
+                strong{font-size: 15px;}
+                span{font-size: 13px; color: #606163;}
+              }
+              &:hover{background-color: #E8EAEF;}
+            }
+            .updateBox{display: flex; align-items: center; width: 234px; height: 53px; padding: 10px; box-sizing: border-box; border-radius: 6px;
+            transition: .1s ease-in-out;}
+          }
+        }
+      }
+    }
+}
+
+.tabWrapper{
+  &.setting{width: 100%;}
+  .tabNav{
+    .tabList{position: relative;
+      li{position: relative; width: 100%; height: 36px; border-radius: 6px;
+        a{display: flex; align-items: center; height: 100%; padding-left: 38px; font-size: 14px; color: #000;
+        font-family: 'Segoe UI Variable';}
+        &:before{content: ''; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px;
+        background-size: 16px 16px; background-repeat: no-repeat; background-position: center;}
+        &.system:before{background-image: url('../images/ico/common/system.webp');}
+        &.bluetooth:before{background-image: url('../images/ico/common/bluetooth.webp');}
+        &.network:before{background-image: url('../images/ico/common/network.webp');}
+        &.indiv:before{background-image: url('../images/ico/common/Personalisation.webp');}
+        &.defaultApp:before{background-image: url('../images/ico/common/apps.webp');}
+        &.acc:before{background-image: url('../images/ico/common/acc.webp');}
+        &.time:before{background-image: url('../images/ico/common/time.webp');}
+        &.game:before{background-image: url('../images/ico/common/game.webp');}
+        &.a11y:before{background-image: url('../images/ico/common/a11y.webp');}
+        &.security:before{background-image: url('../images/ico/common/privacy.webp');}
+        &.windowsUpdate:before{background-image: url('../images/ico/common/windows-update.webp');}
+        &.tabLine{position: absolute; left: 0; width: 3px; 
+        height: 16px; border-radius: 50px; background-color: #413F3D; transition: .3s ease-in-out;
+          &:before{display: none;}
+        }
+        &:hover{background-color: #E7EBF0;}
+        &.active{background-color: #e7ebf0;}
+        &:first-of-type.active ~ .tabLine{top: 5px;}
+        &:nth-of-type(2).active ~ .tabLine{top: 45px;}
+        &:nth-of-type(3).active ~ .tabLine{top: 86px;}
+        &:nth-of-type(4).active ~ .tabLine{top: 128px;}
+        &:nth-of-type(5).active ~ .tabLine{top: 169px;}
+        &:nth-of-type(6).active ~ .tabLine{top: 209px;}
+        &:nth-of-type(7).active ~ .tabLine{top: 250px;}
+        &:nth-of-type(8).active ~ .tabLine{top: 291px;}
+        &:nth-of-type(9).active ~ .tabLine{top: 333px;}
+        &:nth-of-type(10).active ~ .tabLine{top: 373px;}
+        &:nth-of-type(11).active ~ .tabLine{top: 415px;}
+        +li{margin-top: 5px;}
+      }
+    }
+  }
+}
+
+.tabCont{display: none;
+  &.active{display: block;}
 }
 
 .ui-icon,.ui-widget-content .ui-icon{background-image: none !important;}
@@ -664,6 +790,55 @@ background-color: #F6F8FB; visibility: hidden; transition: none; overflow: hidde
     span{font-size: 14px; color: #000;}
   }
   &.active{height: 100px; visibility: visible; transition: .2s ease-in-out; box-shadow: 0px 4px 5px rgba($color: #000000, $alpha: 0.2);}
+}
+
+.endBg{display: none; position: fixed; top: 0; left: 0; align-items: center; justify-content: center; flex-direction: column; width: 100vw; 
+height: 100vh; background-color: var(--bg-system-end); z-index: 10000;
+  span{display: inline-block; margin-top: 14px; font-size: 20px; color: #fff;font-family: 'Segoe UI Variable';}
+  &.active{display: flex;}
+  &.black{display: flex; background-color: #000;
+    .lds-roller,span{display: none;}
+  }
+}
+
+.lds-roller {display: inline-block;position: relative;width: 80px;height: 80px;
+  div{animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;transform-origin: 40px 40px;
+    &:after {content: " ";display: block;position: absolute;width: 7px;height: 7px;border-radius: 50%;background: #fff;
+    margin: -4px 0 0 -4px;}
+    &:nth-child(1) {animation-delay: -0.036s;
+      &:after {top: 63px;left: 63px;}
+    }
+    &:nth-child(2) {animation-delay: -0.072s;
+      &:after {top: 68px;left: 56px;}
+    }
+    &:nth-child(3) {animation-delay: -0.108s;
+      &:after {top: 71px;left: 48px;}
+    }
+    &:nth-child(4) {animation-delay: -0.144s;
+      &:after {top: 72px;left: 40px;}
+    }
+    &:nth-child(5) {animation-delay: -0.18s;
+      &:after {top: 71px;left: 32px;}
+    }
+    &:nth-child(6) {animation-delay: -0.216s;
+      &:after {top: 68px;left: 24px;}
+    }
+    &:nth-child(7) {animation-delay: -0.252s;
+      &:after {top: 63px;left: 17px;}
+    }
+    &:nth-child(8) {animation-delay: -0.288s;
+      &:after {top: 56px;left: 12px;}
+    }
+  }
+}
+
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (min-height:1080px){

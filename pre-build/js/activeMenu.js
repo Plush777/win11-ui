@@ -72,5 +72,15 @@ $(function(){
                 $('.power').removeClass('poeNone');
             }
         }
+    });
+
+    $('.powerList ul li:nth-child(2)').on({
+        "click": function () {
+            $('.endBg').addClass('active');
+            setTimeout(() => {
+                $('.endBg').removeClass('active').addClass('black');
+                $('.appBg,.pc,.taskBar').addClass('dn');
+            }, 4500);
+        }
     })
 });

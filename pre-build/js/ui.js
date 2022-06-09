@@ -69,4 +69,20 @@ $(function(){
             $('.ui-resizable-e').css('width','7px');
         }
     });
+
+    $('.powerList ul li:nth-child(2)').on({
+        'click': function(){
+            startFullScreen(document.documentElement);
+        }
+    })
 });
+
+function startFullScreen(element){		
+    if(element.requestFullScreen) {			
+        element.requestFullScreen();		
+    } else if(element.webkitRequestFullScreen){			
+        element.webkitRequestFullScreen();		
+    } else if(element.mozRequestFullScreen){		
+        element.mozRequestFullScreen();		
+    }
+}

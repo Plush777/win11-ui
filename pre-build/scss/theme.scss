@@ -1,13 +1,15 @@
 body{
     --bg-light-hsla1: hsla(0,0%,95%,.85);
-    --bg-light-hsla2: hsla(0,0%,100%,.67); 
+    --bg-light-hsla2: hsla(0,0%,100%,.67);
+    --bg-system-end: #005A9E;
 }
 
 body[data-theme="light"]{
     --bg-light-hsla1: hsla(0,0%,95%,.85);
     --bg-light-hsla2: hsla(0,0%,100%,.67); 
+    --bg-system-end: #005A9E;
 }
 
 body[data-theme="dark"]{
-
+    --bg-system-end: #000;
 }

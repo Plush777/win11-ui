@@ -61,11 +61,13 @@
   input::selection{color: #fff; background-color: #0074FF;}
   ::selection{background-color: transparent;}
   iframe{background-color: #fff;}
-  p,span{cursor: default !important;}
+  :where(p,span,strong,h1,h2,h3){cursor: default !important;}
+  
 
   /* common class */
   .flexWrap{display: flex; align-items: center;
     &.aifs{align-items: flex-start;}
+    &.col{flex-direction: column;}
   }
 
   .flex{display: flex;
@@ -76,3 +78,8 @@
   textarea{resize: none;}
 
   .por{position: relative;}
+
+  .dn{display: none !important;}
+
+  .pt15{padding-top: 15px;}
+  .pl20{padding-left: 20px;}

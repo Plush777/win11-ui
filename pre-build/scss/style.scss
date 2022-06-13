@@ -688,10 +688,11 @@ transform: scale(0.5) translate(-50%,-50%);  background-color: #fff; border-radi
           }
         }
 
-        .rightArea{width: 100%; margin-top: 30px;
+        .rightArea{position: relative; width: 100%; margin-top: 30px;
           .titArea{font-size: 28px; font-family: 'Segoe UI Variable'; color: #000;}
+          .rightContainer{max-height: 600px; overflow-y: auto;}
           .infoBox{display: flex; align-items: center; margin-top: 30px;
-            .deviceInfo{display: flex; align-items: center; gap: 15px;
+            .deviceInfo{display: flex; align-items: center; gap: 15px; margin-right: 10px;
               .deviceBg{width: 115px; height: 65px; border: 4px solid #000; border-radius: 6px; 
               background: url('../images/bg/bg-windows-light.jpg') no-repeat; background-size: 115px 65px;}
               .deviceName{
@@ -706,16 +707,100 @@ transform: scale(0.5) translate(-50%,-50%);  background-color: #fff; border-radi
             .companyBox{display: flex; align-items: center; height: 50px; padding: 10px; box-sizing: border-box; border-radius: 6px; 
             transition: .1s ease-in-out;
               .microsoft{display: block; width: 24px; height: 24px; background: url('../images/ico/useApp/ms.png') no-repeat center;
-              background-size: 24px 24px;}
+              background-size: 18px 18px;}
               .companyInfo{display: flex; flex-direction: column; margin-left: 15px;
                 strong{font-size: 15px;}
                 span{font-size: 13px; color: #606163;}
               }
               &:hover{background-color: #E8EAEF;}
             }
-            .updateBox{display: flex; align-items: center; width: 234px; height: 53px; padding: 10px; box-sizing: border-box; border-radius: 6px;
+            .updateBox{display: flex; align-items: center; width: 224px; height: 53px; padding: 10px; box-sizing: border-box; border-radius: 6px;
             transition: .1s ease-in-out;
-              .update{display: block; width: 24px; height: 24px; background: url('../images/ico/useApp/');}
+              .update{display: block; width: 24px; height: 24px; 
+              background: url('../images/ico/common/windows-update.webp') no-repeat center; background-size: 20px 20px;}
+              .updateInfo{display: flex; flex-direction: column; margin-left: 15px;
+                strong{font-size: 15px;}
+                span{font-size: 13px; color: #606163;}
+              }
+              &:hover{background-color: #E8EAEF;}
+            }
+          }
+          .setList{margin-top: 30px;
+            ul{
+              li{position: relative; display: flex; align-items: center; width: 672px; height: 67px; border: 1px solid #E2E5EA; border-radius: 6px;
+              background-color: #fff;
+                .textWrap{
+                  .tit{font-size: 15px; color: #000;}
+                  .desc{font-size: 12px; color: #5F6060;}
+                }
+                .rightArrow{position: absolute; right: 20px; fill: #000;}
+                i{display: block; width: 22px; height: 22px; background-repeat: no-repeat; background-size: 22px 22px; 
+                background-position: center; margin: 0 20px;}
+                &.display{
+                  .monitor{background-image: url('../images/ico/useApp/settings/display.svg');}
+                }
+                &.sound{
+                  .speaker{height: 42px; background-image: url('../images/ico/useApp/settings/sound.svg'); 
+                  background-size: 42px 42px; background-position: center 3px;}
+                }
+                &.notice{
+                  .bell{height: 30px; background-image: url('../images/ico/useApp/settings/bell.svg'); 
+                  background-size: 30px 30px; background-position: center 2px;}
+                }
+                &.concentrate{
+                  .moon{height: 32px; background-image: url('../images/ico/useApp/settings/moon.svg');
+                  background-size: 32px 32px; background-position: center 2px;}
+                }
+                &.battery{
+                  .powerMode{height: 46px; background-image: url('../images/ico/useApp/settings/power.svg');
+                  background-size: 46px 46px; background-position: center 3px;}
+                }
+                &.storage{
+                  .drive{background-image: url('../images/ico/useApp/settings/storage.svg');}
+                }
+                &.lanShare{
+                  .share{height: 26px; background-image: url('../images/ico/useApp/settings/lanShare.svg');
+                  background-size: 26px 26px; background-position: center 2px;}
+                }
+                &.multiTasking{
+                  .screen{width:34px; height: 34px; background-image: url('../images/ico/useApp/settings/recovery.svg');
+                  background-size: 34px 34px; margin: 0 15px;}
+                }
+                &.genuineParts{
+                  .check{width: 34px; height: 34px; background-image: url('../images/ico/useApp/settings/check.svg');
+                  background-size: 34px 34px; margin: 0 15px;}
+                }
+                &.problem{
+                  .spanner{width: 34px; height: 34px; background-image: url('../images/ico/useApp/settings/spanner.svg');
+                  background-size: 34px 34px; margin: 0 15px;}
+                }
+                &.restore{
+                  .return{height: 44px; background-image: url('../images/ico/useApp/settings/restore.svg');
+                  background-size: 44px 44px; background-position: center 3px;}
+                }
+                &.myPc{
+                  .desktop{background-image: url('../images/ico/useApp/settings/pc-display.svg');}
+                }
+                &.remote{
+                  .remoteDesktop{height: 26px; background-image: url('../images/ico/useApp/settings/code.svg');
+                  background-size: 26px 26px; background-position: center 2px;}
+                }
+                &.clipBoard{
+                  .docs{height: 30px; background-image: url('../images/ico/useApp/settings/clipboard.svg');
+                  background-size: 30px 30px; background-position: center 2px;}
+                }
+                &.information{
+                  .pcInfo{height: 32px; background-image: url('../images/ico/useApp/settings/info.svg');
+                  background-size: 32px 32px; background-position: center 3px;}
+                }
+                &:hover{background-color: #F5F6F9;}
+                +li{margin-top: 5px;}
+              }
+            }
+          }
+          &:hover{
+            .windowScrollbar{
+              &::-webkit-scrollbar{display: block;}
             }
           }
         }
@@ -766,8 +851,8 @@ transform: scale(0.5) translate(-50%,-50%);  background-color: #fff; border-radi
   }
 }
 
-.tabCont{display: none;
-  &.active{display: block;}
+.tabCont{transform: translateY(-50px); visibility: hidden; transition: .3s ease-in-out;
+  &.active{transform: translateY(0); visibility: visible;}
 }
 
 .ui-icon,.ui-widget-content .ui-icon{background-image: none !important;}
@@ -832,6 +917,15 @@ height: 100vh; background-color: var(--bg-system-end); z-index: 10000;
       &:after {top: 56px;left: 12px;}
     }
   }
+}
+
+.windowScrollbar{
+  &::-webkit-scrollbar{display: none; width: 2px;height:2px;}
+  &.moreWidth::-webkit-scrollbar{width: 10px;}  
+  &::-webkit-scrollbar-button { display: none; }    //위 아래버튼
+  // &::-webkit-scrollbar-track { background-color:#e9e9e9; }  // 스크롤 뒷배경색
+  &::-webkit-scrollbar-thumb {border-radius:20px; background: #84878A;}   // 스크롤바
+  // &::-webkit-scrollbar-thumb:active { background: #808080; }    // 스크롤바 누르고있을 때 색
 }
 
 @keyframes lds-roller {

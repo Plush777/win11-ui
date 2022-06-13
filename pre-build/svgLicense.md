@@ -104,10 +104,74 @@ Power by i cons from NounProject.com
 
 | https://thenounproject.com/icon/power-1029459/
 
-Moon by balyanbinmalkan from NounProject.com
+Moon by fahmionline from NounProject.com
 
-| https://thenounproject.com/icon/moon-2021161/
+https://thenounproject.com/icon/moon-1311984/
 
 Reset by Sophia Bai from NounProject.com
 
 | https://thenounproject.com/icon/reset-1919280/
+
+Arrow Up by romzicon from NounProject.com
+
+| https://thenounproject.com/icon/arrow-up-1594898/
+
+Arrow Down by romzicon from NounProject.com
+
+| https://thenounproject.com/icon/arrow-down-1594879/
+
+Display by Kawalan Icon from NounProject.com
+
+| https://thenounproject.com/icon/display-2112263/
+
+Display by Anitha Jagathish from NounProject.com
+
+| https://thenounproject.com/icon/display-3389495/
+
+Sound by zaenul yahya from NounProject.com
+
+| https://thenounproject.com/icon/sound-4062987/
+
+Bell by Basicon from NounProject.com
+
+| https://thenounproject.com/icon/bell-3898642/
+
+Power by Dewanata Designs from NounProject.com
+
+| https://thenounproject.com/icon/power-4836629/
+
+Share by Nursila from NounProject.com
+
+| https://thenounproject.com/icon/share-4763268/
+
+Restore Down by OSstudios from NounProject.com
+
+| https://thenounproject.com/icon/restore-down-3492856/
+
+Check by NAPISAH from NounProject.com
+
+| https://thenounproject.com/icon/check-4728432/
+
+Spanner by juli from NounProject.com
+
+| https://thenounproject.com/icon/spanner-1103637/
+
+Data Recovery by M. Oki Orlando from NounProject.com
+
+| https://thenounproject.com/icon/data-recovery-4296265/
+
+Code by Luboš Volkov from NounProject.com
+
+| https://thenounproject.com/icon/code-20826/
+
+Clipboard by P Thanga Vignesh from NounProject.com
+
+| https://thenounproject.com/icon/clipboard-217107/
+
+Info by juli from NounProject.com
+
+| https://thenounproject.com/icon/info-860103/
+
+Arrow by Rainbow Designs from NounProject.com
+
+| https://thenounproject.com/icon/arrow-3134195/

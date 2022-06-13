@@ -74,7 +74,7 @@ $(function(){
         'click': function(){
             startFullScreen(document.documentElement);
         }
-    })
+    });
 });
 
 function startFullScreen(element){		

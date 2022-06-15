@@ -17,6 +17,13 @@ $(function(){
         }
     });
 
+    $('.windowApp.setting .topArea .right .browserControlArea .appReduction').on({
+        "click": function(){
+            $('.taskCenter ul li.setting').removeClass('on').addClass('appSave');
+            $('.windowApp.setting').addClass('save').removeClass('open');
+        }
+    });
+
     $('.appSearch.type02').on({
         "focus": function(){
             $(this).closest('.searchArea').addClass('focus');

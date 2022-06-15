@@ -46,12 +46,12 @@ $(function(){
         containment: 'window',
         cancel: '.dragCancel',
         start: function(){
-            $(this).css({'transform': 'none', 'transition': 'none'});
+            $(this).css({'transform': 'none','transition': 'none'});
         },
         stop: function(){
-            $(this).css('transition', 'all .25s cubic-bezier(.85,.14,.14,.85)');
+            $(this).css({'transform': 'inherit', 'transition': 'all .35s cubic-bezier(.85,.14,.14,.85)'});
         }
-    })
+    });
 
     $('.resizable').resizable({
         containment: '#App',

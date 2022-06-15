@@ -1,7 +1,7 @@
 $(function(){
     $('.tabClose,.btnBrowserClose').on({
         "click": function(){
-            $('.browser').removeClass('open').addClass('close');
+            $(this).closest('.browser').removeClass('open').addClass('close');
             $('.taskCenter ul li').removeClass('on appSave vib');
             $('.taskCenter ul li.new').removeClass('transY0');
             if($('.browser').hasClass('vsc')){

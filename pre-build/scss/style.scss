@@ -566,6 +566,9 @@ transform: scale(0.5) translate(-50%,-50%); background-color: #fff; border-radiu
    &.open{top: 50%; width: 1000px; height: 720px; visibility: visible; transform: scale(1) translate(-50%,-50%);
    transition-property:visibility,transform,transform-origin !important;}
 
+   //닫혔을 때
+   &.close{bottom: -280px !important; transform: scale(.5) translate(-50%,-50%) !important;}
+
     //최소화/풀스크린 모드
     &.minilize{min-width: 500px; width: 70% !important; height: auto;
       .topArea{padding-top: 7px; border-top-left-radius: 6px; border-top-right-radius: 6px;

@@ -13,31 +13,21 @@ $(function(){
         }
     });
 
-    $('.browser.chrome .topArea .right .browserControlArea .btnReduction').on({
+    $('.btnReduction').on({
         "click": function(){
-            $('.taskCenter ul li.chrome').removeClass('on').addClass('appSave');
-            $('.browser.chrome').addClass('save').removeClass('open');
-        }
-    });
-
-    $('.browser.vsc .topArea .right .browserControlArea .btnReduction').on({
-        "click": function(){
-            $('.taskCenter ul li.vsc').removeClass('on').addClass('appSave');
-            $('.browser.vsc').addClass('save').removeClass('open');
-        }
-    });
-
-    $('.browser.edge .topArea .right .browserControlArea .btnReduction').on({
-        "click": function(){
-            $('.taskCenter ul li.edge').removeClass('on').addClass('appSave');
-            $('.browser.edge').addClass('save').removeClass('open');
-        }
-    });
-
-    $('.browser.discord .topArea .right .browserControlArea .btnReduction').on({
-        "click": function(){
-            $('.taskCenter ul li.discord').removeClass('on').addClass('appSave');
-            $('.browser.discord').addClass('save').removeClass('open');
+            if($(this).closest('.browser').hasClass('chrome')){
+                $('.taskCenter ul li.chrome').removeClass('on').addClass('appSave');
+                $('.browser.chrome').addClass('save').removeClass('open');
+            } else if($(this).closest('.browser').hasClass('edge')){
+                $('.taskCenter ul li.edge').removeClass('on').addClass('appSave');
+                $('.browser.edge').addClass('save').removeClass('open');
+            } else if($(this).closest('.browser').hasClass('discord')){
+                $('.taskCenter ul li.discord').removeClass('on').addClass('appSave');
+                $('.browser.discord').addClass('save').removeClass('open');
+            } else if($(this).closest('.browser').hasClass('vsc')){
+                $('.taskCenter ul li.vsc').removeClass('on').addClass('appSave');
+                $('.browser.vsc').addClass('save').removeClass('open');
+            }
         }
     });
 

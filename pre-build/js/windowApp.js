@@ -1,7 +1,7 @@
 $(function(){
     $('.appClose').on({
         "click": function(){
-            $('.windowApp').removeClass('open').addClass('close');
+            $(this).closest('.windowApp').removeClass('open').addClass('close');
             $('.taskCenter ul li').removeClass('on appSave vib');
             $('.taskCenter ul li.new').removeClass('transY0');
             if($('.windowApp').hasClass('notePad')){
@@ -10,17 +10,18 @@ $(function(){
         }
     });
 
-    $('.windowApp.notePad .topArea .right .browserControlArea .appReduction').on({
+    $('.appReduction').on({
         "click": function(){
-            $('.taskCenter ul li.notePad').removeClass('on').addClass('appSave');
-            $('.windowApp.notePad').addClass('save').removeClass('open');
-        }
-    });
+            const windowApp = $(this).closest('.windowApp');
+            $(this).closest('.windowApp').css({'transform': 'scale(0) translate(-50%,-50%)'});
 
-    $('.windowApp.setting .topArea .right .browserControlArea .appReduction').on({
-        "click": function(){
-            $('.taskCenter ul li.setting').removeClass('on').addClass('appSave');
-            $('.windowApp.setting').addClass('save').removeClass('open');
+            if(windowApp.hasClass('setting')){
+                $('.taskCenter ul li.setting').removeClass('on').addClass('appSave');
+                $('.windowApp.setting').addClass('save').removeClass('open');
+            } else if(windowApp.hasClass('notePad')){
+                $('.taskCenter ul li.notePad').removeClass('on').addClass('appSave');
+                $('.windowApp.notePad').addClass('save').removeClass('open');
+            }
         }
     });
 

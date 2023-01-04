@@ -3,13 +3,17 @@ $(function(){
         "click": function(){
             if($(this).hasClass('chrome')){
                 $('.browser.chrome').toggleClass('open').removeClass('save');
+
                 if($('.browser').hasClass('open')){
                     $('.taskCenter ul li.chrome').addClass('on').removeClass('appSave');
                 } else {
                     $('.taskCenter ul li.chrome').removeClass('on').addClass('appSave');
                 }
-            } else if($(this).hasClass('edge')){
+            } 
+            
+            else if($(this).hasClass('edge')){
                 $('.browser.edge').toggleClass('open').removeClass('save');
+
                 if($('.browser').hasClass('open')){
                     $('.taskCenter ul li.edge').addClass('on').removeClass('appSave');
                 } else {
@@ -19,7 +23,6 @@ $(function(){
         }
     });
 
-    //동적으로 생성된 객체에 접근할 때 이벤트 설정
     $(document).on('click','.taskCenter ul li',function(){
         if($(this).hasClass('discord')){
             $('.browser.discord').toggleClass('open').removeClass('save');
@@ -41,6 +44,13 @@ $(function(){
                 $('.taskCenter ul li.notePad').addClass('on').removeClass('appSave');
             } else {
                 $('.taskCenter ul li.notePad').removeClass('on').addClass('appSave');
+            }
+        } else if($(this).hasClass('setting')){
+            $('.windowApp.setting').toggleClass('open').removeClass('save').removeClass('close');
+            if($('.windowApp').hasClass('open')){
+                $('.taskCenter ul li.setting').addClass('on').removeClass('appSave');
+            } else {
+                $('.taskCenter ul li.setting').removeClass('on').addClass('appSave');
             }
         }
     });

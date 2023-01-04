@@ -7,7 +7,7 @@ body{overflow: hidden;}
 #App{position: relative; width: 100%; height: 100%;}
 
 .appBg{
-  &:before{content: ''; display: block; min-width: 100vw; min-height: 100vh; background: url('/images/bg/bg-windows-light.jpg') no-repeat;
+  &:before{content: ''; display: block; min-width: 100vw; min-height: 100vh; background: url('../images/bg/bg-windows-light.jpg') no-repeat;
   background-size: cover;}
 } 
 
@@ -161,7 +161,7 @@ backdrop-filter: saturate(3) blur(20px);
 }
 
 .browser{position: absolute !important; top: 0; left: 0; width: 100% !important; height: 100%; visibility: hidden; transition: all .25s cubic-bezier(.85,.14,.14,.85);
-transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1;
+transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1010;
   //열렸을 때
   &.open{opacity: 1; visibility: visible; transform: scale(1);}
 
@@ -559,15 +559,13 @@ transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1;
 
 .windowApp{position: absolute !important; bottom: -230px; left: 50%; width: 0; 
 height: 0; visibility: hidden; transition-timing-function: cubic-bezier(.85,.14,.14,.85); transform-origin: bottom;
-transition-duration: .35s; transition-property: width,height,bottom,transform-origin,transform,visibility !important;
-transform: scale(0.5) translate(-50%,-50%); background-color: #fff; border-radius: 8px; z-index: 1;
+transition-duration: .35s; transform: scale(0.5) translate(-50%,-50%); background-color: #fff; border-radius: 8px; z-index: 1000;
 
    //열렸을 때
-   &.open{top: 50%; width: 1000px; height: 720px; visibility: visible; transform: scale(1) translate(-50%,-50%);
-   transition-property:visibility,transform,transform-origin !important;}
+   &.open{top: 50%; width: 1000px; height: 720px; visibility: visible; transform: scale(1) translate(-50%,-50%);}
 
    //닫혔을 때
-   &.close{bottom: -280px !important; transform: scale(.5) translate(-50%,-50%) !important;}
+   &.close{bottom: -280px !important; left: 50% !important; transform: scale(.5) translate(-50%,-50%) !important;}
 
     //최소화/풀스크린 모드
     &.minilize{min-width: 500px; width: 70% !important; height: auto;

@@ -85,6 +85,15 @@ $(function(){
             startFullScreen(document.documentElement);
         }
     });
+
+    $('.windowY').mCustomScrollbar({
+        scrollbarPosition:'outside',
+        axis:"y",
+        setTop: "0",
+        advanced: {
+            autoExpandHorizontalScroll: true
+        }
+    });
 });
 
 function startFullScreen(element){		

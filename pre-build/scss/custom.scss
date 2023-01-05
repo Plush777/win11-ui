@@ -1,0 +1,19 @@
+/* mcustomscrollbar */
+.windowScrollbar{
+    &.windowY{
+        .mCSB_outside+.mCSB_scrollTools.mCSB_scrollTools_vertical{right: -7px;}
+        .mCSB_scrollTools.mCSB_scrollTools_vertical .mCSB_dragger .mCSB_dragger_bar{background-color: transparent;}
+        .mCSB_scrollTools.mCSB_scrollTools_vertical .mCSB_dragger .mCSB_draggerRail{position: absolute; 
+        left: 4px; top: 0; background-color: #868686;}
+        .mCSB_scrollTools{
+            &.mCSB_scrollTools_vertical .mCSB_dragger .mCSB_draggerRail,
+            &.mCSB_scrollTools_vertical .mCSB_dragger .mCSB_dragger_bar{transition: .3s ease-in-out;}
+            &.mCSB_scrollTools_vertical .mCSB_dragger .mCSB_dragger_bar{width: 100%; left: -3px; margin: 0; padding: 10px 0;}
+
+            &:hover{
+                &.mCSB_scrollTools_vertical .mCSB_dragger .mCSB_draggerRail{width: 8px; left: 0.5px;}
+                &.mCSB_scrollTools_vertical .mCSB_dragger .mCSB_dragger_bar{background-color: #000;}
+            }
+        }
+    }
+}

@@ -2,6 +2,7 @@
  
 @import '../scss/reset.scss';
 @import '../scss/theme.scss';
+@import '../scss/custom.scss';
 
 body{overflow: hidden;}
 #App{position: relative; width: 100%; height: 100%;}
@@ -783,11 +784,6 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
               }
             }
           }
-          &:hover{
-            .windowScrollbar{
-              &::-webkit-scrollbar{display: block;}
-            }
-          }
         }
       }
     }
@@ -966,15 +962,6 @@ height: 100vh; background-color: var(--bg-system-end); z-index: 10000;
       &:after {top: 56px;left: 12px;}
     }
   }
-}
-
-.windowScrollbar{overflow-y: auto; scroll-behavior: smooth;
-  &::-webkit-scrollbar{display: none; width: 2px;height:2px;}
-  &.moreWidth::-webkit-scrollbar{width: 10px;}  
-  &::-webkit-scrollbar-button { display: none; }    //위 아래버튼
-  // &::-webkit-scrollbar-track { background-color:#e9e9e9; }  // 스크롤 뒷배경색
-  &::-webkit-scrollbar-thumb {border-radius:20px; background: #84878A;}   // 스크롤바
-  // &::-webkit-scrollbar-thumb:active { background: #808080; }    // 스크롤바 누르고있을 때 색
 }
 
 @keyframes lds-roller {

@@ -1,20 +1,31 @@
 $(function(){
-    $('.tabClose,.btnBrowserClose').on({
+    $('.tabClose,.btnClose').on({
         "click": function(){
-            $(this).closest('.browser').removeClass('open').addClass('close');
+            $(this).closest('.browser,.windowApp').removeClass('open').addClass('close');
             $('.taskCenter ul li').removeClass('on appSave vib');
             $('.taskCenter ul li.new').removeClass('transY0');
+
             if($('.browser').hasClass('vsc')){
                 $('.taskCenter ul li.vsc').remove();
             }
             if($('.browser').hasClass('discord')){
                 $('.taskCenter ul li.discord').remove();
             }
+            if($('.windowApp').hasClass('notePad')){
+                $('.taskCenter ul li.notePad').remove();
+            }
+
+            setTimeout(() => {
+                $(this).closest('.browser,.windowApp').removeClass('minilize');
+            }, 1000);
         }
     });
 
     $('.btnReduction').on({
         "click": function(){
+            const windowApp = $(this).parents('.windowApp');
+            windowApp.css({'transform': 'scale(0) translate(-50%,-50%)'});
+
             if($(this).closest('.browser').hasClass('chrome')){
                 $('.taskCenter ul li.chrome').removeClass('on').addClass('appSave');
                 $('.browser.chrome').addClass('save').removeClass('open');
@@ -27,6 +38,14 @@ $(function(){
             } else if($(this).closest('.browser').hasClass('vsc')){
                 $('.taskCenter ul li.vsc').removeClass('on').addClass('appSave');
                 $('.browser.vsc').addClass('save').removeClass('open');
+            }
+
+            if(windowApp.hasClass('setting')){
+                $('.taskCenter ul li.setting').removeClass('on').addClass('appSave');
+                $('.windowApp.setting').addClass('save').removeClass('open');
+            } else if(windowApp.hasClass('notePad')){
+                $('.taskCenter ul li.notePad').removeClass('on').addClass('appSave');
+                $('.windowApp.notePad').addClass('save').removeClass('open');
             }
         }
     });
@@ -42,7 +61,7 @@ $(function(){
 
     $('.btnExp').on({
         "click": function(){
-            $('.browser').toggleClass('minilize').css({'top': '0', 'left': '0'});
+            $(this).closest('.browser,.windowApp').toggleClass('minilize');
         }
     });
 

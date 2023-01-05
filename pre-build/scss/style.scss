@@ -160,40 +160,66 @@ backdrop-filter: saturate(3) blur(20px);
   100%{opacity: 1;}
 }
 
-.browser{position: absolute !important; top: 0; left: 0; width: 100% !important; height: 100%; visibility: hidden; transition: all .25s cubic-bezier(.85,.14,.14,.85);
-transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1010;
-  //열렸을 때
-  &.open{opacity: 1; visibility: visible; transform: scale(1);}
+.browser,.windowApp{position: absolute !important; left: 50%; top: 50%; width: 100% !important; height: 100%; opacity: 0; visibility: hidden;
+transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) translate(-50%,-50%); z-index: 1000; border-radius: 6px;
 
-  //최소화/풀스크린 모드
-  &.minilize{min-width: 500px; width: 70% !important; height: auto;
-    .browserFrameArea{
-      iframe{min-width: 500px; width: 70% !important; height: 600px !important; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}
-    }
-    &.chrome{
-      .topArea .browserTabWrap .browserTabList li{width: 100%;}
-    }
-    .topArea{padding-top: 7px; border-top-left-radius: 6px; border-top-right-radius: 6px;
-      .browserTabWrap{min-width: 240px;
-        .browserTabList{
-          li{min-width: 110px;}
-        }
+  .topArea{display: flex; width: 100%;
+    .right{width: 100%; display: flex; align-items: center; justify-content: flex-end;white-space: nowrap; margin-left: 30px;}
+  }
+
+  .controlArea{display: flex; height: 100%;
+    button{width: 43px; height: 100%; background-repeat: no-repeat; background-position: center 6px; background-size: 12px 12px;
+    cursor: default; transition: .3s ease-in-out;
+      &.btnReduction{background-image: url('../images/ico/browser/minimize.png');
+        &:hover{background-color: #C7CACF;}
+        &:active{background-color: #B2B4B8;}
       }
-      >.right{position: relative; top: -6px;
-        .browserControlArea{
+      &.btnExp{background-image: url('../images/ico/browser/maximize.png');
+        &:hover{background-color: #C7CACF;}
+        &:active{background-color: #B2B4B8;}
+      }
+      &.btnClose{background-image: url('../images/ico/browser/close.png'); border-top-right-radius: 6px;
+        &:hover{background-color: #E81123; background-image: url('../images/ico/browser/close-white.png');}
+        &:active{background-color: #E36571; background-image: url('../images/ico/browser/close-white.png');}
+      }
+    }
+  }
+
+  &.open{opacity: 1; visibility: visible; transform: scale(1) translate(-50%,-50%);}
+
+  &.minilize{min-width: 500px; width: 70% !important; height: auto; transform: scale(1) translate(-50%,-50%);
+    .topArea{padding-top: 7px; border-top-left-radius: 6px; border-top-right-radius: 6px;
+      .right{
+        .controlArea{
           button{
             &.btnExp{background-image: url('../images/ico/browser/maxmin.png');}
-            &.btnBrowserClose{border-top-right-radius: 6px;}
           }
         }
       }
     }
   }
 
-  //축소모드
   &.save{transform: scale(0); opacity: 0;}
+}
 
-  .topArea{display: flex; width: 100%;
+.browser{
+  &.minilize{
+    .browserFrameArea{
+      iframe{min-width: 500px; width: 70% !important; height: 600px !important; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}
+    }
+    &.chrome{
+      .topArea .browserTabWrap .browserTabList li{width: 100%;}
+    }
+    .topArea{
+      .browserTabWrap{min-width: 240px;
+        .browserTabList{
+          li{min-width: 110px;}
+        }
+      }
+    }
+  }
+
+  .topArea{
     .browserTabWrap{
       .browserTabList{display: flex;
         li{position: relative; display: flex; transition: .3s ease-in-out;
@@ -204,25 +230,6 @@ transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1010;
     .addArea{display: flex; align-items: center;
       .addTab{position: relative; display: flex; align-items: center;
         svg{position: relative; z-index: 1000;}
-      }
-    }
-    >.right{width: 100%; display: flex; align-items: center; justify-content: flex-end;white-space: nowrap; margin-left: 30px;
-      .browserControlArea{display: flex; height: 100%;
-        button{width: 43px; height: 100%; background-repeat: no-repeat; background-position: center;
-        background-size: 12px 12px; cursor: default; transition: .3s ease-in-out;
-          &.btnReduction{background-image: url('../images/ico/browser/minimize.png');
-            &:hover{background-color: #C7CACF;}
-            &:active{background-color: #B2B4B8;}
-          }
-          &.btnExp{background-image: url('../images/ico/browser/maximize.png');
-            &:hover{background-color: #C7CACF;}
-            &:active{background-color: #B2B4B8;}
-          }
-          &.btnBrowserClose{background-image: url('../images/ico/browser/close.png');
-            &:hover{background-color: #E81123; background-image: url('../images/ico/browser/close-white.png');}
-            &:active{background-color: #E36571; background-image: url('../images/ico/browser/close-white.png');}
-          }
-        }
       }
     }
   }
@@ -372,7 +379,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1010;
   &.vsc{
     .topArea{height: 35px; background-color: #323233;
       >.right{margin-left: 0;
-        .browserControlArea{
+        .controlArea{
           button{transition: none;
             &.btnReduction{background-image: url('../images/ico/browser/minimize-white.png');
               &:hover{background-color: #474748;}
@@ -380,7 +387,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1010;
             &.btnExp{background-image: url('../images/ico/browser/maximize-white.png');
               &:hover{background-color: #474748;}
             }
-            &.btnBrowserClose{background-image: url('../images/ico/browser/close-white.png');}
+            &.btnClose{background-image: url('../images/ico/browser/close-white.png');}
           }
         }
       }
@@ -396,7 +403,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1010;
         .appTitle{display: flex; align-items: center; margin-left: 5px;
           svg text{fill: #A3A6AA; cursor: default;}
         }
-        .browserControlArea{
+        .controlArea{
           button{transition: none;
             &.btnReduction{background-image: url('../images/ico/browser/minimize-white.png');
               &:hover{background-color: #474748;}
@@ -404,7 +411,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1010;
             &.btnExp{background-image: url('../images/ico/browser/maximize-white.png');
               &:hover{background-color: #474748;}
             }
-            &.btnBrowserClose{background-image: url('../images/ico/browser/close-white.png');}
+            &.btnClose{background-image: url('../images/ico/browser/close-white.png');}
           }
         }
       }
@@ -457,7 +464,7 @@ transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1010;
         &:hover{background-color: #BDBDBD;}
       }
       >.right{
-        .browserControlArea button:hover:not(.btnBrowserClose){background-color: #b8b8b8;}
+        .controlArea button:hover:not(.btnClose){background-color: #b8b8b8;}
       }
       .browserTabWrap{
         .browserTabList{
@@ -557,56 +564,10 @@ transform-origin: center; transform: scale(0.7); opacity: 0; z-index: 1010;
   }
 }
 
-.windowApp{position: absolute !important; bottom: -230px; left: 50%; width: 0; 
-height: 0; visibility: hidden; transition-timing-function: cubic-bezier(.85,.14,.14,.85); transform-origin: bottom;
-transition-duration: .35s; transform: scale(0.5) translate(-50%,-50%); background-color: #fff; border-radius: 8px; z-index: 1000;
-
-   //열렸을 때
-   &.open{top: 50%; width: 1000px; height: 720px; visibility: visible; transform: scale(1) translate(-50%,-50%);}
+.windowApp{background-color: #fff;
 
    //닫혔을 때
    &.close{bottom: -280px !important; left: 50% !important; transform: scale(.5) translate(-50%,-50%) !important;}
-
-    //최소화/풀스크린 모드
-    &.minilize{min-width: 500px; width: 70% !important; height: auto;
-      .topArea{padding-top: 7px; border-top-left-radius: 6px; border-top-right-radius: 6px;
-        >.right{position: relative; top: -6px;
-          .browserControlArea{
-            button{
-              &.btnExp{background-image: url('../images/ico/browser/maxmin.png');}
-              &.btnBrowserClose{border-top-right-radius: 6px;}
-            }
-          }
-        }
-      }
-    }
-
-    //축소모드
-    &.save{transform: scale(0); opacity: 0;}
-
-    .topArea{display: flex; width: 100%;
-      .row{
-        >.right{width: 100%; display: flex; align-items: center; justify-content: flex-end;white-space: nowrap; margin-left: 30px;
-          .browserControlArea{display: flex; height: 100%;
-            button{width: 43px; height: 100%; background-repeat: no-repeat; background-position: center;
-            background-size: 12px 12px; cursor: default; transition: .3s ease-in-out;
-              &.appReduction{background-image: url('../images/ico/browser/minimize.png');
-                &:hover{background-color: #C7CACF;}
-                &:active{background-color: #B2B4B8;}
-              }
-              &.appExp{background-image: url('../images/ico/browser/maximize.png');
-                &:hover{background-color: #C7CACF;}
-                &:active{background-color: #B2B4B8;}
-              }
-              &.appClose{background-image: url('../images/ico/browser/close.png');border-top-right-radius: 8px;
-                &:hover{background-color: #E81123; background-image: url('../images/ico/browser/close-white.png');}
-                &:active{background-color: #E36571; background-image: url('../images/ico/browser/close-white.png');}
-              }
-            }
-          }
-        }
-      }
-    }
 
     &.notePad{box-shadow: 0 0 15px 8px rgba($color: #000000, $alpha: 0.1);
       .topArea{height: 40px; border-radius: 8px 8px 0 0; background-color: #EFF4F9;
@@ -616,9 +577,9 @@ transition-duration: .35s; transform: scale(0.5) translate(-50%,-50%); backgroun
         .fileName{display: inline-block; font-size: 12px; padding-left: 10px; color: #000; white-space: nowrap;}
         .row{display: flex; width: 100%;
           >.right{margin-left: 0;
-            .browserControlArea{
+            .controlArea{
               button{height: 27px;}
-              .btnBrowserClose{border-top-right-radius: 8px;}
+              .btnClose{border-top-right-radius: 8px;}
             }
           }
         }

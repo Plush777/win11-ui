@@ -34,22 +34,32 @@ $(function(){
     $('.ui-drag').draggable({
         containment: 'window',
         cancel: '.dragCancel',
-        start: function(){
-            $(this).css({'transition': 'none'});
+        start: function(event,ui){
+            const openClass = ui.helper[0].classList[7];
+            const minilizeClass = ui.helper[0].classList[9];
+
+            $(this).css({
+                'transform': 'none',
+                'transition': 'none'
+            });
+
+            if($(this).hasClass(openClass)){
+                $(this).addClass('minilize');
+                $(this).css('transition', 'all .25s cubic-bezier(.85,.14,.14,.85)');
+            } 
+            
+            if($(this).hasClass(openClass) && $(this).hasClass(minilizeClass)){
+                $(this).css({
+                    'transform': 'none',
+                    'transition': 'none'
+                });
+            }
+
+            console.log(ui.helper);
+
         },
         stop: function(){
             $(this).css('transition', 'all .25s cubic-bezier(.85,.14,.14,.85)');
-        }
-    });
-
-    $('.app-drag').draggable({
-        containment: 'window',
-        cancel: '.dragCancel',
-        start: function(){
-            $(this).css({'transform': 'none','transition': 'none'});
-        },
-        stop: function(){
-            $(this).css({'transform': 'inherit', 'transition': 'all .35s cubic-bezier(.85,.14,.14,.85)'});
         }
     });
 

@@ -88,10 +88,32 @@ $(function(){
 
     $('.windowY').mCustomScrollbar({
         scrollbarPosition:'outside',
+        scrollButtons: {enable: true},
         axis:"y",
         setTop: "0",
         advanced: {
             autoExpandHorizontalScroll: true
+        }
+    });
+
+    $('.windowScrollbar.windowY .mCSB_scrollTools_vertical').on({
+        'mouseenter' :function(){
+            $(this).addClass('op1');
+        },
+        'mouseleave' :function(){
+            $(this).removeClass('op1');
+        }
+    });
+
+    $('.windowApp,.browser').on({
+        'click': function () {
+            $(this).css('z-index', 1000);
+
+            $('.windowApp,.browser,.browser .commonFrame').not($(this).closest('.windowApp,.browser')).each(function () {
+                let currentZindex = $(this).css('z-index');
+                currentZindex = parseInt(currentZindex);
+                currentZindex === 1000 && $(this).css('z-index', currentZindex - 10);
+            });
         }
     });
 });

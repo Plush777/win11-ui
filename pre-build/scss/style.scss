@@ -623,15 +623,6 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
       .contArea{height: calc(100% - 35px);
         >.container{display: flex; height: 100%;}
         .leftArea{width: 280px; padding: 30px 0 0 5px; box-sizing: border-box; margin-right: 25px;
-          .accInfoBox{display: flex; align-items: center; padding: 8px 8px 12px 13px; border-radius: 8px; transition: .1s ease-in-out;
-            .accImg{width: 55px; height: 55px; border-radius: 50%; background: #e6e6e6 url('../images/ico/browser/edge-acc.svg') no-repeat center;
-            background-size: 30px 30px;}
-            .accMaster{padding-left: 10px;
-              .accName{font-size: 15px;}
-              .accInfo{font-size: 13px; font-weight: normal;}
-            }
-            &:hover{background-color: rgba($color: #EAEAEA, $alpha: 0.5);}
-          }
           .searchArea{position: relative; display: flex; margin: 10px 0 20px 0; width: 265px; border-radius: 5px; border-bottom: 2px solid #1b1b1b;
             &.focus{border-bottom-color: #0067C0;
               .appSearch{
@@ -782,6 +773,25 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
                 &.device{
                   .deviceIcon:before{content: '\ec76';}
                 }
+
+                /* 앱 */
+                &.appFunc{
+                  .appMore:before{content: '\e71d';}
+                }
+                &.defaultAppFunc{
+                  .defaultApps:before{content: '';}
+                }
+                &.offlineMaps{
+                  .mapDownload:before{content: '\e826';}
+                }
+                &.video{
+                  .videos:before{content: '\e714';}
+                }
+                &.startProgram{
+                  .lockScreen:before{content: '\e7b5';}
+                }
+
+
                 &:hover{background-color: #F5F6F9;}
                 +li{margin-top: 5px;}
               }
@@ -963,6 +973,28 @@ height: 100vh; background-color: var(--bg-system-end); z-index: 10000;
     &:nth-child(8) {animation-delay: -0.288s;
       &:after {top: 56px;left: 12px;}
     }
+  }
+}
+
+.accInfoBox{display: flex; align-items: center; padding: 8px 8px 12px 13px; border-radius: 8px; transition: .1s ease-in-out;
+  .accImg{width: 55px; height: 55px; border-radius: 50%; background: #e6e6e6 url('../images/ico/browser/edge-acc.svg') no-repeat center;
+  background-size: 30px 30px;}
+  .accMaster{padding-left: 10px;
+    .accName{font-size: 15px;}
+    .accInfo{font-size: 13px; font-weight: normal;}
+  }
+  &:hover{background-color: rgba($color: #EAEAEA, $alpha: 0.5);}
+}
+
+.myAccArea{margin-top: 33px;
+  .accInfoBox{column-gap:5px; padding: 0;
+    .accImg{width: 90px; height: 90px; background-size: 50px 50px;}
+    .accMaster{display: flex; flex-direction: column;
+      .accName{font-size: 18px;}
+      .accInfo,.accAuth{font-size: 15px; color: #616161;}
+      .accAuth{margin-top: 3px;}
+    }
+    &:hover{background-color: transparent;}
   }
 }
 

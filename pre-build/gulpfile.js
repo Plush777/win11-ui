@@ -7,22 +7,22 @@ import uglify from 'gulp-uglify';
 import rename from 'gulp-rename';
 
 var src = {
-    html : ['html/**/*.html','html/*.html'],
-    js : ['js/*.js','js/**/*.js'],
-    css : ['scss/*.scss','scss/**/*.scss'],
-    imgs : ['images/**','images/**/**','images/**/**/*']
+    html: ['html/**/*.html', 'html/*.html'],
+    js: ['js/*.js', 'js/**/*.js'],
+    css: ['scss/*.scss', 'scss/**/*.scss'],
+    imgs: ['images/**', 'images/**/**', 'images/**/**/*']
 }
 var paths = {
     html: '../build/html/',
-    js : '../build/js/',
-    css : '../build/css/',
-    imgs : '../build/images/'
+    js: '../build/js/',
+    css: '../build/css/',
+    imgs: '../build/images/'
 }
 
 var scssOptions = {
-    outputStyle : "expanded",
-    indentType : "tab",
-    indentWidth : 1,
+    outputStyle: "expanded",
+    indentType: "tab",
+    indentWidth: 1,
     precision: 6,
     sourceComments: true
 };
@@ -36,7 +36,7 @@ function htmlComplie() {
             basepath: '@file'
         }))
         .pipe(gulp.dest(paths.html))
-        .pipe(browserSync.reload({stream:true}));
+        .pipe(browserSync.reload({ stream: true }));
 };
 
 
@@ -50,7 +50,7 @@ function scssCompile() {
         //     src: 'css/*.css' 
         // }))
         .pipe(gulp.dest(paths.css))
-        .pipe(browserSync.reload({stream:true}));
+        .pipe(browserSync.reload({ stream: true }));
 };
 
 
@@ -63,29 +63,29 @@ function concatJs() {
         }))
         // .pipe(rename('ui.min.js'))
         .pipe(gulp.dest(paths.js))
-        .pipe(browserSync.reload({stream:true}));
+        .pipe(browserSync.reload({ stream: true }));
 }
 
 function imgs() {
     return gulp.src(src.imgs)
         .pipe(gulp.dest(paths.imgs))
-        .pipe(browserSync.reload({stream:true}));
+        .pipe(browserSync.reload({ stream: true }));
 }
 
-function watchFiles(){
-    gulp.watch(src.html).on('change',htmlComplie);
+function watchFiles() {
+    gulp.watch(src.html).on('change', htmlComplie);
     gulp.watch(src.css, scssCompile);
     gulp.watch(src.js, concatJs);
     gulp.watch(src.imgs, imgs);
 
 }
 
-function brwSync(){
+function brwSync() {
     browserSync.init({
-        server:{
-            baseDir:'../build/'
+        server: {
+            baseDir: '../build/'
         }
     });
 }
 
-gulp.task('default', gulp.parallel(gulp.series(htmlComplie, scssCompile, concatJs, imgs),brwSync, watchFiles));
+gulp.task('default', gulp.parallel(gulp.series(htmlComplie, scssCompile, concatJs, imgs), brwSync, watchFiles));

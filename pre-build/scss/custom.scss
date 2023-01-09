@@ -1,7 +1,7 @@
 /* mcustomscrollbar */
 .windowScrollbar{
     &.windowY{
-        .mCSB_outside+.mCSB_scrollTools.mCSB_scrollTools_vertical{right: -7px;}
+        .mCSB_outside+.mCSB_scrollTools.mCSB_scrollTools_vertical{right: 0;}
         .mCSB_scrollTools.mCSB_scrollTools_vertical .mCSB_dragger .mCSB_dragger_bar{background-color: transparent;}
         .mCSB_scrollTools.mCSB_scrollTools_vertical .mCSB_dragger .mCSB_draggerRail{position: absolute; 
         left: 4px; top: 0; background-color: #868686;}

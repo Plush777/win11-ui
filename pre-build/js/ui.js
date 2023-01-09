@@ -116,6 +116,28 @@ $(function(){
             });
         }
     });
+
+    $('.tabList li').on({
+        'click': function(){
+            let mcsbTop = $('.mCSB_container').css('top');
+            console.log(mcsbTop);
+
+            if(mcsbTop !== 0){
+               $('.mCSB_container').css('top', 0);
+            }
+        }
+    });
+
+    $('.btnSwitch').on({
+        'click': function(){
+            $(this).toggleClass('active');
+            if($(this).hasClass('active')){
+                $(this).siblings('.state').text('켬');
+            } else {
+                $(this).siblings('.state').text('끔');
+            }
+        }
+    });
 });
 
 function startFullScreen(element){		

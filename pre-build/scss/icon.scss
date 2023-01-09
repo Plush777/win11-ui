@@ -1,0 +1,42 @@
+i{
+    &.ico{display: block; width: 22px; height: 22px; margin: 0 20px; font-family: "Segoe Fluent Icons";
+        &:before{font-size: 24px;}
+        &.init{width: auto; height: auto; margin: 0;}
+        &.plus:before{content: '\e710'; font-size: 50px;}
+
+        /* 시스템 */
+        &.monitor:before{content: '\e770';}
+        &.speaker:before{content: '\e767';}
+        &.bell:before{content: '\ea8f';}
+        &.moon:before{content: '\ec46';}
+        &.powerMode:before{content: '\e7e8';}
+        &.drive:before{content: '\eda2';}
+        &.share:before{content: '\e72d';}
+        &.screen:before{content: '\ee40';}
+        &.check:before{content: '\e930';}
+        &.spanner:before{content: '\e90f';}
+        &.return:before{content: '\ebc4';}
+        &.desktop:before{content: '\ebc6';}
+        &.remoteDesktop:before{content: '\e8af';}
+        &.docs:before{content: '\e77f';}
+        &.pcInfo:before{content: '\e946';}
+
+        /* 개인설정 */
+        &.img:before{content: '\e91b';}
+        &.palette:before{content: '\e790';}
+        &.brush:before{content: '\e771';}
+        &.lockScreen:before{content: '\ee3f';}
+        &.keyboard:before{content: '\e765';}
+        &.start:before{content: '\f26c';} //아이콘이 없어서 비슷한걸로 대체
+        &.taskIcon:before{content: '\e90e';}
+        &.fontIcon:before{content: '\e8d2';}
+        &.deviceIcon:before{content: '\ec76';}
+        
+        /* 앱 */
+        &.appMore:before{content: '\e71d';}
+        &.defaultApps:before{content: '';}
+        &.mapDownload:before{content: '\e826';}
+        &.videos:before{content: '\e714';}
+        &.lockScreen:before{content: '\e7b5';}
+    }
+}

@@ -3,6 +3,7 @@
 @import '../scss/reset.scss';
 @import '../scss/theme.scss';
 @import '../scss/custom.scss';
+@import '../scss/icon.scss';
 
 body{overflow: hidden; user-select: none;}
 #App{position: relative; width: 100%; height: 100%;}
@@ -142,7 +143,7 @@ backdrop-filter: saturate(3) blur(20px);
   .taskRight{position: relative;
     .currentDateTime{position: absolute; right: 0;
       .time,.dateBox{display: flex; justify-content: flex-end;
-        span{display: inline-block; font: {size: 11px; family: 'sans-serif';}
+        span{display: inline-block; font: {size: 11px; family: 'sans-serif';} letter-spacing: -0.05px; color: #444;
           &#ampm{margin-right: 3px;}
           &#date{white-space: nowrap;}
         }
@@ -645,10 +646,14 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
           }
         }
 
-        .rightArea{position: relative; width: 100%; margin-top: 30px;
+        .rightArea{width: calc(100% - 925px);  margin-top: 30px;
           .tabCont{height: 100%;}
-          .titArea{font-size: 28px; font-family: 'Segoe UI Variable'; color: #000;}
-          .rightContainer{max-height: calc(100% - 35px);
+          .titArea{font-size: 28px; font-family: 'Segoe UI Variable'; color: #000;
+            &.sub{font-size: 14px; font-weight: bold; margin: 20px 0 0 0;
+              +.setList{margin-top: 15px;}
+            }
+          }
+          .rightContainer{position: static !important; max-height: calc(100% - 35px);
             .mCSB_container{padding-bottom: 44px;}
           }
           .infoBox{display: flex; flex-wrap: wrap; align-items: center; margin-top: 30px; gap: 10px;
@@ -685,117 +690,39 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
               &:hover{background-color: #E8EAEF;}
             }
           }
+          .setWrap{display: flex; flex-direction: column; row-gap: 10px;
+            +.setList{margin-top: 10px;}
+            .btnArea{width: 100%;
+              button{width: 100%;}
+            }
+          }
+          .setBoxArea{
+            ul{display: flex; column-gap: 10px;
+              li{
+                .setBox{display: flex; flex-direction: column; align-items: center; justify-content: center; width: 220px; height: 220px; 
+                border-radius: 6px; border: 1px solid #e5e5e5; background-color: #fbfbfb; transition: .15s;
+                  span{margin-top: 7px; color: #1a1a1a; font-size: 14px; font-weight: bold;}
+                  &:hover{background-color: #f6f6f6;}
+                }
+              }
+            }
+          }
           .setList{margin-top: 30px;
             ul{
-              li{position: relative; display: flex; align-items: center; width: calc(100% - 20px); height: 67px; border: 1px solid #E2E5EA; border-radius: 6px;
+              li{position: relative; display: flex; align-items: center; width: 100%; height: 67px; padding: 20px; 
+              box-sizing: border-box; border: 1px solid #E2E5EA; border-radius: 6px;
               background-color: #fff;
                 .textWrap{
                   .tit{font-size: 15px; color: #000;}
                   .desc{font-size: 12px; color: #5F6060;}
                 }
                 .rightArrow{position: absolute; right: 20px; fill: #000;}
-                i{display: block; width: 22px; height: 22px; margin: 0 20px; font-family:"Segoe Fluent Icons";
-                  &:before{font-size: 24px;}
-                }
-
-                /* 시스템 */
-                &.display{
-                  .monitor:before{content: '\e770';}
-                }
-                &.sound{
-                  .speaker:before{content: '\e767';}
-                }
-                &.notice{
-                  .bell:before{content: '\ea8f';}
-                }
-                &.concentrate{
-                  .moon:before{content: '\ec46';}
-                }
-                &.battery{
-                  .powerMode:before{content: '\e7e8';}
-                }
-                &.storage{
-                  .drive:before{content: '\eda2';}
-                }
-                &.lanShare{
-                  .share:before{content: '\e72d';}
-                }
-                &.multiTasking{
-                  .screen:before{content: '\ee40';}
-                }
-                &.genuineParts{
-                  .check:before{content: '\e930';}
-                }
-                &.problem{
-                  .spanner:before{content: '\e90f';}
-                }
-                &.restore{
-                  .return:before{content: '\ebc4';}
-                }
-                &.myPc{
-                  .desktop:before{content: '\ebc6';}
-                }
-                &.remote{
-                  .remoteDesktop:before{content: '\e8af';}
-                }
-                &.clipBoard{
-                  .docs:before{content: '\e77f';}
-                }
-                &.information{
-                  .pcInfo:before{content: '\e946';}
-                }
-
-                /* 개인설정 */
-                &.background{
-                  .img:before{content: '\e91b';}
-                }
-                &.color{
-                  .palette:before{content: '\e790';}
-                }
-                &.themeColor{
-                  .brush:before{content: '\e771';}
-                }
-                &.lock{
-                  .lockScreen:before{content: '\ee3f';}
-                }
-                &.touchKeyboard{
-                  .keyboard:before{content: '\e765';}
-                }
-                &.startMenu{
-                  .start:before{content: '\f26c';} //아이콘이 없어서 비슷한걸로 대체
-                }
-                &.task{
-                  .taskIcon:before{content: '\e90e';}
-                }
-                &.font{
-                  .fontIcon:before{content: '\e8d2';}
-                }
-                &.device{
-                  .deviceIcon:before{content: '\ec76';}
-                }
-
-                /* 앱 */
-                &.appFunc{
-                  .appMore:before{content: '\e71d';}
-                }
-                &.defaultAppFunc{
-                  .defaultApps:before{content: '';}
-                }
-                &.offlineMaps{
-                  .mapDownload:before{content: '\e826';}
-                }
-                &.video{
-                  .videos:before{content: '\e714';}
-                }
-                &.startProgram{
-                  .lockScreen:before{content: '\e7b5';}
-                }
-
-
                 &:hover{background-color: #F5F6F9;}
                 +li{margin-top: 5px;}
               }
             }
+
+           +.setList.indiv{margin-top: 20px;}
           }
         }
       }
@@ -995,6 +922,41 @@ height: 100vh; background-color: var(--bg-system-end); z-index: 10000;
       .accAuth{margin-top: 3px;}
     }
     &:hover{background-color: transparent;}
+  }
+}
+
+.btnWrap{ display: flex; align-items: center; justify-content: flex-end; flex: 1; padding-right: 30px;
+  
+}
+
+.btnArea{
+  .btn{height: 35px; padding: 0 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; font-family: 'sans-serif';
+    &.wd130{min-width: 130px;}
+    &.bgWhite{color: #003E92; background-color: #fbfbfb;
+      &.type02{color: #1b1b1b;
+        &:hover{background-color: #f6f6f6;}
+      }
+      &:hover{background-color: #f8f8f8;}
+    }
+    &.bgBlue{color: #fbfbfb; border-color: transparent; background-color: #0067C0;
+      &:hover{background-color: #1975C5;}
+    }
+  }
+}
+
+.switchWrap{display: flex; align-items: center; column-gap: 10px; flex: 1; justify-content: flex-end;
+  .state{font-family: 'sans-serif'; font-size: 15px; color: #000;}
+  .btnSwitch{position: relative; width: 40px; height: 20px; border-radius: 50px; border: 1px solid #848484; 
+  background-color: #F5F5F5;
+    &:hover{background-color: #E8E8E8;
+      &:before{width: 14px; height: 14px;}
+    }
+    &:before{content: ''; position: absolute; left: 3px; top: 50%; transform: translateY(-50%); 
+    width: 12px; height: 12px; border-radius: 50%; background-color: #5B5B5B; transition: .3s;}
+    &.active{background-color: #0067C0; border-color: transparent;
+      &:hover{background-color: #1975C5;}
+      &:before{left: 23px; background-color: #fff;}
+    }
   }
 }
 

@@ -1,0 +1,22 @@
+{
+  "background_color": "#ffffff",
+  "description": "Windows11 ui",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Windows11-ui",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "win11-ui",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "categories": [],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "images/ico/favi/Square44x44Logo.scale-400.png",
+      "sizes": "176x176",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": []
+}

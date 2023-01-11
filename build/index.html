@@ -22,11 +22,13 @@
         <script src="js/activeMenu.min.js"></script>
         <script src="js/windowApp.min.js"></script>
         <script src="js/ui.min.js"></script>
-        <script type="module">
-            import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
-            const el = document.createElement('pwa-update');
-            document.body.appendChild(el);
-         </script>
+        <script>
+            if ("serviceWorker" in navigator) {
+                window.addEventListener("load", () => {
+                    navigator.serviceWorker.register("service-worker.js");
+                });
+            }
+        </script>
     </head>
     <body>
         <div id="App">
@@ -327,7 +329,7 @@
                         </div>
                     </div>
                     <div class="browserFrameArea">
-                        <!-- <iframe src="https://vscode.dev/" frameborder="0"></iframe> -->
+                        <iframe src="https://vscode.dev/" frameborder="0"></iframe>
                     </div>
                 </div>
 
@@ -366,7 +368,7 @@
                             </ul>
                         </div>
                         <div class="browserFrameArea">
-                            <!-- <iframe src="https://e.widgetbot.io/channels/960819026039283762/960819026039283764"></iframe> -->
+                            <iframe src="https://e.widgetbot.io/channels/960819026039283762/960819026039283764"></iframe>
                         </div>
                     </div>
                 </div>

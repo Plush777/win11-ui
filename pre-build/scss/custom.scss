@@ -29,3 +29,15 @@
         }
     }
 }
+
+.mCS-autoHide .mCustomScrollBox .mCSB_scrollTools,.mCS-autoHide .mCustomScrollBox~.mCSB_scrollTools {
+    opacity: 0;
+    filter: "alpha(opacity=0)";
+    -ms-filter: "alpha(opacity=0)"
+}
+
+.mCS-autoHide:hover .mCustomScrollBox .mCSB_scrollTools,.mCS-autoHide:hover .mCustomScrollBox~.mCSB_scrollTools,.mCustomScrollBox:hover .mCSB_scrollTools,.mCustomScrollBox:hover~.mCSB_scrollTools,.mCustomScrollbar .mCustomScrollBox .mCSB_scrollTools.mCSB_scrollTools_onDrag,.mCustomScrollbar .mCustomScrollBox~.mCSB_scrollTools.mCSB_scrollTools_onDrag {
+    opacity: 1;
+    filter: "alpha(opacity=100)";
+    -ms-filter: "alpha(opacity=100)"
+}

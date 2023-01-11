@@ -1,5 +1,7 @@
 i{
-    &.ico{display: block; width: 22px; height: 22px; margin: 0 20px; font-family: "Segoe Fluent Icons";
+    &.ico{display: block; width: 22px; height: 22px; margin-right: 20px; font-family: "Segoe Fluent Icons";
+        &.type02{margin: 0; background-color: #000;}
+        &.mr5{margin-right: 5px;}
         &:before{font-size: 24px;}
         &.init{width: auto; height: auto; margin: 0;}
         &.plus:before{content: '\e710'; font-size: 50px;}

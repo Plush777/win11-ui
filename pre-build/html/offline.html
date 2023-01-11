@@ -1,12 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>인터넷이 연결되지 않음</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../lib/jquery/jquery-3.6.3.min.js"></script>
+    <title>Offline</title>
+    <style>
+        body{user-select: auto;}
+        :where(p, span, strong, h1, h2, h3){cursor: auto !important;}
+        ::selection:not(img){color: #fff; background-color: #3390FF;}
+        .errorArea{display: flex; align-items: center; justify-content: center; flex-direction: column; width: inherit; height: inherit;}
+        .errorArea *{font-family: '맑은 고딕'; color: #fff;}
+        .emoji{font-size: 160px;}
+        .cause{margin-top: 20px; font-size: 36px;}
+        .percent{margin: 35px 0; font-size: 36px;}
+        .help{display: flex;}
+        .solutionArea + .solutionArea{margin-top: 32px;}
+        .solutionArea:first-child *{font-size: 17px;}
+        .solutionArea:last-child *{font-size: 14px;}
+        .solutionArea > p{margin-bottom: 8px;}
+        .solutionArea .code{margin-bottom: 0;}
+        a{cursor: pointer;}
+        .count + span{margin-left: -12px;}
+    </style>
 </head>
 <body>
-    <p>인터넷을 연결해줘요</p>
+    <div id="app" class="offline">
+        <div class="errorArea">
+            <div class="inner">
+                <h1 class="emoji">:(</h1>
+                <div class="cause">
+                    <p>인터넷이 연결되어있지 않은 오프라인 환경에서는 콘텐츠를<br>볼 수 없습니다.
+                    연결 후 다시 시도 해주세요.</p>
+                </div>
+                <div class="percent">
+                    <span class="count">100</span>
+                    <span>%</span>
+                    <span>완료</span>
+                </div>
+                <div class="help">
+                    <div id="qr">
+                        <img src="../images/ico/common/qr.png" alt="QR코드 이미지" height="130">
+                    </div>
+                    <div class="flex col" style="margin-left: 20px">
+                        <div class="solutionArea">
+                            <p>이 문제와 가능한 수정 사항에 대한 자세한 내용은 다음을 참조하세요.</p>
+                            <a href="https://support.microsoft.com/ko-KR">https://support.microsoft.com/ko-KR</a>
+                        </div>
+                        <div class="solutionArea">
+                            <p>지원 담당자에게 연락하는 경우 다음 정보를 제공하세요.</p>
+                            <p class="code">중지 코드: 0xc000021a</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('.count').each(function () {
+                $(this).prop('Counter',0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 4000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

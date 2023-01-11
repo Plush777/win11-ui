@@ -6,12 +6,13 @@
 @import '../scss/icon.scss';
 
 body{overflow: hidden; user-select: none;}
-#App{position: relative; width: 100%; height: 100%;}
-
-.appBg{
+#app{position: relative; width: 100%; height: 100%;
   &:before{content: ''; display: block; min-width: 100vw; min-height: 100vh; background: url('../images/bg/bg-windows-light.jpg') no-repeat;
   background-size: cover;}
-} 
+  &.offline{background-color: #0077D6;
+    &:before{display: none;}
+  }
+}
 
 .pc{position: absolute; top: 0; overflow: hidden; width: 100%; height: calc(100vh - 48px);
   .appWrapper{margin: {top:2px; left:2px;}
@@ -143,7 +144,7 @@ backdrop-filter: saturate(3) blur(20px);
   .taskRight{position: relative;
     .currentDateTime{position: absolute; right: 0;
       .time,.dateBox{display: flex; justify-content: flex-end;
-        span{display: inline-block; font: {size: 11px; family: 'sans-serif';} letter-spacing: -0.05px; color: #444;
+        span{display: inline-block; font: {size: 11px; family: '맑은 고딕';} letter-spacing: -0.05px; color: #444;
           &#ampm{margin-right: 3px;}
           &#date{white-space: nowrap;}
         }
@@ -567,166 +568,218 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
 }
 
 .windowApp{background-color: #fff;
+  //닫혔을 때
+  &.close{bottom: -280px !important; left: 50% !important; transform: scale(.5) translate(-50%,-50%) !important;}
 
-   //닫혔을 때
-   &.close{bottom: -280px !important; left: 50% !important; transform: scale(.5) translate(-50%,-50%) !important;}
-
-    &.notePad{box-shadow: 0 0 15px 8px rgba($color: #000000, $alpha: 0.1);
-      .topArea{height: 40px; border-radius: 8px 8px 0 0; background-color: #EFF4F9;
-      padding-left: 10px; box-sizing: border-box;
-        .rep{display: inline-block; width: 24px; height: 24px; background: url('../images/ico/app/notePad.png') no-repeat center;
-        background-size: 16px 16px;}
-        .fileName{display: inline-block; font-size: 12px; padding-left: 10px; color: #000; white-space: nowrap;}
-        .row{display: flex; width: 100%;
-          >.right{margin-left: 0;
-            .controlArea{
-              button{height: 27px;}
-              .btnClose{border-top-right-radius: 8px;}
-            }
-          }
-        }
-      }
-      .bottomArea{padding-left: 3px; background-color: #EFF4F9; border-bottom: 1px solid #ccc; 
-        .helpMenuArea{padding-bottom: 3px;
-          ul{display: flex; align-items: center;
-            li{display: flex; align-items: center; justify-content: center; width: 46px; height: 32px; border-radius: 4px;
-              span{display: inline-block; color: #000; font-size: 14px;}
-              &:hover{background-color: #E6EBF0;}
-            }
-          }
-        }
-      }
-      .textBody{width: 100%; height: calc(100% - 110px);
-        #note{border: 0; width: 100%; height: 100%; padding: 15px; box-sizing: border-box; outline: 0;
-        font-size: 18px; color: #000; font-family: 'Noto Sans';}
-      }
-      .txtInfo{display: flex; align-items: center; justify-content: flex-end; width: 100%; height: 33px; 
-      border-top: 1px solid #E8E5E5; background-color: #F5F2F2; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
-        span{position: relative; display: inline-block; width: 160px; font-size: 14px; color: #9A9A9A; font-family: 'Segoe UI Variable';
-          &:first-child{width: 90px;}
-          &:before{content: ''; position: absolute; width: 1px; height: 16px; top: 50%; transform: translateY(-50%); 
-          left: -20px; background-color: #e0e0e0;}
-        }
-      }
-    }
-
-    &.setting{background: linear-gradient(90deg, rgba(239,244,249,1) 75%, rgba(243,243,243,1) 100%);
-      .topArea{
-        .row{display: flex; width: 100%;
-          >.flexWrap{position: relative; top: 10px; padding-left: 5px;}
-          .infoName{padding-left: 10px; white-space: nowrap; font-size: 12px;}
-          .btnAppPrev{display: flex; align-items: center; justify-content: center; width: 40px; height: 35px; border-radius: 6px;
-            &:hover{background-color: rgba($color: #EAEAEA, $alpha: 0.7);}
-            svg line{stroke: #4c4c4c;}
-          }
-        }
-      }
-      .contArea{height: calc(100% - 35px);
-        >.container{display: flex; height: 100%;}
-        .leftArea{width: 280px; padding: 30px 0 0 5px; box-sizing: border-box; margin-right: 25px;
-          .searchArea{position: relative; display: flex; margin: 10px 0 20px 0; width: 265px; border-radius: 5px; border-bottom: 2px solid #1b1b1b;
-            &.focus{border-bottom-color: #0067C0;
-              .appSearch{
-                &::placeholder{color: #9D9D9D;}
-                &:hover{background-color: #fff;}
-              }
-              .btnInSearch{background: url('../images/ico/useApp/ico-useApp-search-9d9d.svg') no-repeat center; background-size: 12px 14px;}
-            }
-            
-            .appSearch{width: 100%;
-              &:hover{background-color: #F4F7F9;}
-            }
-            .btnInSearch{position: absolute; top: 50%; transform: translateY(-50%); right: 7px; width: 27px; height: 21px; background: url('../images/ico/useApp/ico-useApp-search.svg') no-repeat center;
-            background-size: 12px 14px; border-radius: 4px;
-              &:hover{background-color: #EDEDED;}
-            }
-          }
-          >.flexWrap{
-            &.col{padding-left: 10px;}
-          }
-        }
-
-        .rightArea{width: calc(100% - 925px);  margin-top: 30px;
-          .tabCont{height: 100%;}
-          .titArea{font-size: 28px; font-family: 'Segoe UI Variable'; color: #000;
-            &.sub{font-size: 14px; font-weight: bold; margin: 20px 0 0 0;
-              +.setList{margin-top: 15px;}
-            }
-          }
-          .rightContainer{position: static !important; max-height: calc(100% - 35px);
-            .mCSB_container{padding-bottom: 44px;}
-          }
-          .infoBox{display: flex; flex-wrap: wrap; align-items: center; margin-top: 30px; gap: 10px;
-            .deviceInfo{display: flex; align-items: center; gap: 15px; margin-right: 10px;
-              .deviceBg{width: 115px; height: 65px; border: 4px solid #000; border-radius: 6px; 
-              background: url('../images/bg/bg-windows-light.jpg') no-repeat; background-size: 115px 65px;}
-              .deviceName{
-                .laptop{font-weight: bold; font-size: 18px;}
-                .model{font-size: 14px;}
-                .btnRename{display: flex; margin-top: 5px; font-size: 14px; color: #3767A8; transition: .15s ease-in-out;
-                border-radius: 6px; cursor: pointer;
-                  &:hover{color: #1D3479; background-color: #E9EAEE;}
-                }
-              }
-            }
-            .companyBox{display: flex; align-items: center; height: 50px; padding: 10px; box-sizing: border-box; border-radius: 6px; 
-            transition: .1s ease-in-out;
-              .microsoft{display: block; width: 24px; height: 24px; background: url('../images/ico/useApp/ms.png') no-repeat center;
-              background-size: 18px 18px;}
-              .companyInfo{display: flex; flex-direction: column; margin-left: 15px;
-                strong{font-size: 15px;}
-                span{font-size: 13px; color: #606163;}
-              }
-              &:hover{background-color: #E8EAEF;}
-            }
-            .updateBox{display: flex; align-items: center; width: 224px; height: 53px; padding: 10px; box-sizing: border-box; border-radius: 6px;
-            transition: .1s ease-in-out;
-              .update{display: block; width: 24px; height: 24px; 
-              background: url('../images/ico/common/windows-update.webp') no-repeat center; background-size: 20px 20px;}
-              .updateInfo{display: flex; flex-direction: column; margin-left: 15px;
-                strong{font-size: 15px;}
-                span{font-size: 13px; color: #606163;}
-              }
-              &:hover{background-color: #E8EAEF;}
-            }
-          }
-          .setWrap{display: flex; flex-direction: column; row-gap: 10px;
-            +.setList{margin-top: 10px;}
-            .btnArea{width: 100%;
-              button{width: 100%;}
-            }
-          }
-          .setBoxArea{
-            ul{display: flex; column-gap: 10px;
-              li{
-                .setBox{display: flex; flex-direction: column; align-items: center; justify-content: center; width: 220px; height: 220px; 
-                border-radius: 6px; border: 1px solid #e5e5e5; background-color: #fbfbfb; transition: .15s;
-                  span{margin-top: 7px; color: #1a1a1a; font-size: 14px; font-weight: bold;}
-                  &:hover{background-color: #f6f6f6;}
-                }
-              }
-            }
-          }
-          .setList{margin-top: 30px;
-            ul{
-              li{position: relative; display: flex; align-items: center; width: 100%; height: 67px; padding: 20px; 
-              box-sizing: border-box; border: 1px solid #E2E5EA; border-radius: 6px;
-              background-color: #fff;
-                .textWrap{
-                  .tit{font-size: 15px; color: #000;}
-                  .desc{font-size: 12px; color: #5F6060;}
-                }
-                .rightArrow{position: absolute; right: 20px; fill: #000;}
-                &:hover{background-color: #F5F6F9;}
-                +li{margin-top: 5px;}
-              }
-            }
-
-           +.setList.indiv{margin-top: 20px;}
+  &.notePad{box-shadow: 0 0 15px 8px rgba($color: #000000, $alpha: 0.1);
+    .topArea{height: 40px; border-radius: 8px 8px 0 0; background-color: #EFF4F9;
+    padding-left: 10px; box-sizing: border-box;
+      .rep{display: inline-block; width: 24px; height: 24px; background: url('../images/ico/app/notePad.png') no-repeat center;
+      background-size: 16px 16px;}
+      .fileName{display: inline-block; font-size: 12px; padding-left: 10px; color: #000; white-space: nowrap;}
+      .row{display: flex; width: 100%;
+        >.right{margin-left: 0;
+          .controlArea{
+            button{height: 27px;}
+            .btnClose{border-top-right-radius: 8px;}
           }
         }
       }
     }
+    .bottomArea{padding-left: 3px; background-color: #EFF4F9; border-bottom: 1px solid #ccc; 
+      .helpMenuArea{padding-bottom: 3px;
+        ul{display: flex; align-items: center;
+          li{display: flex; align-items: center; justify-content: center; width: 46px; height: 32px; border-radius: 4px;
+            span{display: inline-block; color: #000; font-size: 14px;}
+            &:hover{background-color: #E6EBF0;}
+          }
+        }
+      }
+    }
+    .textBody{width: 100%; height: calc(100% - 110px);
+      #note{border: 0; width: 100%; height: 100%; padding: 15px; box-sizing: border-box; outline: 0;
+      font-size: 18px; color: #000; font-family: 'Noto Sans';}
+    }
+    .txtInfo{display: flex; align-items: center; justify-content: flex-end; width: 100%; height: 33px; 
+    border-top: 1px solid #E8E5E5; background-color: #F5F2F2; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
+      span{position: relative; display: inline-block; width: 160px; font-size: 14px; color: #9A9A9A; font-family: 'Segoe UI Variable';
+        &:first-child{width: 90px;}
+        &:before{content: ''; position: absolute; width: 1px; height: 16px; top: 50%; transform: translateY(-50%); 
+        left: -20px; background-color: #e0e0e0;}
+      }
+    }
+  }
+
+  &.setting{background: linear-gradient(90deg, rgba(239,244,249,1) 75%, rgba(243,243,243,1) 100%);
+    .topArea{
+      .row{display: flex; width: 100%;
+        >.flexWrap{position: relative; top: 10px; padding-left: 5px;}
+        .infoName{padding-left: 10px; white-space: nowrap; font-size: 12px;}
+        .btnAppPrev{display: flex; align-items: center; justify-content: center; width: 40px; height: 35px; border-radius: 6px;
+          &:hover{background-color: rgba($color: #EAEAEA, $alpha: 0.7);}
+          svg line{stroke: #4c4c4c;}
+        }
+      }
+    }
+    .contArea{height: calc(100% - 35px);
+      >.container{display: flex; height: 100%;}
+      .leftArea{width: 280px; padding: 30px 0 0 5px; box-sizing: border-box; margin-right: 25px;
+        .searchArea{position: relative; display: flex; margin: 10px 0 20px 0; width: 265px; border-radius: 5px; border-bottom: 2px solid #1b1b1b;
+          &.focus{border-bottom-color: #0067C0;
+            .appSearch{
+              &::placeholder{color: #9D9D9D;}
+              &:hover{background-color: #fff;}
+            }
+            .btnInSearch{background: url('../images/ico/useApp/ico-useApp-search-9d9d.svg') no-repeat center; background-size: 12px 14px;}
+          }
+          
+          .appSearch{width: 100%;
+            &:hover{background-color: #F4F7F9;}
+          }
+          .btnInSearch{position: absolute; top: 50%; transform: translateY(-50%); right: 7px; width: 27px; height: 21px; background: url('../images/ico/useApp/ico-useApp-search.svg') no-repeat center;
+          background-size: 12px 14px; border-radius: 4px;
+            &:hover{background-color: #EDEDED;}
+          }
+        }
+        >.flexWrap{
+          &.col{padding-left: 10px;}
+        }
+      }
+
+      .rightArea{margin-top: 30px;
+        .tabCont{height: 100%;}
+        .titArea{font-size: 28px; font-family: 'Segoe UI Variable'; color: #000;
+          &.sub{font-size: 14px; font-weight: bold; margin: 20px 0 0 0;
+            +.setList{margin-top: 15px;}
+          }
+        }
+        .rightContainer{position: static !important; max-height: calc(100% - 35px);
+          .themeBox{display: flex; align-items: center; column-gap: 55px;
+            &.mt0{
+              .previewArea+.themeArea{margin-top: 0;}
+            }
+          }
+          .mCSB_container{padding-bottom: 44px;}
+        }
+        .infoBox{display: flex; flex-wrap: wrap; align-items: center; margin-top: 30px; gap: 10px;
+          .deviceInfo{display: flex; align-items: center; gap: 15px; margin-right: 10px;
+            .deviceBg{width: 115px; height: 65px; border: 4px solid #000; border-radius: 6px; 
+            background: url('../images/bg/bg-windows-light.jpg') no-repeat; background-size: 115px 65px;}
+            .deviceName{
+              .laptop{font-weight: bold; font-size: 18px;}
+              .model{font-size: 14px;}
+              .btnRename{display: flex; margin-top: 5px; font-size: 14px; color: #3767A8; transition: .15s ease-in-out;
+              border-radius: 6px; cursor: pointer;
+                &:hover{color: #1D3479; background-color: #E9EAEE;}
+              }
+            }
+          }
+          .companyBox{display: flex; align-items: center; height: 50px; padding: 10px; box-sizing: border-box; border-radius: 6px; 
+          transition: .1s ease-in-out;
+            .microsoft{display: block; width: 24px; height: 24px; background: url('../images/ico/useApp/ms.png') no-repeat center;
+            background-size: 18px 18px;}
+            .companyInfo{display: flex; flex-direction: column; margin-left: 15px;
+              strong{font-size: 15px;}
+              span{font-size: 13px; color: #606163;}
+            }
+            &:hover{background-color: #E8EAEF;}
+          }
+          .updateBox{display: flex; align-items: center; width: 224px; height: 53px; padding: 10px; box-sizing: border-box; border-radius: 6px;
+          transition: .1s ease-in-out;
+            .update{display: block; width: 24px; height: 24px; 
+            background: url('../images/ico/common/windows-update.webp') no-repeat center; background-size: 20px 20px;}
+            .updateInfo{display: flex; flex-direction: column; margin-left: 15px;
+              strong{font-size: 15px;}
+              span{font-size: 13px; color: #606163;}
+            }
+            &:hover{background-color: #E8EAEF;}
+          }
+        }
+      }
+    }
+  }
+}
+
+.setWrap{display: flex; flex-direction: column; row-gap: 10px;
+  &.none{
+    .setList{margin-top: 15px;}
+    .btnArea{width: auto;
+      .btnDropdown{width: 35px;}
+    }
+  }
+  +.setList{margin-top: 10px;}
+  .btnArea{width: 100%;
+    button{width: 100%;}
+  }
+
+  &.type02{
+    .setBoxArea{
+      ul{align-items: center; justify-content: space-between;
+        li{
+          .setBox{flex-direction: row; justify-content: flex-start; width: auto; height: auto; border-radius: 0; border: 0; background-color: transparent;
+            .rightArrow{margin-left: 20px;}
+            .ico{
+              +.setTxt{margin-left: 15px;}
+            }
+            .setImg{
+              +.setTxt{margin-left: 20px;}
+            }
+            .setTxt{
+              >.tit{font-size: 15px; font-weight: bold; color: #1a1a1a; letter-spacing: -0.45px;}
+            }
+            .setDesc{display: flex; align-items: center; margin-top: 5px;
+              span{margin-top: 0; color: #5c5c5c; font-weight: normal; font-size: 13px;
+                &#ampm2,&#time2{margin-left: 5px;}
+              }
+            }
+          }
+          &.hv{padding: 10px; box-sizing: border-box; border-radius: 4px; background-color: transparent;
+            &:hover{background-color: #EAEAEA;}
+          }
+        }
+      }
+    }
+
+    &.row{flex-direction: row; align-items: center;
+      .btnArea{width: auto; margin-left: auto;}
+    }
+  }
+}
+
+.setBoxArea{
+  ul{display: flex; column-gap: 10px;
+    li{
+      .setBox{display: flex; flex-direction: column; align-items: center; justify-content: center; width: 220px; height: 220px; 
+      border-radius: 6px; border: 1px solid #e5e5e5; background-color: #fbfbfb; transition: .15s;
+        span{margin-top: 7px; color: #1a1a1a; font-size: 14px; font-weight: bold;}
+        &:hover{background-color: #f6f6f6;}
+      }
+    }
+  }
+}
+
+.setList{margin-top: 30px;
+  >ul{
+    >li{position: relative; display: flex; align-items: center; width: 100%; height: 67px; padding: 20px; 
+    box-sizing: border-box; border: 1px solid #E2E5EA; border-radius: 6px;
+    background-color: #fff;
+      .textWrap{
+        .tit{font-size: 15px; color: #000;}
+        .desc{font-size: 12px; color: #5F6060;}
+        +.selectArea{flex: 1;}
+      }
+      .rightArrow{position: absolute; right: 20px; fill: #000;}
+      .selectWrap{flex: 1; display: flex; justify-content: flex-end;}
+
+      &.noHv{
+        &:hover{background-color: #fff;}
+      }
+      &:hover{background-color: #F5F6F9;}
+      +li{margin-top: 5px;}
+    }
+  }
+
+ +.setList.indiv{margin-top: 20px;}
 }
 
 .tabWrapper{
@@ -770,6 +823,10 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
       }
     }
   }
+}
+
+.rightArea{width: 100%; position: relative;
+  .tabCont{width: calc(100% - 610px);}
 }
 
 .tabCont{display: none; transition: .15s ease-in-out;
@@ -861,6 +918,7 @@ border-radius: 4px; background-color: #DBDDE1;
     }
   }
   &.w60{width: 60%;}
+  &.w50{width: 50%;}
 }
 
 .endBg{display: none; position: fixed; top: 0; left: 0; align-items: center; justify-content: center; flex-direction: column; width: 100vw; 
@@ -942,6 +1000,11 @@ height: 100vh; background-color: var(--bg-system-end); z-index: 10000;
       &:hover{background-color: #1975C5;}
     }
   }
+
+  .btnDropdown{position: relative; width: 35px; height: 100%; border-top-right-radius: 6px; border-bottom-right-radius: 6px;
+  background-color: #fff;
+    >svg{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+  }
 }
 
 .switchWrap{display: flex; align-items: center; column-gap: 10px; flex: 1; justify-content: flex-end;
@@ -958,6 +1021,33 @@ height: 100vh; background-color: var(--bg-system-end); z-index: 10000;
       &:before{left: 23px; background-color: #fff;}
     }
   }
+  &.pr{padding-right: 30px;}
+}
+
+.selectWrap{
+  .selectArea{height: 30px; display: flex; align-items: center; border: 1px solid #d2d2d2; 
+  border-radius: 6px; box-sizing: border-box;
+    .btnArea{display: flex; height: 100%;
+      .btnDropdown{
+        &:hover{background-color: #fafafa;}
+      }
+    }
+  }
+}
+
+.select{position: relative; width: 75px; height: 100%; border-top-left-radius: 6px; border-bottom-left-radius: 6px; background-color: #fff;
+  .selected{position: relative; display: flex; align-items: center; justify-content: center; height: 100%; 
+  font-size: 15px; color: #1a1a1a; font-family: '맑은 고딕';
+    &::after{content: ''; position: absolute; right: 0; width: 1px; height: 100%; background-color: #d2d2d2;}
+  }
+  .selectList{display: none; position: absolute; top: 35px; left: 10px; z-index: 100; width: 100px; border-radius: 6px; 
+  border: 1px solid #d2d2d2; box-sizing: border-box; padding: 5px; background-color: #F7FAFB;
+    li{padding: 5px 10px 5px 10px; border-radius: 6px; background-color: transparent;
+      .option{font-size: 15px; color: #1a1a1a;}
+      &:hover{background-color: #EFF1F2;}
+    }
+  }
+  &:hover{background-color: #fafafa;}
 }
 
 @keyframes lds-roller {

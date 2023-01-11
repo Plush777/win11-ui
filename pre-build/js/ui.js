@@ -64,7 +64,7 @@ $(function(){
     });
 
     $('.resizable').resizable({
-        containment: '#App',
+        containment: '#app',
         handles: 'n, e, s, w, ne, se, sw, nw',
         alsoResize: '#chromeFrame',
         minWidth: 500,
@@ -136,6 +136,19 @@ $(function(){
             } else {
                 $(this).siblings('.state').text('끔');
             }
+        }
+    });
+
+    // $('.windowApp .contArea .rightArea').on({
+    //     'mousewheel': function(){
+    //         //mcustomscrollbar scroll
+            
+    //     }
+    // });
+
+    $('.selectWrap .selectArea .btnArea').on({
+        'click': function(){
+            $(this).prev('.select').toggleClass('active');
         }
     });
 });

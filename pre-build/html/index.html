@@ -15,7 +15,7 @@
     <script src="../lib/jquery/jquery-ui.min.js"></script>
     <script src="../lib/mcustom/jquery.mCustomScrollbar.min.js"></script>
     <script src="../js/theme.min.js" defer></script>
-    <script src="../js/date.min.js"></script>
+    <script src="../js/date.min.js" defer></script>
     <script src="../js/appList.min.js"></script>
     <script src="../js/browser.min.js"></script>
     <script src="../js/task.min.js"></script>
@@ -31,8 +31,7 @@
     </script>
 </head>
 <body>
-    <div id="App">
-        <div class="appBg"></div>
+    <div id="app">
         <div class="pc">
             <div class="appWrapper">
                 <ul class="appList">
@@ -622,7 +621,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="rightArea pr5">
+                        <div class="rightArea pr5 mCS-autoHide">
                             <div class="tabCont active">
                                 <div class="titArea">
                                     <h1>시스템</h1>
@@ -786,7 +785,7 @@
                                     <h1>Bluetooth 및 장치</h1>
                                 </div>
 
-                                <div class="rightContainer windowScrollbar windowY mCS-autoHide">
+                                <div class="rightContainer windowScrollbar windowY pt30">
                                     <div class="setWrap">
                                         <div class="setBoxArea">
                                             <ul>
@@ -811,11 +810,9 @@
                                                     <span class="tit">Bluetooth</span>
                                                     <p class="desc">Bluetooth가 꺼져있습니다.</p>
                                                 </div>
-                                                <div class="btnWrap">
-                                                    <div class="btnArea">
-                                                        <button type="button" class="btn bgBlue wd130">장치 추가</button>
-                                                    </div>
-                                                    @@include('include/rightArrow.html')
+                                                <div class="switchWrap">
+                                                    <span class="state">끔</span>
+                                                    <button type="button" class="btnSwitch"></button>
                                                 </div>
                                             </li>
                                         </ul>
@@ -829,9 +826,11 @@
                                                     <span class="tit">장치</span>
                                                     <p class="desc">마우스, 키보드, 펜, 오디오, 디스플레이 및 도킹, 기타 장치</p>
                                                 </div>
-                                                <div class="switchWrap">
-                                                    <span class="state">끔</span>
-                                                    <button type="button" class="btnSwitch"></button>
+                                                <div class="btnWrap">
+                                                    <div class="btnArea">
+                                                        <button type="button" class="btn bgBlue wd130">장치 추가</button>
+                                                    </div>
+                                                    @@include('include/rightArrow.html')
                                                 </div>
                                             </li>
                                             <li>
@@ -908,60 +907,189 @@
 
                                 </div>
                             </div>
-                            <div class="tabCont">
+                            <div class="tabCont mCS-autoHide">
                                 <div class="titArea">
                                     <h1>네트워크 및 인터넷</h1>
                                 </div>
+                                <div class="rightContainer windowScrollbar windowY">
+                                    <div class="setWrap type02">
+                                        <div class="setBoxArea">
+                                            <ul>
+                                                <li>
+                                                    <div class="setBox">
+                                                        <div class="setImg">
+                                                            <img src="../images/ico/common/ico-wifi.png" alt="와이파이 상태 이미지" height="100">
+                                                        </div>
+                                                        <div class="setTxt">
+                                                            <p class="tit">Wi-Fi(P1ushNetwork)</p>
+                                                            <div class="setDesc">
+                                                                <i class="ico type02 mr5"></i>
+                                                                <span>연결됨, 보안</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="hv">
+                                                    <div class="setBox">
+                                                        <i class="ico type02"></i>
+                                                        <div class="setTxt">
+                                                            <p class="tit">속성</p>
+                                                            <div class="setDesc">
+                                                                <span>공용 네트워크<br>5GHz</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="hv">
+                                                    <div class="setBox">
+                                                        <i class="ico type02"></i>
+                                                        <div class="setTxt">
+                                                            <p class="tit">데이터 사용량</p>
+                                                            <div class="setDesc">
+                                                                <span>8.67GB, 지난 30일</span>
+                                                            </div>
+                                                        </div>
+                                                        @@include('include/rightArrow.html')
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="setList">
+                                            <ul>
+                                                <li>
+                                                    <i class="ico"></i>
+                                                    <div class="textWrap">
+                                                        <span class="tit">Wi-Fi</span>
+                                                        <p class="desc">연결, 알려진 네트워크 관리, 데이터 통신 연결 네트워크</p>
+                                                    </div>
+                                                    <div class="switchWrap pr">
+                                                        <span class="state">끔</span>
+                                                        <button type="button" class="btnSwitch"></button>
+                                                    </div>
+                                                    @@include('include/rightArrow.html')
+                                                </li>
+                                                <li>
+                                                    <i class="ico"></i>
+                                                    <div class="textWrap">
+                                                        <span class="tit">이더넷</span>
+                                                        <p class="desc">인증, IP 및 DNS 설정, 데이터 통신 연결 네트워크</p>
+                                                    </div>
+                                                    @@include('include/rightArrow.html')
+                                                </li>
+                                                <li>
+                                                    <i class="ico"></i>
+                                                    <div class="textWrap">
+                                                        <span class="tit">VPN</span>
+                                                        <p class="desc">추가, 연결, 관리</p>
+                                                    </div>
+                                                    @@include('include/rightArrow.html')
+                                                </li>
+                                                <li>
+                                                    <i class="ico"></i>
+                                                    <div class="textWrap">
+                                                        <span class="tit">모바일 핫스팟</span>
+                                                        <p class="desc">인터넷 연결 공유</p>
+                                                    </div>
+                                                    <div class="switchWrap pr">
+                                                        <span class="state">끔</span>
+                                                        <button type="button" class="btnSwitch"></button>
+                                                    </div>
+                                                    @@include('include/rightArrow.html')
+                                                </li>
+                                                <li>
+                                                    <i class="ico"></i>
+                                                    <div class="textWrap">
+                                                        <span class="tit">비행기 모드</span>
+                                                        <p class="desc">모든 무선 통신 중지</p>
+                                                    </div>
+                                                    <div class="switchWrap pr">
+                                                        <span class="state">끔</span>
+                                                        <button type="button" class="btnSwitch"></button>
+                                                    </div>
+                                                    @@include('include/rightArrow.html')
+                                                </li>
+                                                <li>
+                                                    <i class="ico"></i>
+                                                    <div class="textWrap">
+                                                        <span class="tit">프록시</span>
+                                                        <p class="desc">Wi-Fi 및 이더넷 연결에 프록시 서버 사용</p>
+                                                    </div>
+                                                    @@include('include/rightArrow.html')
+                                                </li>
+                                                <li>
+                                                    <i class="ico"></i>
+                                                    <div class="textWrap">
+                                                        <span class="tit">전화 접속</span>
+                                                        <p class="desc">전화 접속 인터넷 연결 설정</p>
+                                                    </div>
+                                                    @@include('include/rightArrow.html')
+                                                </li>
+                                                <li>
+                                                    <i class="ico"></i>
+                                                    <div class="textWrap">
+                                                        <span class="tit">고급 네트워크 설정</span>
+                                                        <p class="desc">모든 네트워크 어댑터 보기, 네트워크 초기화</p>
+                                                    </div>
+                                                    @@include('include/rightArrow.html')
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="tabCont">
+                            <div class="tabCont mCS-autoHide">
                                 <div class="titArea">
                                     <h1>개인 설정</h1>
                                 </div>
-                                <div class="rightContainer windowScrollbar windowY mCS-autoHide">
-                                    <div class="previewArea mt20 light">
-                                        <div class="skeletonBox">
-                                            <div class="longLine"></div>
-                                            <div class="longLine"></div>
-                                            <div class="longLine"></div>
-                                            <div class="shortLine"></div>
-                                            <button type="button"></button>
+                                <div class="rightContainer windowScrollbar windowY">
+                                    <div class="themeBox mt0">
+                                        <div class="previewArea mt20 light">
+                                            <div class="skeletonBox">
+                                                <div class="longLine"></div>
+                                                <div class="longLine"></div>
+                                                <div class="longLine"></div>
+                                                <div class="shortLine"></div>
+                                                <button type="button"></button>
+                                            </div>
+                                        </div>
+                                        <div class="themeArea w50">
+                                            <strong class="chooseTheme">적용할 테마 선택</strong>
+                                            <ul class="themeList">
+                                                <li class="light">
+                                                    <div class="skeletonBox sm light">
+                                                        <button type="button"></button>
+                                                    </div>
+                                                </li>
+                                                <li class="theme01">
+                                                    <div class="skeletonBox sm purple">
+                                                        <button type="button"></button>
+                                                    </div>
+                                                </li>
+                                                <li class="dark">
+                                                    <div class="skeletonBox sm dark">
+                                                        <button type="button"></button>
+                                                    </div>
+                                                </li>
+                                                <li class="theme02">
+                                                    <div class="skeletonBox sm red">
+                                                        <button type="button"></button>
+                                                    </div>
+                                                </li>
+                                                <li class="theme03">
+                                                    <div class="skeletonBox sm white">
+                                                        <button type="button"></button>
+                                                    </div>
+                                                </li>
+                                                <li class="theme04">
+                                                    <div class="skeletonBox sm gray">
+                                                        <button type="button"></button>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="themeArea w60">
-                                        <strong class="chooseTheme">적용할 테마 선택</strong>
-                                        <ul class="themeList">
-                                            <li class="light">
-                                                <div class="skeletonBox sm light">
-                                                    <button type="button"></button>
-                                                </div>
-                                            </li>
-                                            <li class="theme01">
-                                                <div class="skeletonBox sm purple">
-                                                    <button type="button"></button>
-                                                </div>
-                                            </li>
-                                            <li class="dark">
-                                                <div class="skeletonBox sm dark">
-                                                    <button type="button"></button>
-                                                </div>
-                                            </li>
-                                            <li class="theme02">
-                                                <div class="skeletonBox sm red">
-                                                    <button type="button"></button>
-                                                </div>
-                                            </li>
-                                            <li class="theme03">
-                                                <div class="skeletonBox sm white">
-                                                    <button type="button"></button>
-                                                </div>
-                                            </li>
-                                            <li class="theme04">
-                                                <div class="skeletonBox sm gray">
-                                                    <button type="button"></button>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    
                                     <div class="setList">
                                         <ul>
                                             <li>
@@ -1040,11 +1168,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tabCont">
+                            <div class="tabCont mCS-autoHide">
                                 <div class="titArea">
                                     <h1>앱</h1>
                                 </div>
-                                <div class="rightContainer windowScrollbar windowY mCS-autoHide">
+                                <div class="rightContainer windowScrollbar windowY">
                                     <div class="setList">
                                         <ul>
                                             <li>
@@ -1107,7 +1235,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tabCont">
+                            <div class="tabCont mCS-autoHide">
                                 <div class="titArea">
                                     <h1>계정</h1>
                                 </div>
@@ -1121,7 +1249,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="rightContainer windowScrollbar windowY mCS-autoHide">
+                                <div class="rightContainer windowScrollbar windowY">
                                     <div class="setList">
                                         <ul>
                                             <li>
@@ -1184,11 +1312,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tabCont">
+                            <div class="tabCont mCS-autoHide">
                                 <div class="titArea">
                                     <h1>시간 및 언어</h1>
                                 </div>
-                                <div class="rightContainer windowScrollbar windowY mCS-autoHide">
+                                <div class="rightContainer windowScrollbar windowY">
                                     <div class="setList">
                                         <ul>
                                             <li>
@@ -1227,11 +1355,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tabCont">
+                            <div class="tabCont mCS-autoHide">
                                 <div class="titArea">
                                     <h1>게임</h1>
                                 </div>
-                                <div class="rightContainer windowScrollbar windowY mCS-autoHide">
+                                <div class="rightContainer windowScrollbar windowY">
                                     <div class="setList">
                                         <ul>
                                             <li>
@@ -1262,12 +1390,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tabCont">
+                            <div class="tabCont mCS-autoHide">
                                 <div class="titArea">
                                     <h1>접근성</h1>
                                 </div>
 
-                                <div class="rightContainer windowScrollbar windowY mCS-autoHide">
+                                <div class="rightContainer windowScrollbar windowY">
                                     <div class="titBox">
                                         <div class="titArea sub">
                                             <h2>비전</h2>
@@ -1419,12 +1547,12 @@
                                     
                                 </div>
                             </div>
-                            <div class="tabCont">
+                            <div class="tabCont mCS-autoHide">
                                 <div class="titArea">
                                     <h1>개인 정보 및 보안</h1>
                                 </div>
 
-                                <div class="rightContainer windowScrollbar windowY mCS-autoHide">
+                                <div class="rightContainer windowScrollbar windowY">
                                     <div class="titBox">
                                         <div class="titArea sub">
                                             <h2>보안</h2>
@@ -1712,8 +1840,103 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tabCont">
+                            <div class="tabCont mCS-autoHide">
+                                <div class="titArea">
+                                    <h2>Windows 업데이트</h2>
+                                </div>
+                                <div class="rightContainer windowScrollbar windowY">
+                                    <div class="setWrap type02 row">
+                                        <div class="setBoxArea">
+                                            <ul>
+                                                <li>
+                                                    <div class="setBox">
+                                                        <div class="setImg">
+                                                            <img src="../images/ico/common/ico-update.png" alt="Windows 업데이트 상태 이미지" height="90">
+                                                        </div>
+                                                        <div class="setTxt">
+                                                            <p class="tit">현재 최신 상태입니다.</p>
+                                                            <div class="setDesc">
+                                                                <span>마지막으로 확인한 날짜: 오늘,</span>
+                                                                <span id="ampm2"></span>
+                                                                <span id="time2"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="btnArea">
+                                            <button type="button" class="btn bgBlue wd130">업데이트 확인</button>
+                                        </div>
+                                    </div>
 
+                                    <div class="titBox">
+                                        <div class="titArea sub">
+                                            <h2>기타 옵션</h2>
+                                        </div>
+                                        <div class="setWrap none">
+                                            <div class="setList">
+                                                <ul>
+                                                    <li class="noHv">
+                                                        <i class="ico"></i>
+                                                        <div class="textWrap">
+                                                            <span class="tit">업데이트 일시 중지</span>
+                                                        </div>
+    
+                                                        <div class="selectWrap">
+                                                            <div class="selectArea">
+                                                                <div class="select">
+                                                                    <span class="selected">1주 연장</span>
+                                                                    <ul class="selectList">
+                                                                        <li>
+                                                                            <span class="option">2주 연장</span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span class="option">3주 연장</span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span class="option">4주 연장</span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="btnArea">
+                                                                    <button type="button" class="btnDropdown">
+                                                                        <svg fill="#7a7a7a" height="8" width="8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" stroke="#7a7a7a"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.32"></g>
+                                                                            <g id="SVGRepo_iconCarrier"> <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path> </g></svg>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <i class="ico"></i>
+                                                        <div class="textWrap">
+                                                            <span class="tit">업데이트 기록</span>
+                                                        </div>
+                                                        @@include('include/rightArrow.html')
+                                                    </li>
+                                                    <li>
+                                                        <i class="ico"></i>
+                                                        <div class="textWrap">
+                                                            <span class="tit">고급 옵션</span>
+                                                            <p class="desc">배달 최적화, 선택적 업데이트, 활성 시간 및 기타 업데이트 설정</p>
+                                                        </div>
+                                                        @@include('include/rightArrow.html')
+                                                    </li>
+                                                    <li>
+                                                        <i class="ico"></i>
+                                                        <div class="textWrap">
+                                                            <span class="tit">Windows 참가자 프로그램</span>
+                                                            <p class="desc">Windows 미리 보기 빌드를 사용해 보고 새로운 기능과 업데이트에 대한 피드백을 공유해 주세요</p>
+                                                        </div>
+                                                        @@include('include/rightArrow.html')
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ const CACHE_NAME = "cache-v1";
 
 // 캐싱할 파일
 const FILES_TO_CACHE = [
-    "../html/offline.html"
+    "./html/offline.html"
 ];
 
 // 상술한 파일 캐싱
@@ -34,7 +34,7 @@ self.addEventListener("fetch", (event) => {
         fetch(event.request).catch(() =>
             caches
                 .open(CACHE_NAME)
-                .then((cache) => cache.match("../html/offline.html"))
+                .then((cache) => cache.match("./html/offline.html"))
         )
     );
 });

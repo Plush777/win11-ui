@@ -139,18 +139,19 @@ $(function(){
         }
     });
 
-    // $('.windowApp .contArea .rightArea').on({
-    //     'mousewheel': function(){
-    //         //mcustomscrollbar scroll
-            
-    //     }
-    // });
-
     $('.selectWrap .selectArea .btnArea').on({
         'click': function(){
             $(this).prev('.select').toggleClass('active');
         }
     });
+
+    $('#edge,#taskEdge').attr('data-value', 'edge');
+    $('#chrome,#taskChrome').attr('data-value', 'chrome');
+    $('#file,#taskFile').attr('data-value', 'file');
+    $('#setting,#taskSetting').attr('data-value', 'setting');
+    $('#discord,#taskDiscord').attr('data-value', 'discord');
+    $('#notePad,#taskNotePad').attr('data-value', 'notePad');
+    $('#vsc,#taskVsc').attr('data-value', 'vsc');
 });
 
 function startFullScreen(element){		

@@ -87,7 +87,7 @@
                             <!-- 앱 리스트 -->
                             <div class="fixedAppList">
                                 <ul>
-                                    <li class="discord">
+                                    <li id="discordApp">
                                         <i class="icon">
                                             <span>Discord</span>
                                         </i>
@@ -102,7 +102,7 @@
                                             <a href="mailto:">메일</a>
                                         </i>
                                     </li>
-                                    <li class="notePad">
+                                    <li id="notePadApp">
                                         <i class="icon">
                                             <span>메모장</span>
                                         </i>
@@ -183,7 +183,7 @@
             </div>
 
             <!-- chrome browser -->
-            <div class="browser ui-drag resizable chrome">
+            <div id="chrome" class="browser ui-drag resizable">
                 <div class="topArea">
                     <div class="browserTabWrap">
                         <ul class="browserTabList">
@@ -317,7 +317,7 @@
             </div>
 
             <!-- vsc -->
-            <div class="browser ui-drag resizable vsc">
+            <div id="vsc" class="browser ui-drag resizable">
                 <div class="topArea">
                     <div class="right">
                         <div class="controlArea">
@@ -333,7 +333,7 @@
             </div>
 
             <!-- discord -->
-            <div class="browser ui-drag resizable discord">
+            <div id="discord" class="browser ui-drag resizable">
                 <div class="topArea">
                     <div class="right">
                         <div class="appTitle">
@@ -373,7 +373,7 @@
             </div>
 
             <!-- edge browser -->
-            <div class="browser ui-drag resizable edge">
+            <div id="edge" class="browser ui-drag resizable">
                 <div class="topArea">
                     <button type="button" class="btnWorkTab"></button>
                     <div class="browserTabWrap">
@@ -498,7 +498,7 @@
             </div>
 
             <!-- notePad -->
-            <div class="windowApp notePad ui-drag resizable">
+            <div id="notePad" class="windowApp ui-drag resizable">
                 <div class="topArea">
                     <div class="row">
                         <div class="flex aic">
@@ -540,7 +540,7 @@
             </div>
 
             <!-- setting -->
-            <div class="windowApp setting ui-drag resizable">
+            <div id="setting" class="windowApp ui-drag resizable">
                 <div class="topArea">
                     <div class="row">
                         <div class="flexWrap">
@@ -1007,7 +1007,7 @@
                                 <div class="titArea">
                                     <h1>네트워크 및 인터넷</h1>
                                 </div>
-                                <div class="rightContainer windowScrollbar windowY">
+                                <div class="rightContainer pt30 windowScrollbar windowY">
                                     <div class="setWrap type02">
                                         <div class="setBoxArea">
                                             <ul>
@@ -2292,7 +2292,7 @@
                                 <div class="titArea">
                                     <h2>Windows 업데이트</h2>
                                 </div>
-                                <div class="rightContainer windowScrollbar windowY">
+                                <div class="rightContainer pt30 windowScrollbar windowY">
                                     <div class="setWrap type02 row">
                                         <div class="setBoxArea">
                                             <ul>
@@ -2410,16 +2410,16 @@
                         <li class="search windows">
                             <i class="icon"></i>
                         </li>
-                        <li class="file fixed">
+                        <li id="taskFile" class="fixed">
                             <i class="icon"></i>
                         </li>
-                        <li class="chrome fixed">
+                        <li id="taskChrome" class="fixed">
                             <i class="icon"></i>
                         </li>
-                        <li class="edge fixed">
+                        <li id="taskEdge" class="fixed">
                             <i class="icon"></i>
                         </li>
-                        <li class="setting fixed">
+                        <li id="taskSetting" class="fixed">
                             <i class="icon"></i>
                         </li>
                     </ul>

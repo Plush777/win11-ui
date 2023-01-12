@@ -61,11 +61,11 @@ body{overflow: hidden; user-select: none;}
               li{width: 90px; height: 82px; border-radius: 6px;
                 .icon{display: block; width: inherit; height: inherit;}
                 span,a{display: block; text-align: center; padding-top: 52px; font-size: 13px; cursor: default;}
-                &.discord .icon{background: url('../images/ico/app/discord.png') no-repeat center 18px;background-size: 32px 32px;}
+                &#discordApp .icon{background: url('../images/ico/app/discord.png') no-repeat center 18px;background-size: 32px 32px;}
                 &.buyme .icon{background: url('../images/ico/app/buyme.png') no-repeat center 18px;background-size: 32px 32px;}
                 &.mail .icon{background: url('../images/ico/app/mail.png') no-repeat center 18px;background-size: 32px 32px;}
-                &.notePad{background: url('../images/ico/app/notePad.png') no-repeat center 18px;background-size: 32px 32px;}
-                &.setting{background: url('../images/ico/app/settings.png') no-repeat center 18px;background-size: 32px 32px;}
+                &#notePadApp{background: url('../images/ico/app/notePad.png') no-repeat center 18px;background-size: 32px 32px;}
+                &#settingApp{background: url('../images/ico/app/settings.png') no-repeat center 18px;background-size: 32px 32px;}
                 &:hover{background-color: rgba($color: #fcfcfc, $alpha: 0.8);}
               }
             }
@@ -108,17 +108,18 @@ backdrop-filter: saturate(3) blur(20px);
   >.inner{display: flex; height: 100%; padding: 10px; box-sizing: border-box;}
   .taskCenter{display: flex; justify-content: center; width: 100%;
     ul{width: inherit; display: flex; gap: 13px; justify-content: center; align-items: center;
-      li{position: relative; padding: 8px; box-sizing: border-box; border-radius: 4px; transition: .2s ease-in-out;
-        i{transition: .1s ease-in-out;}
+      li{position: relative; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; 
+      border-radius: 4px; transition: .2s ease-in-out;
+        i{pointer-events: none; transition: .1s ease-in-out;}
         .icon{display: block; width: 24px; height: 24px; background-repeat: no-repeat; background-position: center; background-size: 24px 24px;}
         &.search .icon{background-image: url('../images/ico/app/logo-windows.png');}
-        &.setting .icon{background-image: url('../images/ico/app/settings.png');}
-        &.file .icon{background-image: url('../images/ico/app/explorer.png');}
-        &.edge .icon{background-image: url('../images/ico/app/edge.png');}
-        &.chrome .icon{background-image: url('../images/ico/app/chrome.png');}
-        &.vsc .icon{background-image: url('../images/ico/app/vscode.png');}
-        &.discord .icon{background-image: url('../images/ico/app/discord.png');}
-        &.notePad .icon{background-image: url('../images/ico/app/notePad.png');}
+        &#taskSetting .icon{background-image: url('../images/ico/app/settings.png');}
+        &#taskFile .icon{background-image: url('../images/ico/app/explorer.png');}
+        &#taskEdge .icon{background-image: url('../images/ico/app/edge.png');}
+        &#taskChrome .icon{background-image: url('../images/ico/app/chrome.png');}
+        &#taskVsc .icon{background-image: url('../images/ico/app/vscode.png');}
+        &#taskDiscord .icon{background-image: url('../images/ico/app/discord.png');}
+        &#taskNotePad .icon{background-image: url('../images/ico/app/notePad.png');}
         &:hover{background-color: var(--bg-light-hsla2);}
         &:active{
           i{transform: scale(.7);}
@@ -190,7 +191,7 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
 
   &.open{opacity: 1; visibility: visible; transform: scale(1) translate(-50%,-50%);}
 
-  &.minilize{min-width: 500px; width: 70% !important; height: auto; transform: scale(1) translate(-50%,-50%);
+  &.minilize{min-width: 500px; width: 70% !important; height: 700px; transform: scale(1) translate(-50%,-50%);
     .topArea{padding-top: 7px; border-top-left-radius: 6px; border-top-right-radius: 6px;
       .right{
         .controlArea{
@@ -302,7 +303,7 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
     }
   }
 
-  &.chrome{
+  &#chrome{
     .topArea{height: 30px; background-color: #E7EAED;
       .browserTabWrap{
         .browserTabList{
@@ -379,7 +380,7 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
     .browserFrameArea iframe{height: 84.4vh;}
   }
 
-  &.vsc{
+  &#vsc{
     .topArea{height: 35px; background-color: #323233;
       >.right{margin-left: 0;
         .controlArea{
@@ -400,7 +401,7 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
     }
   }
 
-  &.discord{
+  &#discord{
     .topArea{height: 20px; background-color: #202225;
       >.right{margin-left: 0; justify-content: space-between;
         .appTitle{display: flex; align-items: center; margin-left: 5px;
@@ -460,7 +461,7 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
     }
   }
 
-  &.edge{
+  &#edge{
     .topArea{height: 30px; background-color: #cdcdcd;
       .btnWorkTab{width: 45px; height: 100%; background: url('../images/ico/browser/edge-panel.svg') no-repeat center;
       background-size: 20px 20px; border-radius: 4px; margin: 0 5px; transition: .3s ease-in-out;
@@ -571,7 +572,7 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
   //닫혔을 때
   &.close{bottom: -280px !important; left: 50% !important; transform: scale(.5) translate(-50%,-50%) !important;}
 
-  &.notePad{box-shadow: 0 0 15px 8px rgba($color: #000000, $alpha: 0.1);
+  &#notePad{box-shadow: 0 0 15px 8px rgba($color: #000000, $alpha: 0.1); border-radius: 0;
     .topArea{height: 40px; border-radius: 8px 8px 0 0; background-color: #EFF4F9;
     padding-left: 10px; box-sizing: border-box;
       .rep{display: inline-block; width: 24px; height: 24px; background: url('../images/ico/app/notePad.png') no-repeat center;
@@ -608,9 +609,11 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
         left: -20px; background-color: #e0e0e0;}
       }
     }
+
+    &.minilize{border-radius: 6px;}
   }
 
-  &.setting{background: linear-gradient(90deg, rgba(239,244,249,1) 75%, rgba(243,243,243,1) 100%);
+  &#setting{background: linear-gradient(90deg, rgba(239,244,249,1) 75%, rgba(243,243,243,1) 100%); border-radius: 0;
     .topArea{
       .row{display: flex; width: 100%;
         >.flexWrap{position: relative; top: 10px; padding-left: 5px;}
@@ -696,7 +699,15 @@ transition: all .25s cubic-bezier(.85,.14,.14,.85); transform: scale(0.7) transl
           }
         }
       }
+
+      &.minilizeType{
+        .rightArea{padding-right: 25px;
+          .rightContainer{max-height: calc(100% - 45px);}
+          .tabCont{width: 100%;}
+        }
+      }
     }
+    &.minilize{border-radius: 6px;}
   }
 }
 
@@ -1040,14 +1051,20 @@ height: 100vh; background-color: var(--bg-system-end); z-index: 10000;
   font-size: 15px; color: #1a1a1a; font-family: '맑은 고딕';
     &::after{content: ''; position: absolute; right: 0; width: 1px; height: 100%; background-color: #d2d2d2;}
   }
-  .selectList{display: none; position: absolute; top: 35px; left: 10px; z-index: 100; width: 100px; border-radius: 6px; 
-  border: 1px solid #d2d2d2; box-sizing: border-box; padding: 5px; background-color: #F7FAFB;
+  .selectList{opacity: 0; visibility: hidden; position: absolute; top: 0; left: 10px; z-index: 100; width: 100px; border-radius: 6px; 
+  border: 1px solid #d2d2d2; box-sizing: border-box; padding: 5px; background-color: #F7FAFB; transition: .3s ease-in-out; pointer-events: none;
     li{padding: 5px 10px 5px 10px; border-radius: 6px; background-color: transparent;
       .option{font-size: 15px; color: #1a1a1a;}
       &:hover{background-color: #EFF1F2;}
     }
   }
   &:hover{background-color: #fafafa;}
+  &.active{background-color: #fafafa;
+    ~.btnArea{
+      .btnDropdown{background-color: #fafafa;}
+    }
+    .selectList{opacity: 1; visibility: visible; top: 35px; box-shadow: 0px 4px 5px rgba($color: #000, $alpha: 0.1); pointer-events: all;}
+  }
 }
 
 @keyframes lds-roller {

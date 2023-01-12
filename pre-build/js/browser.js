@@ -4,47 +4,48 @@ $(function () {
             $(this).closest('.browser,.windowApp').removeClass('open').addClass('close');
             $('.taskCenter ul li').removeClass('on appSave vib');
             $('.taskCenter ul li.new').removeClass('transY0');
-
-            if ($('.browser').hasClass('vsc')) {
-                $('.taskCenter ul li.vsc').remove();
-            }
-            if ($('.browser').hasClass('discord')) {
-                $('.taskCenter ul li.discord').remove();
-            }
-            if ($('.windowApp').hasClass('notePad')) {
-                $('.taskCenter ul li.notePad').remove();
-            }
-
+            $('.taskCenter ul li.new').remove();
+            
             setTimeout(() => {
                 $(this).closest('.browser,.windowApp').removeClass('minilize');
             }, 1000);
         }
     });
 
+    $.fn.hasAttr = function(name) {  
+        return this.attr(name) !== undefined;
+     };
+
     $('.btnReduction').on({
         "click": function () {
+            const browser = $(this).closest('.browser');
             const windowApp = $(this).parents('.windowApp');
 
-            if ($(this).closest('.browser').hasClass('chrome')) {
-                $('.taskCenter ul li.chrome').removeClass('on').addClass('appSave');
-                $('.browser.chrome').addClass('save').removeClass('open');
-            } else if ($(this).closest('.browser').hasClass('edge')) {
-                $('.taskCenter ul li.edge').removeClass('on').addClass('appSave');
-                $('.browser.edge').addClass('save').removeClass('open');
-            } else if ($(this).closest('.browser').hasClass('discord')) {
-                $('.taskCenter ul li.discord').removeClass('on').addClass('appSave');
-                $('.browser.discord').addClass('save').removeClass('open');
-            } else if ($(this).closest('.browser').hasClass('vsc')) {
-                $('.taskCenter ul li.vsc').removeClass('on').addClass('appSave');
-                $('.browser.vsc').addClass('save').removeClass('open');
-            }
+            browser.addClass('save').removeClass('open');
+            windowApp.addClass('save').removeClass('open');
 
-            if (windowApp.hasClass('setting')) {
-                $('.taskCenter ul li.setting').removeClass('on').addClass('appSave');
-                $('.windowApp.setting').addClass('save').removeClass('open');
-            } else if (windowApp.hasClass('notePad')) {
-                $('.taskCenter ul li.notePad').removeClass('on').addClass('appSave');
-                $('.windowApp.notePad').addClass('save').removeClass('open');
+            if(browser.hasAttr('data-value','edge')){
+                $('#taskEdge').removeClass('on').addClass('appSave');
+            } 
+            
+            if(browser.hasAttr('data-value','chrome')){
+                $('#taskChrome').removeClass('on').addClass('appSave');
+            } 
+            
+            if(browser.hasAttr('data-value','discord')){
+                $('#taskDiscord').removeClass('on').addClass('appSave');
+            } 
+            
+            if(browser.hasAttr('data-value','vsc')){
+                $('#taskVsc').removeClass('on').addClass('appSave');
+            } 
+            
+            if(windowApp.hasAttr('data-value','notePad')){
+                $('#taskNotePad').removeClass('on').addClass('appSave');
+            } 
+            
+            if(windowApp.hasAttr('data-value','setting')){
+                $('#taskSetting').removeClass('on').addClass('appSave');
             }
         }
     });
@@ -61,6 +62,11 @@ $(function () {
     $('.btnExp').on({
         "click": function () {
             $(this).closest('.browser,.windowApp').toggleClass('minilize');
+            if($(this).closest('.windowApp.setting')){
+                $(this).closest('.topArea').next('.contArea').toggleClass('minilizeType');
+            } else {
+                $(this).closest('.topArea').next('.contArea').removeClass('minilizeType');
+            }
         }
     });
 

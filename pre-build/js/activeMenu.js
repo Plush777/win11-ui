@@ -1,45 +1,29 @@
 $(function(){
+    $('#discordApp').on({
+        "click": function(){
+            $('#discord').toggleClass('open').removeClass('close');
+
+            if($('#discord').hasClass('open')){
+                $('#taskDiscord').addClass('on').removeClass('appSave');
+                $('.taskCenter ul li:last-child').after(`<li id="taskDiscord" class="on new"><i class="icon"></i></li>`)
+            }
+        }
+    });
+
+    $('#notePadApp').on({
+        "click": function(){
+            $('#notePad').toggleClass('open').removeClass('close');
+            
+            if($('#notePad').hasClass('open')){
+                $('#taskNotePad').addClass('on').removeClass('appSave');
+                $('.taskCenter ul li:last-child').after(`<li id="taskNotePad" class="on new"><i class="icon"></i></li>`)
+            } 
+        }
+    });
+
+
     $('.fixedAppList ul li').on({
         "click": function(){
-
-            switch ($(this).attr('class')) {
-                case 'discord':
-                    $('.browser.discord').toggleClass('open').removeClass('close');
-                    
-                    if($(this).hasClass('discord')){
-                        if($('.browser').hasClass('open')){
-                            $('.taskCenter ul li.discord').addClass('on').removeClass('appSave');
-                            $('.taskCenter ul li:last-child').after(`<li class="discord on new"><i class="icon"></i></li>`)
-                        } else {
-                            $('.taskCenter ul li.discord').removeClass('on').addClass('appSave');
-                        }
-                    }
-
-                    if($('.browser.discord').hasClass('open')){
-                        $('.taskCenter ul li.discord').addClass('on vib transY0').removeClass('hid none');
-                    }
-
-                    break;
-
-                case 'notePad':
-                    $('.windowApp.notePad').toggleClass('open').removeClass('close');
-                    
-                    if($(this).hasClass('notePad')){
-                        if($('.windowApp').hasClass('open')){
-                            $('.taskCenter ul li.notePad').addClass('on').removeClass('appSave');
-                            $('.taskCenter ul li:last-child').after(`<li class="notePad on new"><i class="icon"></i></li>`)
-                        } else {
-                            $('.taskCenter ul li.notePad').removeClass('on').addClass('appSave');
-                        }
-                    }
-
-                    if($('.windowApp.notePad').hasClass('open')){
-                        $('.taskCenter ul li.notePad').addClass('on vib transY0').removeClass('hid none');
-                    }
-                    
-                    break;
-            }
-
             $('.windows').removeClass('on');
             $('.activeMenu').removeClass('active');
         }

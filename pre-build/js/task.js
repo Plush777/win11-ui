@@ -1,59 +1,71 @@
 $(function () {
     $('.taskCenter ul li').on({
         "click": function () {
-            $(this).addClass('on').siblings().removeClass('on');
+            $(this).toggleClass('on').siblings().removeClass('on');
+        }
+    });
 
-            if ($(this).hasClass('chrome')) {
-                $('.browser.chrome').toggleClass('open').removeClass('save');
-
-                if ($('.browser').hasClass('open')) {
-                    $('.taskCenter ul li.chrome').addClass('on').removeClass('appSave');
-                } else {
-                    $('.taskCenter ul li.chrome').removeClass('on').addClass('appSave');
-                }
-            }
-
-            else if ($(this).hasClass('edge')) {
-                $('.browser.edge').toggleClass('open').removeClass('save');
-
-                if ($('.browser').hasClass('open')) {
-                    $('.taskCenter ul li.edge').addClass('on').removeClass('appSave');
-                } else {
-                    $('.taskCenter ul li.edge').removeClass('on').addClass('appSave');
-                }
+    $('#taskChrome').on({
+        "click": function () {
+            $('#chrome').toggleClass('open').removeClass('save');
+            
+            if($('#chrome').hasClass('open')){
+                $(this).addClass('on').removeClass('appSave');
+            } else {
+                $(this).removeClass('on').addClass('appSave');
             }
         }
     });
 
-    $(document).on('click', '.taskCenter ul li', function () {
-        if ($(this).hasClass('discord')) {
-            $('.browser.discord').toggleClass('open').removeClass('save');
-            if ($('.browser').hasClass('open')) {
-                $('.taskCenter ul li.discord').addClass('on').removeClass('appSave');
+    $('#taskEdge').on({
+        "click": function () {
+            $('#edge').toggleClass('open').removeClass('save');
+
+            if($('#edge').hasClass('open')){
+                $(this).addClass('on').removeClass('appSave');
             } else {
-                $('.taskCenter ul li.discord').removeClass('on').addClass('appSave');
+                $(this).removeClass('on').addClass('appSave');
             }
-        } else if ($(this).hasClass('vsc')) {
-            $('.browser.vsc').toggleClass('open').removeClass('save');
-            if ($('.browser').hasClass('open')) {
-                $('.taskCenter ul li.vsc').addClass('on').removeClass('appSave');
-            } else {
-                $('.taskCenter ul li.vsc').removeClass('on').addClass('appSave');
-            }
-        } else if ($(this).hasClass('notePad')) {
-            $('.windowApp.notePad').toggleClass('open').removeClass('save');
-            if ($('.windowApp').hasClass('open')) {
-                $('.taskCenter ul li.notePad').addClass('on').removeClass('appSave');
-            } else {
-                $('.taskCenter ul li.notePad').removeClass('on').addClass('appSave');
-            }
-        } else if ($(this).hasClass('setting')) {
-            $('.windowApp.setting').toggleClass('open').removeClass('save').removeClass('close');
-            if ($('.windowApp').hasClass('open')) {
-                $('.taskCenter ul li.setting').addClass('on').removeClass('appSave');
-            } else {
-                $('.taskCenter ul li.setting').removeClass('on').addClass('appSave');
-            }
+        }
+    });
+
+    $(document).on('click', '#taskDiscord', function (){
+        $('#discord').toggleClass('open').removeClass('save');
+
+        if($('#discord').hasClass('open')){
+            $('#taskDiscord').addClass('on').removeClass('appSave');
+        } else {
+            $('#taskDiscord').removeClass('on').addClass('appSave');
+        }
+    });
+
+    $(document).on('click', '#taskVsc', function (){
+        $('#vsc').toggleClass('open').removeClass('save');
+
+        if($('#vsc').hasClass('open')){
+            $('#taskVsc').addClass('on').removeClass('appSave');
+        } else {
+            $('#taskVsc').removeClass('on').addClass('appSave');
+        }
+    });
+
+    $(document).on('click', '#taskNotePad', function (){
+        $('#notePad').toggleClass('open').removeClass('save');
+
+        if($('#notePad').hasClass('open')){
+            $('#taskNotePad').addClass('on').removeClass('appSave');
+        } else {
+            $('#taskNotePad').removeClass('on').addClass('appSave');
+        }
+    });
+
+    $(document).on('click', '#taskSetting', function (){
+        $('#setting').toggleClass('open').removeClass('save');
+
+        if($('#setting').hasClass('open')){
+            $('#taskSetting').addClass('on').removeClass('appSave');
+        } else {
+            $('#taskSetting').removeClass('on').addClass('appSave');
         }
     });
 

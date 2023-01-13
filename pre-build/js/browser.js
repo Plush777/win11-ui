@@ -2,49 +2,42 @@ $(function () {
     $('.tabClose,.btnClose').on({
         "click": function () {
             $(this).closest('.browser,.windowApp').removeClass('open').addClass('close');
-            $('.taskCenter ul li').removeClass('on appSave vib');
             $('.taskCenter ul li.new').removeClass('transY0');
             $('.taskCenter ul li.new').remove();
-            
+
+            if($(this).closest('.browser').is('#edge')){
+                $('#taskEdge').removeClass('on appSave');
+            } else if($(this).closest('.browser').is('#chrome')){
+                $('#taskChrome').removeClass('on appSave');
+            } else if($(this).closest('.windowApp').is('#setting')){
+                $('#taskSetting').removeClass('on appSave');
+            }
+
             setTimeout(() => {
                 $(this).closest('.browser,.windowApp').removeClass('minilize');
             }, 1000);
         }
     });
 
-    $.fn.hasAttr = function(name) {  
-        return this.attr(name) !== undefined;
-     };
-
     $('.btnReduction').on({
         "click": function () {
-            const browser = $(this).closest('.browser');
+            const browser = $(this).parents('.browser');
             const windowApp = $(this).parents('.windowApp');
 
             browser.addClass('save').removeClass('open');
             windowApp.addClass('save').removeClass('open');
 
-            if(browser.hasAttr('data-value','edge')){
+            if(browser.is('[data-value="edge"]')){
                 $('#taskEdge').removeClass('on').addClass('appSave');
-            } 
-            
-            if(browser.hasAttr('data-value','chrome')){
+            } else if(browser.is('[data-value="chrome"]')){
                 $('#taskChrome').removeClass('on').addClass('appSave');
-            } 
-            
-            if(browser.hasAttr('data-value','discord')){
+            } else if(browser.is('[data-value="discord"]')){
                 $('#taskDiscord').removeClass('on').addClass('appSave');
-            } 
-            
-            if(browser.hasAttr('data-value','vsc')){
+            } else if(browser.is('[data-value="vsc"]')){
                 $('#taskVsc').removeClass('on').addClass('appSave');
-            } 
-            
-            if(windowApp.hasAttr('data-value','notePad')){
+            } else if(windowApp.is('[data-value="notePad"]')){
                 $('#taskNotePad').removeClass('on').addClass('appSave');
-            } 
-            
-            if(windowApp.hasAttr('data-value','setting')){
+            } else if(windowApp.is('[data-value="setting"]')){
                 $('#taskSetting').removeClass('on').addClass('appSave');
             }
         }
@@ -55,6 +48,7 @@ $(function () {
             if (e.which == 2) {
                 $('.browser').removeClass('open').addClass('close');
                 $('.taskCenter ul li').removeClass('on appSave vib');
+                $('.taskCenter ul li').addClass('off');
             }
         }
     });

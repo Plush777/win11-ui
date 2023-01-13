@@ -1,7 +1,24 @@
 $(function () {
     $('.taskCenter ul li').on({
         "click": function () {
-            $(this).toggleClass('on').siblings().removeClass('on');
+            if($(this).siblings('li').hasClass('on')){
+                $(this).siblings('li').removeClass('on').addClass('appSave');
+                return;
+            }
+
+            function taskClick() {
+                $(this).addClass('on').siblings().removeClass('on');
+            }
+            
+            taskClick();
+
+            if($('#edge').hasClass('open')){
+                $('#taskEdge').addClass('appSave');
+            } else if($('#chrome').hasClass('open')){
+                $('#taskChrome').addClass('appSave');
+            } else if($('setting').hasClass('open')){
+                $('#taskSetting').addClass('appSave');
+            }
         }
     });
 

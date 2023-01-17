@@ -6,11 +6,11 @@ $(function () {
             $('.taskCenter ul li.new').remove();
 
             if($(this).closest('.browser').is('#edge')){
-                $('#taskEdge').removeClass('on appSave');
+                $('#taskEdge').removeClass('on appSave').attr('data-active', 'false');
             } else if($(this).closest('.browser').is('#chrome')){
-                $('#taskChrome').removeClass('on appSave');
+                $('#taskChrome').removeClass('on appSave').attr('data-active', 'false');
             } else if($(this).closest('.windowApp').is('#setting')){
-                $('#taskSetting').removeClass('on appSave');
+                $('#taskSetting').removeClass('on appSave').attr('data-active', 'false');
             }
 
             setTimeout(() => {
